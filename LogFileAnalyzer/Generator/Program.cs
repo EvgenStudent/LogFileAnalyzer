@@ -16,8 +16,7 @@ namespace Generator
 			ConsoleParametrsParse parametrsParse = new ConsoleParametrsParse(args);
 			IDictionary dictionary = parametrsParse.GetParametrs();
 
-			Console.WriteLine("123");
-		
+			
 			//=====================
 			Console.ReadKey(false);
 		}
