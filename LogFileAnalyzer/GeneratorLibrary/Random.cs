@@ -23,9 +23,13 @@ namespace GeneratorLibrary
 		private Random()
 		{ }
 
-		public int GenerateValue(int min, int max)
+		public int GetValue(int min, int max)
 		{
-			return BitConverter.ToInt32(Guid.NewGuid().ToByteArray(), 4) % max + min; 
+
+			var buf = Guid.NewGuid().ToByteArray();
+			var randomValue32 = BitConverter.ToInt32(buf, 4);
+			var val = (randomValue32 % (((max - 1) + 1) - (min))) + (min);
+			return val;
 		}
 	}
 }

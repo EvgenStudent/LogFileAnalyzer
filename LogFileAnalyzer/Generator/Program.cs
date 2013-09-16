@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using ConsoleCommandLibrary;
+using GeneratorLibrary;
 
 namespace Generator
 {
@@ -13,9 +14,11 @@ namespace Generator
 	{
 		static void Main(string[] args)
 		{
-			ConsoleParametrsParse parametrsParse = new ConsoleParametrsParse(args);
+			var parametrsParse = new ConsoleParametrsParse(args);
 			IDictionary dictionary = parametrsParse.GetParametrs();
+			var generator = new GeneratorLog(dictionary);
 
+			generator.GenerateLogFile();
 			
 			//=====================
 			Console.ReadKey(false);
