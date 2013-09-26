@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using ConsoleCommandLibrary;
 using GeneratorLibrary;
+using GeneratorLibrary.Writer;
 
 namespace Generator
 {
@@ -14,14 +10,22 @@ namespace Generator
 	{
 		static void Main(string[] args)
 		{
-			var parametrsParse = new ConsoleParametrsParse(args);
-			IDictionary dictionary = parametrsParse.GetParametrs();
-			var generator = new GeneratorLog(dictionary);
+			FileSystemInfo cofnigInfo = new FileInfo(@"P:\Programming\GitHub\LogFileAnalyzer\LogFileAnalyzer\Config.yaml");
+			YamlReader yamlReader = new YamlReader(cofnigInfo);
+			IDictionary<string, string> parametersInConfig = yamlReader.GetParameters;
 
-			generator.GenerateLogFile();
-			
-			//=====================
-			Console.ReadKey(false);
+			DirectoryInfo directoryInfo = new DirectoryInfo(@"P:\Programming\GitHub\LogFileAnalyzer\LogFileAnalyzer");
+			FileWriter fileWriter = new FileWriter(directoryInfo);
+
+			ConsoleParametrsParse parametrsParse = new ConsoleParametrsParse(args);
+			bool correctParameters = parametrsParse.GetParameters();
+
+			if (correctParameters)
+			{
+				IDictionary<string, string> consoleParameters = parametrsParse.Parameters;
+				GeneratorLog generator = new GeneratorLog(consoleParameters);
+				fileWriter.Write(generator.TemplateResponse, generator.FileName, generator.Count);
+			}
 		}
 	}
 }

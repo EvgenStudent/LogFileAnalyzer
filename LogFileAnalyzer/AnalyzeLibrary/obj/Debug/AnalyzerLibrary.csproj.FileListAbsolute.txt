@@ -1,0 +1,18 @@
+P:\University\5 семестр\ООП\LogFileAnalyzer\AnalyzeLibrary\bin\Debug\AnalyzeLibrary.dll
+P:\University\5 семестр\ООП\LogFileAnalyzer\AnalyzeLibrary\bin\Debug\AnalyzeLibrary.pdb
+P:\University\5 семестр\ООП\LogFileAnalyzer\AnalyzeLibrary\bin\Debug\YamlDotNet.Core.dll
+P:\University\5 семестр\ООП\LogFileAnalyzer\AnalyzeLibrary\bin\Debug\YamlDotNet.RepresentationModel.dll
+P:\University\5 семестр\ООП\LogFileAnalyzer\AnalyzeLibrary\bin\Debug\YamlDotNet.Core.pdb
+P:\University\5 семестр\ООП\LogFileAnalyzer\AnalyzeLibrary\bin\Debug\YamlDotNet.RepresentationModel.pdb
+P:\University\5 семестр\ООП\LogFileAnalyzer\AnalyzeLibrary\obj\Debug\AnalyzerLibrary.csprojResolveAssemblyReference.cache
+P:\University\5 семестр\ООП\LogFileAnalyzer\AnalyzeLibrary\obj\Debug\AnalyzeLibrary.dll
+P:\University\5 семестр\ООП\LogFileAnalyzer\AnalyzeLibrary\obj\Debug\AnalyzeLibrary.pdb
+P:\Programming\GitHub\LogFileAnalyzer\LogFileAnalyzer\AnalyzeLibrary\bin\Debug\AnalyzeLibrary.dll
+P:\Programming\GitHub\LogFileAnalyzer\LogFileAnalyzer\AnalyzeLibrary\bin\Debug\AnalyzeLibrary.pdb
+P:\Programming\GitHub\LogFileAnalyzer\LogFileAnalyzer\AnalyzeLibrary\bin\Debug\YamlDotNet.Core.dll
+P:\Programming\GitHub\LogFileAnalyzer\LogFileAnalyzer\AnalyzeLibrary\bin\Debug\YamlDotNet.RepresentationModel.dll
+P:\Programming\GitHub\LogFileAnalyzer\LogFileAnalyzer\AnalyzeLibrary\bin\Debug\YamlDotNet.Core.pdb
+P:\Programming\GitHub\LogFileAnalyzer\LogFileAnalyzer\AnalyzeLibrary\bin\Debug\YamlDotNet.RepresentationModel.pdb
+P:\Programming\GitHub\LogFileAnalyzer\LogFileAnalyzer\AnalyzeLibrary\obj\Debug\AnalyzerLibrary.csprojResolveAssemblyReference.cache
+P:\Programming\GitHub\LogFileAnalyzer\LogFileAnalyzer\AnalyzeLibrary\obj\Debug\AnalyzeLibrary.dll
+P:\Programming\GitHub\LogFileAnalyzer\LogFileAnalyzer\AnalyzeLibrary\obj\Debug\AnalyzeLibrary.pdb

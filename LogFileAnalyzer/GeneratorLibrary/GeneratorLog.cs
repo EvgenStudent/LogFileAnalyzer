@@ -1,46 +1,51 @@
 ﻿using System;
-using System.Collections;
-using System.Linq;
+using System.Collections.Generic;
+using GeneratorLibrary.App_Data;
+using GeneratorLibrary.Response;
 
 namespace GeneratorLibrary
 {
     public class GeneratorLog
     {
-	    private IDictionary _dictionary;
-	    private readonly String fileName;
-		private readonly int records;
-		private readonly Ip ip = new Ip();
-		private readonly Frank frank = new Frank();
-		private readonly Date date = Date.Instance;
-		private readonly RequestLine requestLine = new RequestLine();
-		private readonly CodeDefinition codeDefinition = new CodeDefinition();
+	    private readonly string[] keys = {"fileName", "count"};
+	    private readonly IDictionary<string, string> consoleParameters;
+	    private readonly Random random;
+		public IResponse[] TemplateResponse { set; get; }
 
-		public GeneratorLog(IDictionary dictionary)
+		public string FileName
 		{
-			_dictionary = dictionary;
-			foreach (DictionaryEntry entry in _dictionary)
+			get
 			{
-				if (entry.Key.ToString().ToLower().Contains("name") || entry.Key.ToString().ToLower().Contains("file"))
-					fileName = entry.Value.ToString();
-				if (entry.Key.ToString().ToLower().Contains("amount") || entry.Key.ToString().ToLower().Contains("line"))
-					records = int.Parse(entry.Value.ToString());
+				return consoleParameters[keys[0]];
+			}
+		}
+		public int Count
+		{
+			get
+			{
+				return int.Parse(consoleParameters[keys[1]]);
 			}
 		}
 
-	    public void GenerateLogFile()
-	    {
-		    String answer;
-		    for (int i = 0; i < records; i++)
-		    {
-				answer = GenerateRecord();
-				Console.WriteLine(answer);
-		    }
-	    }
+		public GeneratorLog(IDictionary<string, string> consoleParameters)
+		{
+			this.consoleParameters = consoleParameters;
+			random = new RandomGuid();
+			CreateTemplateResponse();
+		}
 
-	    private String GenerateRecord()
+	    private void CreateTemplateResponse()
 	    {
-			String record = String.Format("{0, 15} - {1, 5} {2} {3} {4} {5}", ip.generateIp(), frank.generateFrank(), date.GetValue(), requestLine.GetRequestLine(), codeDefinition.getCode(), Random.Instance.GetValue(100, 1500));
-		    return record;
+		    TemplateResponse = new IResponse[]
+		    {
+			    new Ip(random), 
+				new Hyphen(), 
+				new UderId(random, Count), 
+				new Date(random), 
+				new RequestLine(random, Data.Methods, Data.FileExtensions, Data.Protocols, Data.Versions), 
+				new CodeDefinition(random, Data.Codes), 
+				new FileSize(random), 
+		    };
 	    }
     }
 }

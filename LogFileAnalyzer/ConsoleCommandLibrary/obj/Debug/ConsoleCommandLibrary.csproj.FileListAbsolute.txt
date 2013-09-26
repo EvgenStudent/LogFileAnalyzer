@@ -1,0 +1,26 @@
+E:\LogFileAnalyzer\ConsoleCommandLibrary\bin\Debug\ConsoleCommandLibrary.dll
+E:\LogFileAnalyzer\ConsoleCommandLibrary\bin\Debug\ConsoleCommandLibrary.pdb
+E:\LogFileAnalyzer\ConsoleCommandLibrary\bin\Debug\YamlDotNet.Core.dll
+E:\LogFileAnalyzer\ConsoleCommandLibrary\bin\Debug\YamlDotNet.RepresentationModel.dll
+E:\LogFileAnalyzer\ConsoleCommandLibrary\bin\Debug\YamlDotNet.Core.pdb
+E:\LogFileAnalyzer\ConsoleCommandLibrary\bin\Debug\YamlDotNet.RepresentationModel.pdb
+E:\LogFileAnalyzer\ConsoleCommandLibrary\obj\Debug\ConsoleCommandLibrary.csprojResolveAssemblyReference.cache
+E:\LogFileAnalyzer\ConsoleCommandLibrary\obj\Debug\ConsoleCommandLibrary.dll
+E:\LogFileAnalyzer\ConsoleCommandLibrary\obj\Debug\ConsoleCommandLibrary.pdb
+P:\University\5 семестр\ООП\LogFileAnalyzer\ConsoleCommandLibrary\obj\Debug\ConsoleCommandLibrary.csprojResolveAssemblyReference.cache
+P:\University\5 семестр\ООП\LogFileAnalyzer\ConsoleCommandLibrary\bin\Debug\ConsoleCommandLibrary.dll
+P:\University\5 семестр\ООП\LogFileAnalyzer\ConsoleCommandLibrary\bin\Debug\ConsoleCommandLibrary.pdb
+P:\University\5 семестр\ООП\LogFileAnalyzer\ConsoleCommandLibrary\bin\Debug\YamlDotNet.Core.dll
+P:\University\5 семестр\ООП\LogFileAnalyzer\ConsoleCommandLibrary\bin\Debug\YamlDotNet.RepresentationModel.dll
+P:\University\5 семестр\ООП\LogFileAnalyzer\ConsoleCommandLibrary\bin\Debug\YamlDotNet.Core.pdb
+P:\University\5 семестр\ООП\LogFileAnalyzer\ConsoleCommandLibrary\bin\Debug\YamlDotNet.RepresentationModel.pdb
+P:\University\5 семестр\ООП\LogFileAnalyzer\ConsoleCommandLibrary\obj\Debug\ConsoleCommandLibrary.dll
+P:\University\5 семестр\ООП\LogFileAnalyzer\ConsoleCommandLibrary\obj\Debug\ConsoleCommandLibrary.pdb
+P:\Programming\GitHub\LogFileAnalyzer\LogFileAnalyzer\ConsoleCommandLibrary\bin\Debug\ConsoleCommandLibrary.dll
+P:\Programming\GitHub\LogFileAnalyzer\LogFileAnalyzer\ConsoleCommandLibrary\bin\Debug\ConsoleCommandLibrary.pdb
+P:\Programming\GitHub\LogFileAnalyzer\LogFileAnalyzer\ConsoleCommandLibrary\bin\Debug\YamlDotNet.Core.dll
+P:\Programming\GitHub\LogFileAnalyzer\LogFileAnalyzer\ConsoleCommandLibrary\bin\Debug\YamlDotNet.RepresentationModel.dll
+P:\Programming\GitHub\LogFileAnalyzer\LogFileAnalyzer\ConsoleCommandLibrary\bin\Debug\YamlDotNet.Core.pdb
+P:\Programming\GitHub\LogFileAnalyzer\LogFileAnalyzer\ConsoleCommandLibrary\bin\Debug\YamlDotNet.RepresentationModel.pdb
+P:\Programming\GitHub\LogFileAnalyzer\LogFileAnalyzer\ConsoleCommandLibrary\obj\Debug\ConsoleCommandLibrary.dll
+P:\Programming\GitHub\LogFileAnalyzer\LogFileAnalyzer\ConsoleCommandLibrary\obj\Debug\ConsoleCommandLibrary.pdb

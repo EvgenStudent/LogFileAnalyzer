@@ -1,29 +1,31 @@
 ﻿using System;
-using System.Collections;
+using System.Linq;
 using System.Collections.Generic;
 
 namespace ConsoleCommandLibrary
 {
     public class ConsoleParametrsParse
     {
-		private readonly String[] _args;
-		private readonly IDictionary _map; 
+		private readonly string[] _args;
+		public IDictionary<string, string> Parameters { get; private set; }
+		public IList<string> ErrorParameters { get; private set; }
 
-		public ConsoleParametrsParse(String[] args)
+		public ConsoleParametrsParse(string[] args)
 		{
 			_args = args;
-			_map = new Dictionary<String, String>();
+			Parameters = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
+			ErrorParameters = new List<string>();
 		}
 
-		public IDictionary GetParametrs()
+		public bool GetParameters()
 		{
-			string[] nameAndValue;
-			foreach (var arg in _args)
-			{
-				nameAndValue = arg.Split(new[] { "--(", "=", ")" }, StringSplitOptions.RemoveEmptyEntries);
-				_map.Add(nameAndValue[0], nameAndValue[1]);
-			}
-			return _map;
+			string[] keyNameBuffer;
+			foreach (string arg in _args)
+				if (arg.Contains("--") & arg.Contains("=") & (keyNameBuffer = arg.Split(new[] { "--", "=" }, StringSplitOptions.RemoveEmptyEntries)).Length.Equals(2))
+					Parameters.Add(keyNameBuffer[0], keyNameBuffer[1]);
+				else
+					ErrorParameters.Add(arg);
+			return ErrorParameters.Count == 0;
 		}
     }
 }

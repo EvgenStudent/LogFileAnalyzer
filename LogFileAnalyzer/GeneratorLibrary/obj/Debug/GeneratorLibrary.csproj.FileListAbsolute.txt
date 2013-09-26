@@ -1,0 +1,26 @@
+E:\LogFileAnalyzer\GeneratorLibrary\bin\Debug\GeneratorLibrary.dll
+E:\LogFileAnalyzer\GeneratorLibrary\bin\Debug\GeneratorLibrary.pdb
+E:\LogFileAnalyzer\GeneratorLibrary\bin\Debug\YamlDotNet.Core.dll
+E:\LogFileAnalyzer\GeneratorLibrary\bin\Debug\YamlDotNet.RepresentationModel.dll
+E:\LogFileAnalyzer\GeneratorLibrary\bin\Debug\YamlDotNet.Core.pdb
+E:\LogFileAnalyzer\GeneratorLibrary\bin\Debug\YamlDotNet.RepresentationModel.pdb
+E:\LogFileAnalyzer\GeneratorLibrary\obj\Debug\GeneratorLibrary.csprojResolveAssemblyReference.cache
+E:\LogFileAnalyzer\GeneratorLibrary\obj\Debug\GeneratorLibrary.dll
+E:\LogFileAnalyzer\GeneratorLibrary\obj\Debug\GeneratorLibrary.pdb
+P:\University\5 семестр\ООП\LogFileAnalyzer\GeneratorLibrary\obj\Debug\GeneratorLibrary.csprojResolveAssemblyReference.cache
+P:\University\5 семестр\ООП\LogFileAnalyzer\GeneratorLibrary\bin\Debug\GeneratorLibrary.dll
+P:\University\5 семестр\ООП\LogFileAnalyzer\GeneratorLibrary\bin\Debug\GeneratorLibrary.pdb
+P:\University\5 семестр\ООП\LogFileAnalyzer\GeneratorLibrary\bin\Debug\YamlDotNet.Core.dll
+P:\University\5 семестр\ООП\LogFileAnalyzer\GeneratorLibrary\bin\Debug\YamlDotNet.RepresentationModel.dll
+P:\University\5 семестр\ООП\LogFileAnalyzer\GeneratorLibrary\bin\Debug\YamlDotNet.Core.pdb
+P:\University\5 семестр\ООП\LogFileAnalyzer\GeneratorLibrary\bin\Debug\YamlDotNet.RepresentationModel.pdb
+P:\University\5 семестр\ООП\LogFileAnalyzer\GeneratorLibrary\obj\Debug\GeneratorLibrary.dll
+P:\University\5 семестр\ООП\LogFileAnalyzer\GeneratorLibrary\obj\Debug\GeneratorLibrary.pdb
+P:\Programming\GitHub\LogFileAnalyzer\LogFileAnalyzer\GeneratorLibrary\bin\Debug\GeneratorLibrary.dll
+P:\Programming\GitHub\LogFileAnalyzer\LogFileAnalyzer\GeneratorLibrary\bin\Debug\GeneratorLibrary.pdb
+P:\Programming\GitHub\LogFileAnalyzer\LogFileAnalyzer\GeneratorLibrary\bin\Debug\YamlDotNet.Core.dll
+P:\Programming\GitHub\LogFileAnalyzer\LogFileAnalyzer\GeneratorLibrary\bin\Debug\YamlDotNet.RepresentationModel.dll
+P:\Programming\GitHub\LogFileAnalyzer\LogFileAnalyzer\GeneratorLibrary\bin\Debug\YamlDotNet.Core.pdb
+P:\Programming\GitHub\LogFileAnalyzer\LogFileAnalyzer\GeneratorLibrary\bin\Debug\YamlDotNet.RepresentationModel.pdb
+P:\Programming\GitHub\LogFileAnalyzer\LogFileAnalyzer\GeneratorLibrary\obj\Debug\GeneratorLibrary.dll
+P:\Programming\GitHub\LogFileAnalyzer\LogFileAnalyzer\GeneratorLibrary\obj\Debug\GeneratorLibrary.pdb
