@@ -46,6 +46,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Data\Data.cs" />
+    <Compile Include="Exceptions\GeneratorAppException.cs" />
+    <Compile Include="Exceptions\FilePathValidateException.cs" />
     <Compile Include="Response\CodeDefinition.cs" />
     <Compile Include="Response\FileSize.cs" />
     <Compile Include="Response\Hyphen.cs" />

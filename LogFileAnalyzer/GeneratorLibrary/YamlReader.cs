@@ -3,6 +3,8 @@ using System.Linq;
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
+using System.Text.RegularExpressions;
+using GeneratorLibrary.Exceptions;
 using YamlDotNet.RepresentationModel;
 
 namespace GeneratorLibrary
@@ -10,30 +12,33 @@ namespace GeneratorLibrary
 	public class YamlReader
 	{
 		private readonly YamlStream _yamlStream;
-	
-		public YamlReader(FileSystemInfo file)
+
+		public YamlReader(FileInfo file)
 		{
 			_yamlStream = new YamlStream();
 			string fileContext = GetContentYamlFile(file.FullName);
 			_yamlStream.Load(new StringReader(fileContext));
-			/////
-			var mapping = (YamlMappingNode)_yamlStream.Documents[0].RootNode;
-			foreach (var entry in mapping.Children)
-			{
-				Console.WriteLine(((YamlScalarNode)entry.Key).Value);
-			}
-		} 
+		}
 
-		public IDictionary<string, string> GetParameters
+		public IDictionary<string, IDictionary<string, string>> GetParameters
 		{
 			get
 			{
 				var mapping = (YamlMappingNode)_yamlStream.Documents[0].RootNode;
-				IDictionary<string, string> dictionary = 
-					mapping.Children.ToDictionary(key => key.Key.ToString(), value => value.Value.ToString());
+				var keys = mapping.Children.Keys;
+				IDictionary<string, IDictionary<string, string>> dictionary = new Dictionary<string, IDictionary<string, string>>();
+				IDictionary<string, string> tempDictionary;
+
+				foreach (YamlNode key in keys)
+				{
+					var parameters = (YamlMappingNode)mapping.Children[new YamlScalarNode(key.ToString())];
+					tempDictionary = parameters.ToDictionary(pair => pair.Key.ToString(), pair => pair.Value.ToString());
+					dictionary.Add(key.ToString(), tempDictionary);
+				}
 				return dictionary;
 			}
-		} 
+		}
+
 		private string GetContentYamlFile(string path)
 		{
 			StringBuilder stringBuilder = new StringBuilder();
@@ -43,6 +48,11 @@ namespace GeneratorLibrary
 				stringBuilder.Append(line + "\n");
 
 			return stringBuilder.ToString();
+		}
+
+		private bool ValidateFilePath(string path)
+		{
+			return Regex.IsMatch(path, @"^(?:[a-zA-Z]\:|\\\\[\w\.]+\\[\w.$]+)\\(?:[\w]+\\)*\w([\w.])+$");
 		}
 	}
 }

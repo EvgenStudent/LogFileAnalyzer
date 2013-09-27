@@ -1,5 +1,9 @@
-GET: 2
-POST: 6
-DELETE: 2
+methods:
+    get: 2
+    post: 7
+    delete: 1
+protolols:
+    http: 8
+    https: 2
 
 #http://www.aaubry.net/page/YamlDotNet

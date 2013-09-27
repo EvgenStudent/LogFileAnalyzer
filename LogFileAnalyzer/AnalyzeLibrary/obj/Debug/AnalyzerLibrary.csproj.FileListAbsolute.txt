@@ -13,6 +13,5 @@ P:\Programming\GitHub\LogFileAnalyzer\LogFileAnalyzer\AnalyzeLibrary\bin\Debug\Y
 P:\Programming\GitHub\LogFileAnalyzer\LogFileAnalyzer\AnalyzeLibrary\bin\Debug\YamlDotNet.RepresentationModel.dll
 P:\Programming\GitHub\LogFileAnalyzer\LogFileAnalyzer\AnalyzeLibrary\bin\Debug\YamlDotNet.Core.pdb
 P:\Programming\GitHub\LogFileAnalyzer\LogFileAnalyzer\AnalyzeLibrary\bin\Debug\YamlDotNet.RepresentationModel.pdb
-P:\Programming\GitHub\LogFileAnalyzer\LogFileAnalyzer\AnalyzeLibrary\obj\Debug\AnalyzerLibrary.csprojResolveAssemblyReference.cache
 P:\Programming\GitHub\LogFileAnalyzer\LogFileAnalyzer\AnalyzeLibrary\obj\Debug\AnalyzeLibrary.dll
 P:\Programming\GitHub\LogFileAnalyzer\LogFileAnalyzer\AnalyzeLibrary\obj\Debug\AnalyzeLibrary.pdb

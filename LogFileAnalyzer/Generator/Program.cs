@@ -1,7 +1,9 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using ConsoleCommandLibrary;
 using GeneratorLibrary;
+using GeneratorLibrary.Exceptions;
 using GeneratorLibrary.Writer;
 
 namespace Generator
@@ -10,11 +12,11 @@ namespace Generator
 	{
 		static void Main(string[] args)
 		{
-			FileSystemInfo cofnigInfo = new FileInfo(@"P:\Programming\GitHub\LogFileAnalyzer\LogFileAnalyzer\Config.yaml");
-			YamlReader yamlReader = new YamlReader(cofnigInfo);
-			IDictionary<string, string> parametersInConfig = yamlReader.GetParameters;
+			string pathProject = Environment.CurrentDirectory.Remove(Environment.CurrentDirectory.Length - 20);
+			YamlReader yamlReader = new YamlReader(new FileInfo(pathProject + @"\Config.yaml"));
+			IDictionary<string, IDictionary<string, string>> parametersInConfig = yamlReader.GetParameters;
 
-			DirectoryInfo directoryInfo = new DirectoryInfo(@"P:\Programming\GitHub\LogFileAnalyzer\LogFileAnalyzer");
+			DirectoryInfo directoryInfo = new DirectoryInfo(pathProject);
 			FileWriter fileWriter = new FileWriter(directoryInfo);
 
 			ConsoleParametrsParse parametrsParse = new ConsoleParametrsParse(args);
