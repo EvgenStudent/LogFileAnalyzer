@@ -13,7 +13,6 @@ E:\LogFileAnalyzer\Generator\bin\Debug\YamlDotNet.Core.pdb
 E:\LogFileAnalyzer\Generator\bin\Debug\YamlDotNet.RepresentationModel.pdb
 E:\LogFileAnalyzer\Generator\obj\Debug\Generator.csprojResolveAssemblyReference.cache
 P:\University\5 семестр\ООП\LogFileAnalyzer\Generator\bin\Debug\Generator.exe.config
-P:\University\5 семестр\ООП\LogFileAnalyzer\Generator\obj\Debug\Generator.csprojResolveAssemblyReference.cache
 P:\University\5 семестр\ООП\LogFileAnalyzer\Generator\bin\Debug\Generator.exe
 P:\University\5 семестр\ООП\LogFileAnalyzer\Generator\bin\Debug\Generator.pdb
 P:\University\5 семестр\ООП\LogFileAnalyzer\Generator\bin\Debug\ConsoleCommandLibrary.dll
@@ -24,6 +23,7 @@ P:\University\5 семестр\ООП\LogFileAnalyzer\Generator\bin\Debug\Consol
 P:\University\5 семестр\ООП\LogFileAnalyzer\Generator\bin\Debug\GeneratorLibrary.pdb
 P:\University\5 семестр\ООП\LogFileAnalyzer\Generator\bin\Debug\YamlDotNet.Core.pdb
 P:\University\5 семестр\ООП\LogFileAnalyzer\Generator\bin\Debug\YamlDotNet.RepresentationModel.pdb
+P:\University\5 семестр\ООП\LogFileAnalyzer\Generator\obj\Debug\Generator.csprojResolveAssemblyReference.cache
 P:\University\5 семестр\ООП\LogFileAnalyzer\Generator\obj\Debug\Generator.exe
 P:\University\5 семестр\ООП\LogFileAnalyzer\Generator\obj\Debug\Generator.pdb
 P:\Programming\GitHub\LogFileAnalyzer\LogFileAnalyzer\Generator\bin\Debug\Generator.exe.config

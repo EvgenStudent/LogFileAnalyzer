@@ -3,7 +3,7 @@ using System.Globalization;
 
 namespace GeneratorLibrary.Response
 {
-	public class FileSize : IResponse
+	public class FileSize : IRecordFieldValueGenerator
 	{
 		private readonly Random random;
 
@@ -12,7 +12,7 @@ namespace GeneratorLibrary.Response
 			this.random = random;
 		}
 
-		public string GetValue()
+		public string Generate()
 		{
 			return random.Next(100, 1000).ToString(CultureInfo.InvariantCulture);
 		}

@@ -11,9 +11,7 @@ namespace GeneratorLibrary.Exceptions
 
 		public FilePathValidateException(string message) 
 			: base(message)
-		{
-			message = "Неверный путь к файлу ";
-		}
+		{ }
 
 		public FilePathValidateException(string message, Exception inner) 
 			: base(message, inner)

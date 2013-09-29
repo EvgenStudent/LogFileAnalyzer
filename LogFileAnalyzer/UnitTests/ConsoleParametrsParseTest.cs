@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using ConsoleCommandLibrary;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -17,8 +18,8 @@ namespace UnitTests
 			// act
 			ConsoleParametrsParse parametrsParse = new ConsoleParametrsParse(args);
 			bool correctComplete = parametrsParse.GetParameters();
-			IDictionary<string, string> Parameters = parametrsParse.Parameters;
-			IList<string> ErrorParameters = parametrsParse.ErrorParameters;
+			IDictionary<string, string> Parameters = parametrsParse.Parameters.ToDictionary(x => x.Key, x=> x.Value);
+			IList<string> ErrorParameters = parametrsParse.ErrorParameters.ToList();
 
 			// assert
 			Assert.IsFalse(correctComplete);

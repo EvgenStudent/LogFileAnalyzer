@@ -46,19 +46,24 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Data\Data.cs" />
+    <Compile Include="ConfigYaml.cs" />
     <Compile Include="Exceptions\GeneratorAppException.cs" />
     <Compile Include="Exceptions\FilePathValidateException.cs" />
-    <Compile Include="Response\CodeDefinition.cs" />
-    <Compile Include="Response\FileSize.cs" />
-    <Compile Include="Response\Hyphen.cs" />
-    <Compile Include="Response\Date.cs" />
-    <Compile Include="Response\UderId.cs" />
-    <Compile Include="GeneratorLog.cs" />
-    <Compile Include="Response\Ip.cs" />
+    <Compile Include="Exceptions\IncorrectParametersException.cs" />
+    <Compile Include="Exceptions\NoParameterException.cs" />
+    <Compile Include="PartsRecord\CodeDefinition.cs" />
+    <Compile Include="PartsRecord\FileSize.cs" />
+    <Compile Include="PartsRecord\Hyphen.cs" />
+    <Compile Include="PartsRecord\Date.cs" />
+    <Compile Include="PartsRecord\UserId.cs" />
+    <Compile Include="TemplateLogRecord.cs" />
+    <Compile Include="PartsRecord\Ip.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RandomGuid.cs" />
-    <Compile Include="Response\IResponse.cs" />
-    <Compile Include="Response\RequestLine.cs" />
+    <Compile Include="PartsRecord\IRecordFieldValueGenerator.cs" />
+    <Compile Include="PartsRecord\RequestLine.cs" />
+    <Compile Include="ErrorViews\ConsoleErrorView.cs" />
+    <Compile Include="ErrorViews\IErrorView.cs" />
     <Compile Include="Writer\FileWriter.cs" />
     <Compile Include="YamlReader.cs" />
   </ItemGroup>

@@ -20,7 +20,7 @@ namespace GeneratorLibrary
 			_yamlStream.Load(new StringReader(fileContext));
 		}
 
-		public IDictionary<string, IDictionary<string, string>> GetParameters
+		public ConfigYaml GetParameters
 		{
 			get
 			{
@@ -35,7 +35,7 @@ namespace GeneratorLibrary
 					tempDictionary = parameters.ToDictionary(pair => pair.Key.ToString(), pair => pair.Value.ToString());
 					dictionary.Add(key.ToString(), tempDictionary);
 				}
-				return dictionary;
+				return new ConfigYaml(dictionary);
 			}
 		}
 

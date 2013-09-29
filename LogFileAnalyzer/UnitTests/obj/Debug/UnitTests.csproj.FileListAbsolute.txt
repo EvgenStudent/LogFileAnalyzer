@@ -1,4 +1,3 @@
-P:\University\5 семестр\ООП\LogFileAnalyzer\UnitTests\obj\Debug\UnitTests.csprojResolveAssemblyReference.cache
 P:\University\5 семестр\ООП\LogFileAnalyzer\UnitTests\bin\Debug\UnitTests.dll
 P:\University\5 семестр\ООП\LogFileAnalyzer\UnitTests\bin\Debug\UnitTests.pdb
 P:\University\5 семестр\ООП\LogFileAnalyzer\UnitTests\bin\Debug\AnalyzeLibrary.dll
@@ -15,6 +14,7 @@ P:\University\5 семестр\ООП\LogFileAnalyzer\UnitTests\bin\Debug\Genera
 P:\University\5 семестр\ООП\LogFileAnalyzer\UnitTests\bin\Debug\Generator.pdb
 P:\University\5 семестр\ООП\LogFileAnalyzer\UnitTests\bin\Debug\YamlDotNet.RepresentationModel.pdb
 P:\University\5 семестр\ООП\LogFileAnalyzer\UnitTests\bin\Debug\YamlDotNet.Core.pdb
+P:\University\5 семестр\ООП\LogFileAnalyzer\UnitTests\obj\Debug\UnitTests.csprojResolveAssemblyReference.cache
 P:\University\5 семестр\ООП\LogFileAnalyzer\UnitTests\obj\Debug\UnitTests.dll
 P:\University\5 семестр\ООП\LogFileAnalyzer\UnitTests\obj\Debug\UnitTests.pdb
 P:\Programming\GitHub\LogFileAnalyzer\LogFileAnalyzer\UnitTests\bin\Debug\UnitTests.dll

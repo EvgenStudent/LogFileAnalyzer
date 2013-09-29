@@ -4,6 +4,7 @@ using System.IO;
 using ConsoleCommandLibrary;
 using GeneratorLibrary;
 using GeneratorLibrary.Exceptions;
+using GeneratorLibrary.View;
 using GeneratorLibrary.Writer;
 
 namespace Generator
@@ -14,19 +15,28 @@ namespace Generator
 		{
 			string pathProject = Environment.CurrentDirectory.Remove(Environment.CurrentDirectory.Length - 20);
 			YamlReader yamlReader = new YamlReader(new FileInfo(pathProject + @"\Config.yaml"));
-			IDictionary<string, IDictionary<string, string>> parametersInConfig = yamlReader.GetParameters;
+			ConfigYaml configParameters = yamlReader.GetParameters;
 
-			DirectoryInfo directoryInfo = new DirectoryInfo(pathProject);
-			FileWriter fileWriter = new FileWriter(directoryInfo);
+			FileWriter fileWriter = new FileWriter();
+			
+			ConsoleParametrsParse consoleParametrs = new ConsoleParametrsParse(args);
+			bool correctParameters = consoleParametrs.GetParameters();
 
-			ConsoleParametrsParse parametrsParse = new ConsoleParametrsParse(args);
-			bool correctParameters = parametrsParse.GetParameters();
-
-			if (correctParameters)
+			try
 			{
-				IDictionary<string, string> consoleParameters = parametrsParse.Parameters;
-				GeneratorLog generator = new GeneratorLog(consoleParameters);
-				fileWriter.Write(generator.TemplateResponse, generator.FileName, generator.Count);
+				if (correctParameters)
+				{
+					IReadOnlyDictionary<string, string> consoleParameters = consoleParametrs.Parameters;
+					TemplateLogRecord template = new TemplateLogRecord(consoleParameters);
+					fileWriter.Write(template.LogFileRecordTemplate, template.FileName, template.Count);
+				}
+				else
+					throw new IncorrectParametersException(consoleParametrs.ErrorParameters);
+			}
+			catch (GeneratorAppException exception)
+			{
+				IErrorView view = new ConsoleErrorView(exception);
+				view.DisplayMessage();
 			}
 		}
 	}

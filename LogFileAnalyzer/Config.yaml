@@ -5,5 +5,9 @@ methods:
 protolols:
     http: 8
     https: 2
+fileExtensions:
+    jpeg: 6
+    mp3: 2
+    xml: 2
 
 #http://www.aaubry.net/page/YamlDotNet

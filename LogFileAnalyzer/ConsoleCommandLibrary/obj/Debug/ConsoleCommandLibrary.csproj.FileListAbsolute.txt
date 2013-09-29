@@ -7,7 +7,6 @@ E:\LogFileAnalyzer\ConsoleCommandLibrary\bin\Debug\YamlDotNet.RepresentationMode
 E:\LogFileAnalyzer\ConsoleCommandLibrary\obj\Debug\ConsoleCommandLibrary.csprojResolveAssemblyReference.cache
 E:\LogFileAnalyzer\ConsoleCommandLibrary\obj\Debug\ConsoleCommandLibrary.dll
 E:\LogFileAnalyzer\ConsoleCommandLibrary\obj\Debug\ConsoleCommandLibrary.pdb
-P:\University\5 семестр\ООП\LogFileAnalyzer\ConsoleCommandLibrary\obj\Debug\ConsoleCommandLibrary.csprojResolveAssemblyReference.cache
 P:\University\5 семестр\ООП\LogFileAnalyzer\ConsoleCommandLibrary\bin\Debug\ConsoleCommandLibrary.dll
 P:\University\5 семестр\ООП\LogFileAnalyzer\ConsoleCommandLibrary\bin\Debug\ConsoleCommandLibrary.pdb
 P:\University\5 семестр\ООП\LogFileAnalyzer\ConsoleCommandLibrary\bin\Debug\YamlDotNet.Core.dll
@@ -24,3 +23,4 @@ P:\Programming\GitHub\LogFileAnalyzer\LogFileAnalyzer\ConsoleCommandLibrary\bin\
 P:\Programming\GitHub\LogFileAnalyzer\LogFileAnalyzer\ConsoleCommandLibrary\bin\Debug\YamlDotNet.RepresentationModel.pdb
 P:\Programming\GitHub\LogFileAnalyzer\LogFileAnalyzer\ConsoleCommandLibrary\obj\Debug\ConsoleCommandLibrary.dll
 P:\Programming\GitHub\LogFileAnalyzer\LogFileAnalyzer\ConsoleCommandLibrary\obj\Debug\ConsoleCommandLibrary.pdb
+P:\Programming\GitHub\LogFileAnalyzer\LogFileAnalyzer\ConsoleCommandLibrary\obj\Debug\ConsoleCommandLibrary.csprojResolveAssemblyReference.cache

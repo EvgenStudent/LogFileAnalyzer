@@ -14,7 +14,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Config", "Config", "{94E2C5B4-1956-4883-835D-7651C8CCB3F2}"
 	ProjectSection(SolutionItems) = preProject
 		Config.yaml = Config.yaml
-		logs.log = logs.log
+		Logs.log = Logs.log
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTests", "UnitTests\UnitTests.csproj", "{041988BA-465C-4137-9B4D-C078B2D90DF3}"

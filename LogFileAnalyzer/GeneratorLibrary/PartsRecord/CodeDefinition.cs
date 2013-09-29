@@ -4,7 +4,7 @@ using System.Globalization;
 
 namespace GeneratorLibrary.Response
 {
-	class CodeDefinition : IResponse
+	class CodeDefinition : IRecordFieldValueGenerator
 	{
 		private readonly int[] codes;
 		private readonly Random random;
@@ -15,7 +15,7 @@ namespace GeneratorLibrary.Response
 			this.random = random;
 		}
 
-		public string GetValue()
+		public string Generate()
 		{
 			return codes[random.Next(0, codes.Length)].ToString(CultureInfo.InvariantCulture);
 		}

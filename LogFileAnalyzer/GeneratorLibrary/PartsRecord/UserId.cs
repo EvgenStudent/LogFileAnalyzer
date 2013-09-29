@@ -1,15 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Globalization;
+using GeneratorLibrary.Response;
 
 namespace GeneratorLibrary
 {
-	public class UderId : IResponse
+	public class UserId : IRecordFieldValueGenerator
 	{
 		private readonly Random random;
 		private readonly IList<int> reservedId;
 
-		public UderId(Random random, int count)
+		public UserId(Random random, int count)
 		{
 			this.random = random;
 			reservedId = new List<int>(count);
@@ -17,7 +18,7 @@ namespace GeneratorLibrary
 				reservedId.Add(i);
 		}
 
-		public string GetValue()
+		public string Generate()
 		{
 			int idPosition = random.Next(0, reservedId.Count);
 			int id = reservedId[idPosition];
