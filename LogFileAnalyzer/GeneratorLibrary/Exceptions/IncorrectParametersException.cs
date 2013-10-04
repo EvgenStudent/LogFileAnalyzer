@@ -9,12 +9,14 @@ namespace GeneratorLibrary.Exceptions
 	[Serializable]
 	public class IncorrectParametersException : GeneratorAppException
 	{
-		public IncorrectParametersException(IEnumerable<string> readOnlyList)
+		public IncorrectParametersException(IEnumerable<string> errorParameters)
 		{
 			StringBuilder sb = new StringBuilder();
-			foreach (string errorRecord in readOnlyList)
-				sb.Append(errorRecord).Append(Environment.NewLine);
-			sb.ToString();
+			sb.Append("Incorrect parameters:\n");
+			int i = 1;
+			foreach (string errorRecord in errorParameters)
+				sb.Append(i++).Append(". ").AppendLine(errorRecord);
+			Message = sb.ToString();
 		}
 
 		public IncorrectParametersException(string message) 

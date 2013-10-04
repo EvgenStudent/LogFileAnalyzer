@@ -1,11 +1,15 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Runtime.Serialization;
+using System.Text;
 
 namespace GeneratorLibrary.Exceptions
 {
 	[Serializable]
 	public abstract class GeneratorAppException : Exception
 	{
+		public new string Message { get; protected set; }
+
 		protected GeneratorAppException()
 		{ }
 
