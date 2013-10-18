@@ -27,7 +27,7 @@ namespace Generator
 				if (correctParameters)
 				{
 					IReadOnlyDictionary<string, string> consoleParameters = consoleParametrs.Parameters;
-					TemplateLogRecord template = new TemplateLogRecord(consoleParameters);
+					TemplateLogRecord template = new TemplateLogRecord(consoleParameters, configParameters);
 					fileWriter.Write(template.LogFileRecordTemplate, template.FileName, template.Count);
 				}
 				else

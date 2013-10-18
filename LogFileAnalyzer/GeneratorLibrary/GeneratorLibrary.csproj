@@ -47,17 +47,20 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="App_Data\Data.cs" />
+    <Compile Include="App_Data\ConstantData.cs" />
+    <Compile Include="App_Data\IData.cs" />
     <Compile Include="ConfigYaml.cs" />
     <Compile Include="Exceptions\GeneratorAppException.cs" />
     <Compile Include="Exceptions\FilePathValidateException.cs" />
     <Compile Include="Exceptions\IncorrectParametersException.cs" />
     <Compile Include="Exceptions\NoParameterException.cs" />
+    <Compile Include="ParametersForRequestLine.cs" />
     <Compile Include="PartsRecord\CodeDefinition.cs" />
     <Compile Include="PartsRecord\FileSize.cs" />
     <Compile Include="PartsRecord\Hyphen.cs" />
     <Compile Include="PartsRecord\Date.cs" />
     <Compile Include="PartsRecord\UserId.cs" />
+    <Compile Include="Probability.cs" />
     <Compile Include="TemplateLogRecord.cs" />
     <Compile Include="PartsRecord\Ip.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

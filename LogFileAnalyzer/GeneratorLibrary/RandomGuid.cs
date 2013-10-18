@@ -1,12 +1,11 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace GeneratorLibrary
 {
 	public class RandomGuid : Random
 	{
-		public RandomGuid()
-		{ }
-
 		/// <summary>
 		/// Возвращает случайное число в указанном диапазоне.
 		/// </summary>
@@ -21,6 +20,15 @@ namespace GeneratorLibrary
 			var buf = Guid.NewGuid().ToByteArray();
 			var randomValue32 = BitConverter.ToInt32(buf, 4);
 			var val = (randomValue32 % (((maxValue - 1) + 1) - (minValue))) + (minValue);
+			return val;
+		}
+
+		public string Next(IReadOnlyDictionary<string, string> probability)
+		{
+			double[] array = new double[probability.Values.Sum(x => x.)];
+			var buf = Guid.NewGuid().ToByteArray();
+			var randomValue32 = BitConverter.ToInt32(buf, 4);
+			
 			return val;
 		}
 	}

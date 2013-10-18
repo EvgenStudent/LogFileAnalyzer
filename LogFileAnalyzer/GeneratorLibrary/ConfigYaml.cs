@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
 
 namespace GeneratorLibrary
 {
@@ -11,7 +12,7 @@ namespace GeneratorLibrary
 		{
 			get
 			{
-				return new ReadOnlyDictionary<string, string>(_dictionary[key]);
+				return ContainsKey(key) ? new ReadOnlyDictionary<string, string>(_dictionary[key]) : null;
 			}
 		}
 

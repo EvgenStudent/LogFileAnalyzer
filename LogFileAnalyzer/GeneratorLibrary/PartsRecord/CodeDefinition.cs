@@ -1,15 +1,16 @@
 ﻿using System;
 using System.Collections;
+using System.Collections.Generic;
 using System.Globalization;
 
 namespace GeneratorLibrary.Response
 {
 	class CodeDefinition : IRecordFieldValueGenerator
 	{
-		private readonly int[] codes;
+		private readonly IReadOnlyList<int> codes;
 		private readonly Random random;
 
-		public CodeDefinition(Random random, int[] codes)
+		public CodeDefinition(Random random, IReadOnlyList<int> codes)
 		{
 			this.codes = codes;
 			this.random = random;
@@ -17,7 +18,7 @@ namespace GeneratorLibrary.Response
 
 		public string Generate()
 		{
-			return codes[random.Next(0, codes.Length)].ToString(CultureInfo.InvariantCulture);
+			return codes[random.Next(0, codes.Count)].ToString(CultureInfo.InvariantCulture);
 		}
 	}
 }

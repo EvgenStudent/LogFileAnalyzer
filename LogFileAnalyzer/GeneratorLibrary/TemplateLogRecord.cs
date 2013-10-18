@@ -13,6 +13,8 @@ namespace GeneratorLibrary
 	    private readonly string[] _keys = {"fileName", "count"};
 		private readonly IReadOnlyDictionary<string, string> _consoleParameters;
 	    private readonly Random random;
+	    private readonly IData data = new ConstantData();
+	    private readonly ConfigYaml _configYaml;
 		
 		public IRecordFieldValueGenerator[] LogFileRecordTemplate { set; get; }
 		
@@ -38,17 +40,36 @@ namespace GeneratorLibrary
 			random = new RandomGuid();
 			CreateRecordTemplate();
 		}
+	    public TemplateLogRecord(IReadOnlyDictionary<string, string> consoleParameters, ConfigYaml configYaml)
+	    {
+			_configYaml = configYaml;
+			Validate(consoleParameters);
+			_consoleParameters = consoleParameters;
+			random = new RandomGuid();
+			CreateRecordTemplate();
+	    }
 
 	    private void CreateRecordTemplate()
 	    {
+		    var parametersForRequestLine = new ParametersForRequestLine
+		    {
+				FileExtensions = data.FileExtensions, Methods = data.Methods, Protocols = data.Protocols, Versions = data.Versions,
+				Probability = (_configYaml == null) ? null :new Probability
+				{
+					probabilityFileExtensions = _configYaml["fileExtensions"],
+					probabilityMethods = _configYaml["methods"],
+					probabilityProtocols = _configYaml["protocols"],
+					probabilityVersions = _configYaml["versions"],
+				}
+		    };
 		    LogFileRecordTemplate = new IRecordFieldValueGenerator[]
 		    {
 			    new Ip(random), 
 				new Hyphen(), 
 				new UserId(random, Count), 
 				new Date(random), 
-				new RequestLine(random, Data.Methods, Data.FileExtensions, Data.Protocols, Data.Versions), 
-				new CodeDefinition(random, Data.Codes), 
+				new RequestLine(random, parametersForRequestLine), 
+				new CodeDefinition(random, data.Codes), 
 				new FileSize(random), 
 		    };
 	    }

@@ -11,18 +11,12 @@ namespace GeneratorLibrary
 	class RequestLine : IRecordFieldValueGenerator
 	{
 		private readonly Random random;
-		private readonly string[] Methods;
-		private readonly string[] Versions;
-		private readonly string[] Protocols;
-		private readonly string[] FileExtension;
+		private readonly ParametersForRequestLine _parameters;
 
-		public RequestLine(Random random, string[] methods, string[] fileExtension, string[] protocols, string[] versions)
+		public RequestLine(Random random, ParametersForRequestLine parameters)
 		{
 			this.random = random;
-			Methods = methods;
-			FileExtension = fileExtension;
-			Protocols = protocols;
-			Versions = versions;
+			_parameters = parameters;
 		}
 
 		public string Generate()
@@ -38,7 +32,7 @@ namespace GeneratorLibrary
 
 		private string GenerateMethod()
 		{
-			return Methods[random.Next(0, Methods.Length)];
+			return _parameters.Methods[random.Next(0, _parameters.Methods.Count)];
 		}
 		private string GeneratePathFile()
 		{
@@ -50,12 +44,12 @@ namespace GeneratorLibrary
 				for (int j = 0; j < random.Next(3, 7); j++)
 					sb.Append(Convert.ToChar(random.Next(0x0061, 0x007B)));
 			}
-			sb.Append(FileExtension[random.Next(0, FileExtension.Length)]);
+			sb.Append(_parameters.FileExtensions[random.Next(0, _parameters.FileExtensions.Count)]);
 			return sb.ToString();
 		}
 		private string GenerateProtocol()
 		{
-			return String.Format("{0}/{1}", Protocols[random.Next(0, Protocols.Length)], Versions[random.Next(0, Versions.Length)]);
+			return String.Format("{0}/{1}", _parameters.Protocols[random.Next(0, _parameters.Protocols.Count)], _parameters.Versions[random.Next(0, _parameters.Versions.Count)]);
 		}
 	}
 }
