@@ -1,10 +1,7 @@
-﻿namespace GeneratorLibrary.Response
+﻿namespace GeneratorLibrary.PartsRecord
 {
-	public class Hyphen : IRecordFieldValueGenerator
+	public struct Hyphen
 	{
-		public string Generate()
-		{
-			return "-";
-		}
+		 
 	}
 }

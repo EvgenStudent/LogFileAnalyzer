@@ -1,39 +1,38 @@
 ﻿using System;
-using System.Collections.ObjectModel;
-using System.Linq;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 
 namespace ConsoleCommandLibrary
 {
-    public class ConsoleParametrsParse
-    {
+	public class ConsoleParametrsParse
+	{
 		private readonly string[] _args;
-	    private readonly IDictionary<string, string> _parameters;
+		private readonly IDictionary<string, string> _parameters;
 		private readonly IList<string> _errorParameters;
 
-		public IReadOnlyDictionary<string, string> Parameters
-	    {
-		    get
-		    {
+		public ReadOnlyDictionary<string, string> Parameters
+		{
+			get
+			{
 				return new ReadOnlyDictionary<string, string>(_parameters);
-		    }
-	    }
-	    public IReadOnlyList<string> ErrorParameters
-	    {
-		    get
-		    {
+			}
+		}
+		public IReadOnlyList<string> ErrorParameters
+		{
+			get
+			{
 				return new ReadOnlyCollection<string>(_errorParameters);
-		    }
-	    }
+			}
+		}
 
 		public ConsoleParametrsParse(string[] args)
 		{
 			_args = args;
-			_parameters = new Dictionary<string, string>(StringComparer.OrdinalIgnoreCase);
+			_parameters = new Dictionary<string, string>(StringComparer.InvariantCultureIgnoreCase);
 			_errorParameters = new List<string>();
 		}
 
-		public bool GetParameters()
+		public bool TryGetParameters()
 		{
 			string[] keyNameBuffer;
 			foreach (string arg in _args)
@@ -42,6 +41,6 @@ namespace ConsoleCommandLibrary
 				else
 					_errorParameters.Add(arg);
 			return ErrorParameters.Count == 0;
-		}
-    }
+		} 
+	}
 }

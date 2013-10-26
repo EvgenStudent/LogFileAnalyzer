@@ -1,44 +1,126 @@
 ﻿using System.Collections.Generic;
+using GeneratorLibrary.Model;
 
 namespace GeneratorLibrary.App_Data
 {
 	public class ConstantData : IData
 	{
-		private readonly IReadOnlyList<int> _codes = new List<int>{
-				100, 101, 200, 201, 202, 203, 204, 205, 206, 300, 301, 302, 303, 304, 305, 306, 307, 400, 401,
-				402, 403, 404, 405, 406, 407, 408, 409, 410, 411, 412, 413, 414, 415, 416, 417, 500, 501, 502, 503, 504, 505
-			};
-		private readonly IReadOnlyList<string> _methods = new List<string> { "OPTIONS", "GET", "HEAD", "POST", "PUT", "DELETE", "TRACE", "CONNECT", "PATCH", "LINK", "UNLINK" };
-		private readonly IReadOnlyList<string> _versions = new List<string> { "0.9", "1.0", "1.1" };
-		private readonly IReadOnlyList<string> _protocols = new List<string> { "HTTP", "HTTPS" };
-		private readonly IReadOnlyList<string> _fileExtensions = new List<string> {
-			".bmp", ".jpeg", ".png", ".mp3", ".flac", ".txt", ".docx", ".yaml", ".xml",
-			".html", ".cs", ".cpp", ".asm"
+		private readonly IReadOnlyList<ElementWithProbability<int>> _codes = new List<ElementWithProbability<int>>
+		{
+			#region Codes
+			new ElementWithProbability<int>(100),
+			new ElementWithProbability<int>(101),
+			new ElementWithProbability<int>(200),
+			new ElementWithProbability<int>(201),
+			new ElementWithProbability<int>(202),
+			new ElementWithProbability<int>(203),
+			new ElementWithProbability<int>(204),
+			new ElementWithProbability<int>(205),
+			new ElementWithProbability<int>(206),
+			new ElementWithProbability<int>(300),
+			new ElementWithProbability<int>(301),
+			new ElementWithProbability<int>(302),
+			new ElementWithProbability<int>(303),
+			new ElementWithProbability<int>(304),
+			new ElementWithProbability<int>(305),
+			new ElementWithProbability<int>(306),
+			new ElementWithProbability<int>(307),
+			new ElementWithProbability<int>(400),
+			new ElementWithProbability<int>(401),
+			new ElementWithProbability<int>(402),
+			new ElementWithProbability<int>(403),
+			new ElementWithProbability<int>(404),
+			new ElementWithProbability<int>(405),
+			new ElementWithProbability<int>(406),
+			new ElementWithProbability<int>(407),
+			new ElementWithProbability<int>(408),
+			new ElementWithProbability<int>(409),
+			new ElementWithProbability<int>(410),
+			new ElementWithProbability<int>(411),
+			new ElementWithProbability<int>(412),
+			new ElementWithProbability<int>(413),
+			new ElementWithProbability<int>(414),
+			new ElementWithProbability<int>(415),
+			new ElementWithProbability<int>(416),
+			new ElementWithProbability<int>(417),
+			new ElementWithProbability<int>(500),
+			new ElementWithProbability<int>(501),
+			new ElementWithProbability<int>(502),
+			new ElementWithProbability<int>(503),
+			new ElementWithProbability<int>(504),
+			new ElementWithProbability<int>(505),
+			#endregion
 		};
 
-		public IReadOnlyList<int> Codes
+		private readonly RequestLineParameters _requestLineParameters = new RequestLineParameters
+		{
+			#region Methods
+			Methods = new List<ElementWithProbability<string>>
+			{
+				new ElementWithProbability<string>("OPTIONS"), 
+				new ElementWithProbability<string>("GET"), 
+				new ElementWithProbability<string>("HEAD"), 
+				new ElementWithProbability<string>("POST"), 
+				new ElementWithProbability<string>("PUT"), 
+				new ElementWithProbability<string>("DELETE"), 
+				new ElementWithProbability<string>("TRACE"), 
+				new ElementWithProbability<string>("CONNECT"), 
+				new ElementWithProbability<string>("PATCH"), 
+				new ElementWithProbability<string>("LINK"), 
+				new ElementWithProbability<string>("UNLINK"), 
+			},
+			#endregion
+
+			#region Versions
+			Versions = new List<ElementWithProbability<string>>
+			{
+				new ElementWithProbability<string>("0.9"), 
+				new ElementWithProbability<string>("1.0"), 
+				new ElementWithProbability<string>("1.1"), 
+			},
+			#endregion
+
+			#region Protocols
+			Protocols = new List<ElementWithProbability<string>>
+			{
+				new ElementWithProbability<string>("HTTP"), 
+				new ElementWithProbability<string>("HTTPS"), 
+			},
+			#endregion
+
+			#region FileExtensions
+			FileExtensions = new List<ElementWithProbability<string>>
+			{
+				new ElementWithProbability<string>(".bmp"), 
+				new ElementWithProbability<string>(".jpeg"), 
+				new ElementWithProbability<string>(".png"), 
+				new ElementWithProbability<string>(".mp3"), 
+				new ElementWithProbability<string>(".flac"), 
+				new ElementWithProbability<string>(".txt"), 
+				new ElementWithProbability<string>(".docx"), 
+				new ElementWithProbability<string>(".yaml"), 
+				new ElementWithProbability<string>(".xml"), 
+				new ElementWithProbability<string>(".html"), 
+				new ElementWithProbability<string>(".cs"), 
+				new ElementWithProbability<string>(".cpp"), 
+				new ElementWithProbability<string>(".asm"), 
+			},
+			#endregion
+		};
+
+		public IReadOnlyList<ElementWithProbability<int>> Codes
 		{
 			get { return _codes; }
 		}
 
-		public IReadOnlyList<string> Methods
+		public RequestLineParameters RequestLineParameters
 		{
-			get { return _methods; }
+			get { return _requestLineParameters; }
 		}
 
-		public IReadOnlyList<string> Versions
+		public void SetProbability(StructureConfig config)
 		{
-			get { return _versions; }
-		}
-
-		public IReadOnlyList<string> Protocols
-		{
-			get { return _protocols; }
-		}
-
-		public IReadOnlyList<string> FileExtensions
-		{
-			get { return _fileExtensions; }
+			throw new System.NotImplementedException();
 		}
 	}
 }

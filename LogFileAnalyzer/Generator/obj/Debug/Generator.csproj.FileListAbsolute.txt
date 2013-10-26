@@ -1,42 +1,20 @@
-E:\LogFileAnalyzer\Generator\bin\Debug\Generator.exe.config
-E:\LogFileAnalyzer\Generator\obj\Debug\Generator.exe
-E:\LogFileAnalyzer\Generator\obj\Debug\Generator.pdb
-E:\LogFileAnalyzer\Generator\bin\Debug\Generator.exe
-E:\LogFileAnalyzer\Generator\bin\Debug\Generator.pdb
-E:\LogFileAnalyzer\Generator\bin\Debug\ConsoleCommandLibrary.dll
-E:\LogFileAnalyzer\Generator\bin\Debug\GeneratorLibrary.dll
-E:\LogFileAnalyzer\Generator\bin\Debug\YamlDotNet.Core.dll
-E:\LogFileAnalyzer\Generator\bin\Debug\YamlDotNet.RepresentationModel.dll
-E:\LogFileAnalyzer\Generator\bin\Debug\ConsoleCommandLibrary.pdb
-E:\LogFileAnalyzer\Generator\bin\Debug\GeneratorLibrary.pdb
-E:\LogFileAnalyzer\Generator\bin\Debug\YamlDotNet.Core.pdb
-E:\LogFileAnalyzer\Generator\bin\Debug\YamlDotNet.RepresentationModel.pdb
-E:\LogFileAnalyzer\Generator\obj\Debug\Generator.csprojResolveAssemblyReference.cache
-P:\University\5 семестр\ООП\LogFileAnalyzer\Generator\bin\Debug\Generator.exe.config
-P:\University\5 семестр\ООП\LogFileAnalyzer\Generator\bin\Debug\Generator.exe
-P:\University\5 семестр\ООП\LogFileAnalyzer\Generator\bin\Debug\Generator.pdb
-P:\University\5 семестр\ООП\LogFileAnalyzer\Generator\bin\Debug\ConsoleCommandLibrary.dll
-P:\University\5 семестр\ООП\LogFileAnalyzer\Generator\bin\Debug\GeneratorLibrary.dll
-P:\University\5 семестр\ООП\LogFileAnalyzer\Generator\bin\Debug\YamlDotNet.Core.dll
-P:\University\5 семестр\ООП\LogFileAnalyzer\Generator\bin\Debug\YamlDotNet.RepresentationModel.dll
-P:\University\5 семестр\ООП\LogFileAnalyzer\Generator\bin\Debug\ConsoleCommandLibrary.pdb
-P:\University\5 семестр\ООП\LogFileAnalyzer\Generator\bin\Debug\GeneratorLibrary.pdb
-P:\University\5 семестр\ООП\LogFileAnalyzer\Generator\bin\Debug\YamlDotNet.Core.pdb
-P:\University\5 семестр\ООП\LogFileAnalyzer\Generator\bin\Debug\YamlDotNet.RepresentationModel.pdb
-P:\University\5 семестр\ООП\LogFileAnalyzer\Generator\obj\Debug\Generator.csprojResolveAssemblyReference.cache
-P:\University\5 семестр\ООП\LogFileAnalyzer\Generator\obj\Debug\Generator.exe
-P:\University\5 семестр\ООП\LogFileAnalyzer\Generator\obj\Debug\Generator.pdb
 P:\Programming\GitHub\LogFileAnalyzer\LogFileAnalyzer\Generator\bin\Debug\Generator.exe.config
 P:\Programming\GitHub\LogFileAnalyzer\LogFileAnalyzer\Generator\bin\Debug\Generator.exe
 P:\Programming\GitHub\LogFileAnalyzer\LogFileAnalyzer\Generator\bin\Debug\Generator.pdb
-P:\Programming\GitHub\LogFileAnalyzer\LogFileAnalyzer\Generator\bin\Debug\ConsoleCommandLibrary.dll
-P:\Programming\GitHub\LogFileAnalyzer\LogFileAnalyzer\Generator\bin\Debug\GeneratorLibrary.dll
-P:\Programming\GitHub\LogFileAnalyzer\LogFileAnalyzer\Generator\bin\Debug\YamlDotNet.Core.dll
-P:\Programming\GitHub\LogFileAnalyzer\LogFileAnalyzer\Generator\bin\Debug\YamlDotNet.RepresentationModel.dll
-P:\Programming\GitHub\LogFileAnalyzer\LogFileAnalyzer\Generator\bin\Debug\ConsoleCommandLibrary.pdb
-P:\Programming\GitHub\LogFileAnalyzer\LogFileAnalyzer\Generator\bin\Debug\GeneratorLibrary.pdb
-P:\Programming\GitHub\LogFileAnalyzer\LogFileAnalyzer\Generator\bin\Debug\YamlDotNet.Core.pdb
-P:\Programming\GitHub\LogFileAnalyzer\LogFileAnalyzer\Generator\bin\Debug\YamlDotNet.RepresentationModel.pdb
 P:\Programming\GitHub\LogFileAnalyzer\LogFileAnalyzer\Generator\obj\Debug\Generator.csprojResolveAssemblyReference.cache
 P:\Programming\GitHub\LogFileAnalyzer\LogFileAnalyzer\Generator\obj\Debug\Generator.exe
 P:\Programming\GitHub\LogFileAnalyzer\LogFileAnalyzer\Generator\obj\Debug\Generator.pdb
+P:\Programming\GitHub\LogFileAnalyzer\LogFileAnalyzer\Generator\bin\Debug\ConsoleCommandLibrary.dll
+P:\Programming\GitHub\LogFileAnalyzer\LogFileAnalyzer\Generator\bin\Debug\ConsoleCommandLibrary.pdb
+P:\Programming\GitHub\LogFileAnalyzer\LogFileAnalyzer_new\Generator\bin\Debug\Generator.exe.config
+P:\Programming\GitHub\LogFileAnalyzer\LogFileAnalyzer_new\Generator\bin\Debug\Generator.exe
+P:\Programming\GitHub\LogFileAnalyzer\LogFileAnalyzer_new\Generator\bin\Debug\Generator.pdb
+P:\Programming\GitHub\LogFileAnalyzer\LogFileAnalyzer_new\Generator\bin\Debug\ConsoleCommandLibrary.dll
+P:\Programming\GitHub\LogFileAnalyzer\LogFileAnalyzer_new\Generator\bin\Debug\GeneratorLibrary.dll
+P:\Programming\GitHub\LogFileAnalyzer\LogFileAnalyzer_new\Generator\bin\Debug\YamlDotNet.RepresentationModel.dll
+P:\Programming\GitHub\LogFileAnalyzer\LogFileAnalyzer_new\Generator\bin\Debug\YamlDotNet.Core.dll
+P:\Programming\GitHub\LogFileAnalyzer\LogFileAnalyzer_new\Generator\bin\Debug\ConsoleCommandLibrary.pdb
+P:\Programming\GitHub\LogFileAnalyzer\LogFileAnalyzer_new\Generator\bin\Debug\GeneratorLibrary.pdb
+P:\Programming\GitHub\LogFileAnalyzer\LogFileAnalyzer_new\Generator\obj\Debug\Generator.csprojResolveAssemblyReference.cache
+P:\Programming\GitHub\LogFileAnalyzer\LogFileAnalyzer_new\Generator\obj\Debug\Generator.exe
+P:\Programming\GitHub\LogFileAnalyzer\LogFileAnalyzer_new\Generator\obj\Debug\Generator.pdb

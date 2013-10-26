@@ -1,20 +1,7 @@
-﻿using System;
-using System.Globalization;
-
-namespace GeneratorLibrary.Response
+﻿namespace GeneratorLibrary.PartsRecord
 {
-	public class FileSize : IRecordFieldValueGenerator
+	public struct FileSize
 	{
-		private readonly Random random;
-
-		public FileSize(Random random)
-		{
-			this.random = random;
-		}
-
-		public string Generate()
-		{
-			return random.Next(100, 1000).ToString(CultureInfo.InvariantCulture);
-		}
+		 
 	}
 }
