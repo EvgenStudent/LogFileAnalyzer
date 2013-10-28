@@ -15,7 +15,7 @@ namespace GeneratorLibrary.Generator
 
 		public Date Generate()
 		{
-			var incrementTimeSpan = new TimeSpan(days: _random.Next(0, 1), hours: _random.Next(0, 12), minutes: _random.Next(0, 30), seconds: _random.Next(0, 60));
+			var incrementTimeSpan = new TimeSpan(days: _random.Next(0, 2), hours: _random.Next(0, 24), minutes: _random.Next(0, 60), seconds: _random.Next(0, 120));
 			return new Date(incrementTimeSpan);
 		}
 	}

@@ -37,7 +37,7 @@ namespace GeneratorLibrary.Generator
 				for (int j = 0; j < _random.Next(3, 7); j++)
 					sb.Append(Convert.ToChar(_random.Next(0x0061, 0x007B)));
 			}
-			sb.Append(_random.Next(_parameters.FileExtensions));
+			sb.Append(".").Append(_random.Next(_parameters.FileExtensions));
 			return sb.ToString();
 		}
 

@@ -12,14 +12,14 @@ namespace Generator
 		static void Main(string[] args)
 		{
 			string pathProject = Environment.CurrentDirectory.Remove(Environment.CurrentDirectory.Length - 20);
-			var consoleParameters = new ConsoleParametrsParse(args);
-			IConfigReader configReader = new YamlConfigReader(pathProject + @"\Config.yaml");
-			
-			var configParameters = configReader.Parameters;
-			bool tryConsoleParameters = consoleParameters.TryGetParameters();
-
 			try
 			{
+				var consoleParameters = new ConsoleParametrsParse(args);
+				IConfigReader configReader = new YamlConfigReader(pathProject + @"\Config.yaml");
+
+				var configParameters = configReader.Parameters;
+				bool tryConsoleParameters = consoleParameters.TryGetParameters();
+
 				if (!tryConsoleParameters) 
 					throw new IncorrectParametersException(consoleParameters.ErrorParameters);
 

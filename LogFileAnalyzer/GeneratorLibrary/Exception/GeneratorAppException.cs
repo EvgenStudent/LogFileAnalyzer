@@ -8,8 +8,6 @@ namespace GeneratorLibrary.Exceptions
 	[Serializable]
 	public abstract class GeneratorAppException : Exception
 	{
-		public new string Message { get; protected set; }
-
 		protected GeneratorAppException()
 		{ }
 
@@ -21,8 +19,8 @@ namespace GeneratorLibrary.Exceptions
 			: base(message, inner)
 		{ }
 
-		protected GeneratorAppException(SerializationInfo info, StreamingContext context) : 
-			base(info, context)
+		protected GeneratorAppException(SerializationInfo info, StreamingContext context) 
+			: base(info, context)
 		{ }
 	}
 }

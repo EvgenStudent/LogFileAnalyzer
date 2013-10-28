@@ -1,19 +1,31 @@
-﻿using GeneratorLibrary.Model;
+﻿using System.Collections.Generic;
+using System.Text;
+using GeneratorLibrary.Model;
 
 namespace GeneratorLibrary.Converter
 {
 	public class ConvertToString
 	{
-		private readonly LogRecordParts _recordParts;
+		private List<IConverter<string>> listConverter;
+		private StringBuilder _stringBuilder;
 
-		public ConvertToString(LogRecordParts recordParts)
+		public string Convert(LogRecordParts recordParts)
 		{
-			_recordParts = recordParts;
-		}
+			listConverter = new List<IConverter<string>>
+			{
+				new IpAddressConverter(recordParts.IpAddress),
+				new HyphenConverter(recordParts.Hyphen),
+				new UserIdConverter(recordParts.UserId),
+				new DateConverter(recordParts.Date),
+				new RequestLineConverter(recordParts.RequestLine),
+				new CodeDefinitionConverter(recordParts.CodeDefinition),
+				new FileSizeConverter(recordParts.FileSize),
+			};
 
-		public string Convert()
-		{
-			return null;
+			_stringBuilder = new StringBuilder();
+			foreach (var converter in listConverter)
+				_stringBuilder.Append(converter.Convert()).Append(" ");
+			return _stringBuilder.ToString();
 		}
 	}
 }

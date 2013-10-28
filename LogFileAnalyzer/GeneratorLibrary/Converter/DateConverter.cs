@@ -13,7 +13,7 @@ namespace GeneratorLibrary.Converter
 
 		public string Convert()
 		{
-			throw new System.NotImplementedException();
+			return _date.DateNow.ToString(@"[dd/MMM/yyyy:hh:mm:ss zzz]");
 		}
 	}
 }

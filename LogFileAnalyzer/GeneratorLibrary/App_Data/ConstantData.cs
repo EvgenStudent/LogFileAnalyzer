@@ -131,7 +131,7 @@ namespace GeneratorLibrary.App_Data
 		{
 			if (config.ContainsKey(_keys[4]))
 				foreach (ElementWithProbability<int> code in _codes)
-					code.Probability = config[_keys[4]] != null ? Convert.ToInt32(config[_keys[4]][code.Value.ToString(CultureInfo.InvariantCulture)]) : 0;
+					code.Probability = config[_keys[4]].ContainsKey(code.Value.ToString(CultureInfo.InvariantCulture)) ? config[_keys[4]][code.Value.ToString(CultureInfo.InvariantCulture)] : 0;
 
 			if (config.ContainsKey(_keys[0]))
 				foreach (ElementWithProbability<string> method in _requestLineParameters.Methods)

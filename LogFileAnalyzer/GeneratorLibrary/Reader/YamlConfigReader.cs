@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using GeneratorLibrary.Exceptions;
 using GeneratorLibrary.Model;
+using YamlDotNet.Core;
 using YamlDotNet.RepresentationModel;
 
 namespace GeneratorLibrary.Reader
@@ -35,7 +37,14 @@ namespace GeneratorLibrary.Reader
 		{
 			_yamlStream = new YamlStream();
 			string fileContext = GetContentYamlFile(path);
-			_yamlStream.Load(new StringReader(fileContext));
+			try
+			{
+				_yamlStream.Load(new StringReader(fileContext));
+			}
+			catch (SyntaxErrorException exception)
+			{
+				throw new DataSourseException("Incorrect config file.", exception);
+			}
 		}
 
 		private string GetContentYamlFile(string path)
@@ -44,7 +53,7 @@ namespace GeneratorLibrary.Reader
 
 			var lines = File.ReadAllLines(path);
 			foreach (var line in lines)
-				stringBuilder.Append(line + "\n");
+				stringBuilder.Append(line.Replace("\t", "    ") + "\n");
 
 			return stringBuilder.ToString();
 		}

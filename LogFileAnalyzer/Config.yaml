@@ -1,6 +1,6 @@
 methods:
-    get: 2
-    post: 7
+    get: 3
+    post: 6
     delete: 1
 protocols:
     http: 8
@@ -9,5 +9,6 @@ fileExtensions:
     jpeg: 6
     mp3: 2
     xml: 2
-
-#http://www.aaubry.net/page/YamlDotNet
+codes:
+	100: 9
+	101: 1

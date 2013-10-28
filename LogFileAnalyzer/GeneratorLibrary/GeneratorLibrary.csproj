@@ -45,14 +45,20 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Converter\CodeDefinitionConverter.cs" />
     <Compile Include="Converter\ConvertToString.cs" />
     <Compile Include="Converter\DateConverter.cs" />
+    <Compile Include="Converter\FileSizeConverter.cs" />
+    <Compile Include="Converter\HyphenConverter.cs" />
     <Compile Include="Converter\IConverter.cs" />
     <Compile Include="Converter\IpAddressConverter.cs" />
     <Compile Include="App_Data\ConstantData.cs" />
     <Compile Include="App_Data\IData.cs" />
+    <Compile Include="Converter\RequestLineConverter.cs" />
+    <Compile Include="Converter\UserIdConverter.cs" />
     <Compile Include="ErrorView\ConsoleErrorView.cs" />
     <Compile Include="ErrorView\IErrorView.cs" />
+    <Compile Include="Exception\DataSourseException.cs" />
     <Compile Include="Exception\FilePathValidateException.cs" />
     <Compile Include="Exception\GeneratorAppException.cs" />
     <Compile Include="Exception\IncorrectParametersException.cs" />
@@ -82,7 +88,8 @@
     <Compile Include="Reader\IConfigReader.cs" />
     <Compile Include="Reader\YamlConfigReader.cs" />
     <Compile Include="LogRecordTemplate.cs" />
-    <Compile Include="Writer\IFileWriter.cs" />
+    <Compile Include="Writer\IWriter.cs" />
+    <Compile Include="Writer\LogStringWriter.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

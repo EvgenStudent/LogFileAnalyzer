@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Collections.Specialized;
 using System.Linq;
 using GeneratorLibrary.Model;
 
@@ -24,7 +23,7 @@ namespace GeneratorLibrary.Random
 				for (var j = 0; j < element.Probability; j++, i++)
 					mapProbability.Add(i, element);
 
-			int randValue = Next(1, mapProbability.Count);
+			int randValue = Next(1, mapProbability.Count + 1);
 			return mapProbability[randValue].Value;
 		}
 	}

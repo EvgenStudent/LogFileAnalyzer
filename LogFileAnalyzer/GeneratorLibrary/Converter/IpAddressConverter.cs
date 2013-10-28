@@ -1,4 +1,6 @@
-﻿using GeneratorLibrary.PartsRecord;
+﻿using System;
+using System.Text;
+using GeneratorLibrary.PartsRecord;
 
 namespace GeneratorLibrary.Converter
 {
@@ -13,7 +15,7 @@ namespace GeneratorLibrary.Converter
 
 		public string Convert()
 		{
-			throw new System.NotImplementedException();
+			return _ipAddress.A + "." + _ipAddress.B + "." + _ipAddress.C + "." + _ipAddress.D;
 		}
 	}
 }

@@ -6,7 +6,7 @@ namespace GeneratorLibrary.Generator
 	{
 		public Hyphen Generate()
 		{
-			return new Hyphen();
+			return new Hyphen('-');
 		}
 	}
 }
