@@ -1,9 +1,8 @@
 ﻿using GeneratorLibrary.Model;
-using GeneratorLibrary.PartsRecord;
 
 namespace GeneratorLibrary.Converter
 {
-	public class ConvertToString : IConverter<string>
+	public class ConvertToString
 	{
 		private readonly LogRecordParts _recordParts;
 

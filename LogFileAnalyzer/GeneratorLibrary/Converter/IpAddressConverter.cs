@@ -2,7 +2,7 @@
 
 namespace GeneratorLibrary.Converter
 {
-	public class IpAddressConverter /*: ConvertToString*/
+	public class IpAddressConverter : IConverter<string>
 	{
 		private readonly IpAddress _ipAddress;
 

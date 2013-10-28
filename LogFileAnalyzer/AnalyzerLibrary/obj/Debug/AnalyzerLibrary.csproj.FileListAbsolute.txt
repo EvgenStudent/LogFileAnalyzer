@@ -1,5 +1,4 @@
 P:\Programming\GitHub\LogFileAnalyzer\LogFileAnalyzer\AnalyzerLibrary\bin\Debug\AnalyzerLibrary.dll
 P:\Programming\GitHub\LogFileAnalyzer\LogFileAnalyzer\AnalyzerLibrary\bin\Debug\AnalyzerLibrary.pdb
-P:\Programming\GitHub\LogFileAnalyzer\LogFileAnalyzer\AnalyzerLibrary\obj\Debug\AnalyzerLibrary.csprojResolveAssemblyReference.cache
 P:\Programming\GitHub\LogFileAnalyzer\LogFileAnalyzer\AnalyzerLibrary\obj\Debug\AnalyzerLibrary.dll
 P:\Programming\GitHub\LogFileAnalyzer\LogFileAnalyzer\AnalyzerLibrary\obj\Debug\AnalyzerLibrary.pdb

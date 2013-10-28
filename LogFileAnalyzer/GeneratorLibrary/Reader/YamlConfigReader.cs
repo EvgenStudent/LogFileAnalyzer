@@ -18,13 +18,13 @@ namespace GeneratorLibrary.Reader
 			{
 				var mapping = (YamlMappingNode)_yamlStream.Documents[0].RootNode;
 				var keys = mapping.Children.Keys;
-				IDictionary<string, IDictionary<string, string>> dictionary = new Dictionary<string, IDictionary<string, string>>(StringComparer.InvariantCultureIgnoreCase);
-				IDictionary<string, string> tempDictionary;
+				IDictionary<string, IDictionary<string, int>> dictionary = new Dictionary<string, IDictionary<string, int>>(StringComparer.InvariantCultureIgnoreCase);
+				IDictionary<string, int> tempDictionary;
 
 				foreach (YamlNode key in keys)
 				{
 					var parameters = (YamlMappingNode)mapping.Children[new YamlScalarNode(key.ToString())];
-					tempDictionary = parameters.ToDictionary(pair => pair.Key.ToString(), pair => pair.Value.ToString(), StringComparer.InvariantCultureIgnoreCase);
+					tempDictionary = parameters.ToDictionary(pair => pair.Key.ToString(), pair => Convert.ToInt32(pair.Value.ToString()), StringComparer.InvariantCultureIgnoreCase);
 					dictionary.Add(key.ToString(), tempDictionary);
 				}
 				return new StructureConfig(dictionary);

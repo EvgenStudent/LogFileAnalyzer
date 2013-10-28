@@ -14,7 +14,7 @@ namespace GeneratorLibrary.Generator
 
 		public FileSize Generate()
 		{
-			throw new System.NotImplementedException();
+			return new FileSize(_random.Next(10, 900));
 		}
 	}
 }

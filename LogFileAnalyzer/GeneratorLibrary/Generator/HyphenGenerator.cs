@@ -6,7 +6,7 @@ namespace GeneratorLibrary.Generator
 	{
 		public Hyphen Generate()
 		{
-			throw new System.NotImplementedException();
+			return new Hyphen();
 		}
 	}
 }

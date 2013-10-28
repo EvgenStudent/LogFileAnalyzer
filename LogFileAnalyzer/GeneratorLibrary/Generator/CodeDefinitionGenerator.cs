@@ -18,7 +18,7 @@ namespace GeneratorLibrary.Generator
 
 		public CodeDefinition Generate()
 		{
-			throw new System.NotImplementedException();
+			return new CodeDefinition(_random.Next(_codes));
 		}
 	}
 }

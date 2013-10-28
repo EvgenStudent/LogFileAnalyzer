@@ -18,3 +18,7 @@ P:\Programming\GitHub\LogFileAnalyzer\LogFileAnalyzer_new\Generator\bin\Debug\Ge
 P:\Programming\GitHub\LogFileAnalyzer\LogFileAnalyzer_new\Generator\obj\Debug\Generator.csprojResolveAssemblyReference.cache
 P:\Programming\GitHub\LogFileAnalyzer\LogFileAnalyzer_new\Generator\obj\Debug\Generator.exe
 P:\Programming\GitHub\LogFileAnalyzer\LogFileAnalyzer_new\Generator\obj\Debug\Generator.pdb
+P:\Programming\GitHub\LogFileAnalyzer\LogFileAnalyzer\Generator\bin\Debug\GeneratorLibrary.dll
+P:\Programming\GitHub\LogFileAnalyzer\LogFileAnalyzer\Generator\bin\Debug\YamlDotNet.RepresentationModel.dll
+P:\Programming\GitHub\LogFileAnalyzer\LogFileAnalyzer\Generator\bin\Debug\YamlDotNet.Core.dll
+P:\Programming\GitHub\LogFileAnalyzer\LogFileAnalyzer\Generator\bin\Debug\GeneratorLibrary.pdb

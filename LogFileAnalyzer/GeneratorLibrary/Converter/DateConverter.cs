@@ -2,7 +2,7 @@
 
 namespace GeneratorLibrary.Converter
 {
-	public class DateConverter /*: ConvertToString*/
+	public class DateConverter : IConverter<string>
 	{
 		private readonly Date _date;
 
