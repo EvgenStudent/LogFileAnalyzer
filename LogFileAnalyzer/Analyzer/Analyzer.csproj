@@ -47,6 +47,16 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AnalyzerLibrary\AnalyzerLibrary.csproj">
+      <Project>{8565AC62-6280-4C20-A6B9-194BEAE4FA74}</Project>
+      <Name>AnalyzerLibrary</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ConsoleCommandLibrary\ConsoleCommandLibrary.csproj">
+      <Project>{4088743B-F7E3-44BF-A018-F8C16D890D73}</Project>
+      <Name>ConsoleCommandLibrary</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

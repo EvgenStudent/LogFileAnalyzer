@@ -4,5 +4,6 @@ P:\Programming\GitHub\LogFileAnalyzer\LogFileAnalyzer_new\ConsoleCommandLibrary\
 P:\Programming\GitHub\LogFileAnalyzer\LogFileAnalyzer_new\ConsoleCommandLibrary\obj\Debug\ConsoleCommandLibrary.pdb
 P:\Programming\GitHub\LogFileAnalyzer\LogFileAnalyzer\ConsoleCommandLibrary\bin\Debug\ConsoleCommandLibrary.dll
 P:\Programming\GitHub\LogFileAnalyzer\LogFileAnalyzer\ConsoleCommandLibrary\bin\Debug\ConsoleCommandLibrary.pdb
+P:\Programming\GitHub\LogFileAnalyzer\LogFileAnalyzer\ConsoleCommandLibrary\obj\Debug\ConsoleCommandLibrary.csprojResolveAssemblyReference.cache
 P:\Programming\GitHub\LogFileAnalyzer\LogFileAnalyzer\ConsoleCommandLibrary\obj\Debug\ConsoleCommandLibrary.dll
 P:\Programming\GitHub\LogFileAnalyzer\LogFileAnalyzer\ConsoleCommandLibrary\obj\Debug\ConsoleCommandLibrary.pdb
