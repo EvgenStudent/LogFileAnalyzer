@@ -1,6 +1,6 @@
 ﻿namespace AnalyzerLibrary.Converter
 {
-	public interface IConverter
+	public interface IConverter<out T>
 	{
 		T Convert();
 	}
