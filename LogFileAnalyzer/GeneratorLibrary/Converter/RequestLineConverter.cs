@@ -1,4 +1,4 @@
-﻿using GeneratorLibrary.PartsRecord;
+﻿using PartsRecord;
 
 namespace GeneratorLibrary.Converter
 {
@@ -13,7 +13,7 @@ namespace GeneratorLibrary.Converter
 
 		public string Convert()
 		{
-			return _requestLine.Method + " " + _requestLine.FullNameFile + " " + _requestLine.Protocol + "/" + _requestLine.Version;
+			return "\"" + _requestLine.Method + " " + _requestLine.FullNameFile + " " + _requestLine.Protocol + "/" + _requestLine.Version + "\"";
 		}
 	}
 }

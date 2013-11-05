@@ -1,20 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using Config;
 
 namespace ConsoleCommandLibrary
 {
 	public class ConsoleParametrsParse
 	{
 		private readonly string[] _args;
-		private readonly IDictionary<string, string> _parameters;
+		private readonly Dictionary<string, string> _parameters;
 		private readonly IList<string> _errorParameters;
 
-		public ReadOnlyDictionary<string, string> Parameters
+		public StructureConfig Parameters
 		{
 			get
 			{
-				return new ReadOnlyDictionary<string, string>(_parameters);
+				return new StructureConfig(new Dictionary<string, IDictionary<string, string>> { { "consoleParameters", _parameters } });
 			}
 		}
 		public IReadOnlyList<string> ErrorParameters

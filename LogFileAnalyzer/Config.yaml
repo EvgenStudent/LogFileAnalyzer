@@ -10,5 +10,7 @@ fileExtensions:
     mp3: 2
     xml: 2
 codes:
-	100: 9
+	100: 6
 	101: 1
+	200: 3
+	400: 3

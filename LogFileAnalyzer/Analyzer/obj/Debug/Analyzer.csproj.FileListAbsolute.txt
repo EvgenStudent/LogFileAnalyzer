@@ -1,10 +1,12 @@
+P:\Programming\GitHub\LogFileAnalyzer\LogFileAnalyzer\Analyzer\obj\Debug\Analyzer.csprojResolveAssemblyReference.cache
 P:\Programming\GitHub\LogFileAnalyzer\LogFileAnalyzer\Analyzer\bin\Debug\Analyzer.exe.config
 P:\Programming\GitHub\LogFileAnalyzer\LogFileAnalyzer\Analyzer\bin\Debug\Analyzer.exe
 P:\Programming\GitHub\LogFileAnalyzer\LogFileAnalyzer\Analyzer\bin\Debug\Analyzer.pdb
 P:\Programming\GitHub\LogFileAnalyzer\LogFileAnalyzer\Analyzer\bin\Debug\AnalyzerLibrary.dll
 P:\Programming\GitHub\LogFileAnalyzer\LogFileAnalyzer\Analyzer\bin\Debug\ConsoleCommandLibrary.dll
+P:\Programming\GitHub\LogFileAnalyzer\LogFileAnalyzer\Analyzer\bin\Debug\PartsRecord.dll
+P:\Programming\GitHub\LogFileAnalyzer\LogFileAnalyzer\Analyzer\bin\Debug\Config.dll
 P:\Programming\GitHub\LogFileAnalyzer\LogFileAnalyzer\Analyzer\bin\Debug\AnalyzerLibrary.pdb
 P:\Programming\GitHub\LogFileAnalyzer\LogFileAnalyzer\Analyzer\bin\Debug\ConsoleCommandLibrary.pdb
-P:\Programming\GitHub\LogFileAnalyzer\LogFileAnalyzer\Analyzer\obj\Debug\Analyzer.csprojResolveAssemblyReference.cache
 P:\Programming\GitHub\LogFileAnalyzer\LogFileAnalyzer\Analyzer\obj\Debug\Analyzer.exe
 P:\Programming\GitHub\LogFileAnalyzer\LogFileAnalyzer\Analyzer\obj\Debug\Analyzer.pdb

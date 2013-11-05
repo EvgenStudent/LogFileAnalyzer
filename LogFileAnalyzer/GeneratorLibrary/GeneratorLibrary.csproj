@@ -30,6 +30,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Config">
+      <HintPath>..\lib\Config.dll</HintPath>
+    </Reference>
+    <Reference Include="PartsRecord">
+      <HintPath>..\lib\PartsRecord.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -45,6 +51,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Constant\Keys.cs" />
     <Compile Include="Converter\CodeDefinitionConverter.cs" />
     <Compile Include="Converter\ConvertToString.cs" />
     <Compile Include="Converter\DateConverter.cs" />
@@ -74,15 +81,7 @@
     <Compile Include="LogFileGenerator.cs" />
     <Compile Include="Model\ElementWithProbability.cs" />
     <Compile Include="Model\RequestLineParameters.cs" />
-    <Compile Include="Model\StructureConfig .cs" />
-    <Compile Include="PartsRecord\CodeDefinition.cs" />
-    <Compile Include="PartsRecord\Date.cs" />
-    <Compile Include="PartsRecord\FileSize.cs" />
-    <Compile Include="PartsRecord\Hyphen.cs" />
-    <Compile Include="PartsRecord\IpAddress.cs" />
     <Compile Include="Model\LogRecordParts.cs" />
-    <Compile Include="PartsRecord\RequestLine.cs" />
-    <Compile Include="PartsRecord\UserId.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Random\RandomWithProbability.cs" />
     <Compile Include="Reader\IConfigReader.cs" />

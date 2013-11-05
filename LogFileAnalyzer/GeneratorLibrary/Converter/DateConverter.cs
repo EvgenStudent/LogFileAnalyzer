@@ -1,4 +1,4 @@
-﻿using GeneratorLibrary.PartsRecord;
+﻿using PartsRecord;
 
 namespace GeneratorLibrary.Converter
 {

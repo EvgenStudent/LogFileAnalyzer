@@ -5,10 +5,12 @@ P:\Programming\GitHub\LogFileAnalyzer\LogFileAnalyzer_new\GeneratorLibrary\bin\D
 P:\Programming\GitHub\LogFileAnalyzer\LogFileAnalyzer_new\GeneratorLibrary\obj\Debug\GeneratorLibrary.csprojResolveAssemblyReference.cache
 P:\Programming\GitHub\LogFileAnalyzer\LogFileAnalyzer_new\GeneratorLibrary\obj\Debug\GeneratorLibrary.dll
 P:\Programming\GitHub\LogFileAnalyzer\LogFileAnalyzer_new\GeneratorLibrary\obj\Debug\GeneratorLibrary.pdb
+P:\Programming\GitHub\LogFileAnalyzer\LogFileAnalyzer\GeneratorLibrary\obj\Debug\GeneratorLibrary.csprojResolveAssemblyReference.cache
 P:\Programming\GitHub\LogFileAnalyzer\LogFileAnalyzer\GeneratorLibrary\bin\Debug\GeneratorLibrary.dll
 P:\Programming\GitHub\LogFileAnalyzer\LogFileAnalyzer\GeneratorLibrary\bin\Debug\GeneratorLibrary.pdb
+P:\Programming\GitHub\LogFileAnalyzer\LogFileAnalyzer\GeneratorLibrary\bin\Debug\Config.dll
+P:\Programming\GitHub\LogFileAnalyzer\LogFileAnalyzer\GeneratorLibrary\bin\Debug\PartsRecord.dll
 P:\Programming\GitHub\LogFileAnalyzer\LogFileAnalyzer\GeneratorLibrary\bin\Debug\YamlDotNet.Core.dll
 P:\Programming\GitHub\LogFileAnalyzer\LogFileAnalyzer\GeneratorLibrary\bin\Debug\YamlDotNet.RepresentationModel.dll
-P:\Programming\GitHub\LogFileAnalyzer\LogFileAnalyzer\GeneratorLibrary\obj\Debug\GeneratorLibrary.csprojResolveAssemblyReference.cache
 P:\Programming\GitHub\LogFileAnalyzer\LogFileAnalyzer\GeneratorLibrary\obj\Debug\GeneratorLibrary.dll
 P:\Programming\GitHub\LogFileAnalyzer\LogFileAnalyzer\GeneratorLibrary\obj\Debug\GeneratorLibrary.pdb

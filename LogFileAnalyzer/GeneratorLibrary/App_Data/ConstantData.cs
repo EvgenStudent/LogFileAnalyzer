@@ -1,19 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Globalization;
-using System.Linq;
-using System.Xml;
+using Config;
+using GeneratorLibrary.Constant;
 using GeneratorLibrary.Model;
 
 namespace GeneratorLibrary.App_Data
 {
 	public class ConstantData : IData
 	{
-		private readonly string[] _keys =
-		{
-			"methods", "protocols", "fileExtensions", "versions", "codes",
-		};
-
 		private readonly List<ElementWithProbability<int>> _codes = new List<ElementWithProbability<int>>
 		{
 			#region Codes
@@ -129,25 +123,25 @@ namespace GeneratorLibrary.App_Data
 
 		public void SetProbability(StructureConfig config)
 		{
-			if (config.ContainsKey(_keys[4]))
+			if (config.ContainsKey(Keys.Codes))
 				foreach (ElementWithProbability<int> code in _codes)
-					code.Probability = config[_keys[4]].ContainsKey(code.Value.ToString(CultureInfo.InvariantCulture)) ? config[_keys[4]][code.Value.ToString(CultureInfo.InvariantCulture)] : 0;
+					code.Probability = config[Keys.Codes].ContainsKey(code.Value.ToString(CultureInfo.InvariantCulture)) ? config[Keys.Codes].CastValueToInt()[code.Value.ToString(CultureInfo.InvariantCulture)] : 0;
 
-			if (config.ContainsKey(_keys[0]))
+			if (config.ContainsKey(Keys.Methods))
 				foreach (ElementWithProbability<string> method in _requestLineParameters.Methods)
-					method.Probability = config[_keys[0]].ContainsKey(method.Value) ? config[_keys[0]][method.Value] : 0;
+					method.Probability = config[Keys.Methods].ContainsKey(method.Value) ? config[Keys.Methods].CastValueToInt()[method.Value] : 0;
 
-			if (config.ContainsKey(_keys[3]))
+			if (config.ContainsKey(Keys.Versions))
 				foreach (ElementWithProbability<string> version in _requestLineParameters.Versions)
-					version.Probability = config[_keys[3]].ContainsKey(version.Value) ? config[_keys[3]][version.Value] : 0;
+					version.Probability = config[Keys.Versions].ContainsKey(version.Value) ? config[Keys.Versions].CastValueToInt()[version.Value] : 0;
 
-			if (config.ContainsKey(_keys[1]))
+			if (config.ContainsKey(Keys.Protocols))
 				foreach (ElementWithProbability<string> protocol in _requestLineParameters.Protocols)
-					protocol.Probability = config[_keys[1]].ContainsKey(protocol.Value) ? config[_keys[1]][protocol.Value] : 0;
+					protocol.Probability = config[Keys.Protocols].ContainsKey(protocol.Value) ? config[Keys.Protocols].CastValueToInt()[protocol.Value] : 0;
 
-			if (config.ContainsKey(_keys[2]))
+			if (config.ContainsKey(Keys.FileExtensions))
 				foreach (ElementWithProbability<string> extension in _requestLineParameters.FileExtensions)
-					extension.Probability = config[_keys[2]].ContainsKey(extension.Value) ? config[_keys[2]][extension.Value] : 0;
+					extension.Probability = config[Keys.FileExtensions].ContainsKey(extension.Value) ? config[Keys.FileExtensions].CastValueToInt()[extension.Value] : 0;
 		}
 	}
 }

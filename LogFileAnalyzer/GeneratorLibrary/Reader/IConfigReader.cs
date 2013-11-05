@@ -1,4 +1,4 @@
-﻿using GeneratorLibrary.Model;
+﻿using Config;
 
 namespace GeneratorLibrary.Reader
 {

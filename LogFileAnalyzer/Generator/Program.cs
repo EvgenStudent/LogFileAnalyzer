@@ -1,4 +1,4 @@
-﻿using System;
+﻿using System.Configuration;
 using ConsoleCommandLibrary;
 using GeneratorLibrary;
 using GeneratorLibrary.ErrorView;
@@ -11,11 +11,10 @@ namespace Generator
 	{
 		static void Main(string[] args)
 		{
-			string pathProject = Environment.CurrentDirectory.Remove(Environment.CurrentDirectory.Length - 20);
 			try
 			{
 				var consoleParameters = new ConsoleParametrsParse(args);
-				IConfigReader configReader = new YamlConfigReader(pathProject + @"\Config.yaml");
+				IConfigReader configReader = new YamlConfigReader(ConfigurationManager.AppSettings.Get("pathConfigFile"));
 
 				var configParameters = configReader.Parameters;
 				bool tryConsoleParameters = consoleParameters.TryGetParameters();
@@ -23,7 +22,8 @@ namespace Generator
 				if (!tryConsoleParameters) 
 					throw new IncorrectParametersException(consoleParameters.ErrorParameters);
 
-				var generator = new LogFileGenerator(consoleParameters.Parameters, configParameters);
+				configParameters.JoinConfig(consoleParameters.Parameters);
+				var generator = new LogFileGenerator(configParameters);
 				generator.GenerateLogFile();
 			}
 			catch (GeneratorAppException exception)

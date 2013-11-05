@@ -2,6 +2,6 @@
 {
 	public interface IConverter<out T>
 	{
-		T Convert();
+		T Convert(string record);
 	}
 }

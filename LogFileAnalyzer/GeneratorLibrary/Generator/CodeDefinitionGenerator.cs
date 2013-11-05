@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using GeneratorLibrary.Model;
-using GeneratorLibrary.PartsRecord;
+using PartsRecord;
 using GeneratorLibrary.Random;
 
 namespace GeneratorLibrary.Generator

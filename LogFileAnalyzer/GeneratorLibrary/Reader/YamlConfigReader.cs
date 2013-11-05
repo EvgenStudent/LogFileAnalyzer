@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using Config;
 using GeneratorLibrary.Exceptions;
-using GeneratorLibrary.Model;
 using YamlDotNet.Core;
 using YamlDotNet.RepresentationModel;
 
@@ -20,13 +20,13 @@ namespace GeneratorLibrary.Reader
 			{
 				var mapping = (YamlMappingNode)_yamlStream.Documents[0].RootNode;
 				var keys = mapping.Children.Keys;
-				IDictionary<string, IDictionary<string, int>> dictionary = new Dictionary<string, IDictionary<string, int>>(StringComparer.InvariantCultureIgnoreCase);
-				IDictionary<string, int> tempDictionary;
+				var dictionary = new Dictionary<string, IDictionary<string, string>>(StringComparer.InvariantCultureIgnoreCase);
+				Dictionary<string, string> tempDictionary;
 
 				foreach (YamlNode key in keys)
 				{
 					var parameters = (YamlMappingNode)mapping.Children[new YamlScalarNode(key.ToString())];
-					tempDictionary = parameters.ToDictionary(pair => pair.Key.ToString(), pair => Convert.ToInt32(pair.Value.ToString()), StringComparer.InvariantCultureIgnoreCase);
+					tempDictionary = parameters.ToDictionary(pair => pair.Key.ToString(), pair => pair.Value.ToString(), StringComparer.InvariantCultureIgnoreCase);
 					dictionary.Add(key.ToString(), tempDictionary);
 				}
 				return new StructureConfig(dictionary);

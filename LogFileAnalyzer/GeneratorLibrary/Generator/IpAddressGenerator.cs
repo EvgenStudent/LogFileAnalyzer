@@ -1,5 +1,5 @@
 ﻿using System;
-using GeneratorLibrary.PartsRecord;
+using PartsRecord;
 using GeneratorLibrary.Random;
 
 namespace GeneratorLibrary.Generator

@@ -1,19 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using AnalyzerLibrary.Constant;
 using AnalyzerLibrary.Reader;
+using Config;
 
 namespace AnalyzerLibrary
 {
     public class LogFileAnalyzer
     {
-		private readonly string[] _keys = { "logFileName", "resultFileName" };
-        private readonly IDictionary<string, string> _consoleParameters;
+		private readonly IDictionary<string, string> _consoleParameters;
 	    private LogFileStructure _logFileStructure;
+	    private StructureConfig _config;
 
-        public LogFileAnalyzer(IReader reader, IDictionary<string, string> consoleParameters)
+        public LogFileAnalyzer(IReader reader, StructureConfig config)
         {
-            _consoleParameters = consoleParameters;
-			_logFileStructure = new LogFileStructure(reader.Read(_consoleParameters[_keys[0]]));
+	        _config = config;
+			_logFileStructure = new LogFileStructure(reader.Read(_consoleParameters[Keys.LogFileName]));
         }
     }
 }

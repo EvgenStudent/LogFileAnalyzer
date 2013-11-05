@@ -30,6 +30,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Config">
+      <HintPath>..\lib\Config.dll</HintPath>
+    </Reference>
+    <Reference Include="PartsRecord">
+      <HintPath>..\lib\PartsRecord.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -39,23 +45,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Repository\ConvertersRepository.cs" />
+    <Compile Include="Constant\Keys.cs" />
+    <Compile Include="Converter\CodeDefinitionConverter.cs" />
     <Compile Include="Converter\DateConverter.cs" />
+    <Compile Include="Converter\FileSizeConverter.cs" />
+    <Compile Include="Converter\HyphenConverter.cs" />
     <Compile Include="Converter\IConverter.cs" />
     <Compile Include="Converter\IpAddressConverter.cs" />
+    <Compile Include="Converter\RequestLineConverter.cs" />
+    <Compile Include="Converter\UserIdConverter.cs" />
     <Compile Include="LogFileAnalyzer.cs" />
     <Compile Include="LogFileStructure.cs" />
-    <Compile Include="PartsRecord\CodeDefinition.cs" />
-    <Compile Include="PartsRecord\Date.cs" />
-    <Compile Include="PartsRecord\FileSize.cs" />
-    <Compile Include="PartsRecord\Hyphen.cs" />
-    <Compile Include="PartsRecord\IpAddress.cs" />
-    <Compile Include="PartsRecord\RequestLine.cs" />
-    <Compile Include="PartsRecord\UserId.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Reader\IReader.cs" />
     <Compile Include="Reader\LogReader.cs" />
-    <Compile Include="Repository\ElementRepository.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
