@@ -3,6 +3,7 @@ using GeneratorLibrary.App_Data;
 using GeneratorLibrary.Generator;
 using GeneratorLibrary.Model;
 using GeneratorLibrary.Random;
+using PartsRecord;
 
 namespace GeneratorLibrary
 {

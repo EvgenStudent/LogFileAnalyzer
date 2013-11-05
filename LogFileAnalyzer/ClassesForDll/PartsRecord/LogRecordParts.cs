@@ -1,6 +1,4 @@
-﻿using PartsRecord;
-
-namespace GeneratorLibrary.Model
+﻿namespace PartsRecord
 {
 	public class LogRecordParts
 	{

@@ -7,7 +7,7 @@ namespace AnalyzerLibrary.Converter
 	{
 		public UserId Convert(string record)
 		{
-			throw new NotImplementedException();
+			return new UserId(int.Parse(record));
 		}
 	}
 }

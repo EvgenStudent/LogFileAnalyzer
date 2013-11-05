@@ -1,18 +1,18 @@
-﻿using AnalyzerLibrary.Constant;
+﻿using System.Collections.Generic;
+using AnalyzerLibrary.Constant;
 using AnalyzerLibrary.Reader;
 using Config;
+using PartsRecord;
 
 namespace AnalyzerLibrary
 {
     public class LogFileAnalyzer
     {
-		private LogFileStructure _logFileStructure;
-	    private StructureConfig _config;
+	    private readonly List<LogRecordParts> _logRecords; 
 
         public LogFileAnalyzer(IReader reader, StructureConfig config)
         {
-	        _config = config;
-			_logFileStructure = new LogFileStructure(reader.Read(_config[Keys.ConsoleParameters][Keys.LogFileName]));
+	        _logRecords = (new LogFileStructure(reader.Read(config[Keys.ConsoleParameters][Keys.LogFileName]))).LogRecords;
         }
     }
 }

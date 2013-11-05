@@ -1,4 +1,6 @@
-﻿using PartsRecord;
+﻿using System;
+using System.Globalization;
+using PartsRecord;
 
 namespace AnalyzerLibrary.Converter
 {
@@ -6,6 +8,8 @@ namespace AnalyzerLibrary.Converter
 	{
 		public Date Convert(string record)
 		{
+			DateTime dateTime = DateTime.ParseExact(record, "[dd/MMM/yyyy:hh:mm:ss zzz]", CultureInfo.InstalledUICulture);
+			
 			throw new System.NotImplementedException();
 		}
 	}

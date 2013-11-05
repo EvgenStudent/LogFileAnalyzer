@@ -7,7 +7,7 @@ namespace AnalyzerLibrary.Converter
 	{
 		public Hyphen Convert(string record)
 		{
-			throw new NotImplementedException();
+			return new Hyphen(record.ToCharArray()[0]);
 		}
 	}
 }

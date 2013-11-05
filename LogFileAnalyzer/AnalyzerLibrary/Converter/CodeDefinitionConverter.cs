@@ -8,7 +8,7 @@ namespace AnalyzerLibrary.Converter
 	{
 		public CodeDefinition Convert(string record)
 		{
-			throw new NotImplementedException();
+			return new CodeDefinition(int.Parse(record));
 		}
 	}
 }

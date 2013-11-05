@@ -1,14 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text.RegularExpressions;
 using AnalyzerLibrary.Converter;
+using PartsRecord;
 
 namespace AnalyzerLibrary
 {
 	public class LogFileStructure
 	{
-		private readonly string[] _records;
+		public List<LogRecordParts> LogRecords { get; private set; } 
 
 		private readonly IpAddressConverter _ipAddressConverter = new IpAddressConverter();
 		private readonly HyphenConverter _hyphenConverter = new HyphenConverter();
@@ -18,22 +18,30 @@ namespace AnalyzerLibrary
 		private readonly CodeDefinitionConverter _codeDefinitionConverter = new CodeDefinitionConverter();
 		private readonly FileSizeConverter _fileSizeConverter = new FileSizeConverter();
 		
-		public LogFileStructure(string[] records)
+		public LogFileStructure(IEnumerable<string> records)
 		{
-			_records = records;
+			LogRecords = new List<LogRecordParts>();
 			string[] recordParts;
 			foreach (var record in records)
 			{
 				recordParts = ParseRecord(record);
-
-				_ipAddressConverter.Convert(recordParts[0]);
-				_hyphenConverter.Convert(recordParts[1]);
-				_userIdConverter.Convert(recordParts[2]);
-				_dateConverter.Convert(recordParts[3]);
-				_requestLineConverter.Convert(recordParts[4]);
-				_codeDefinitionConverter.Convert(recordParts[5]);
-				_fileSizeConverter.Convert(recordParts[6]);
+				LogRecords.Add(GetLogRecord(recordParts));
 			}
+		}
+
+		private LogRecordParts GetLogRecord(IList<string> recordParts)
+		{
+			var logrecord = new LogRecordParts
+			{
+				IpAddress = _ipAddressConverter.Convert(recordParts[0]),
+				Hyphen = _hyphenConverter.Convert(recordParts[1]),
+				UserId = _userIdConverter.Convert(recordParts[2]),
+				Date = _dateConverter.Convert(recordParts[3]),
+				RequestLine = _requestLineConverter.Convert(recordParts[4]),
+				CodeDefinition = _codeDefinitionConverter.Convert(recordParts[5]),
+				FileSize = _fileSizeConverter.Convert(recordParts[6])
+			};
+			return logrecord;
 		}
 
 		private string[] ParseRecord(string record)

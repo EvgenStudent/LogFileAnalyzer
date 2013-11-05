@@ -7,7 +7,7 @@ namespace AnalyzerLibrary.Converter
 	{
 		public FileSize Convert(string record)
 		{
-			throw new NotImplementedException();
+			return new FileSize(int.Parse(record));
 		}
 	}
 }

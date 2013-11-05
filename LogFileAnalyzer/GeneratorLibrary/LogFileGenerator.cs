@@ -1,9 +1,8 @@
-﻿using System.Collections.Generic;
-using Config;
+﻿using Config;
 using GeneratorLibrary.Constant;
 using GeneratorLibrary.Converter;
-using GeneratorLibrary.Model;
 using GeneratorLibrary.Writer;
+using PartsRecord;
 
 namespace GeneratorLibrary
 {

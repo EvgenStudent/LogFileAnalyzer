@@ -1,4 +1,5 @@
-﻿using PartsRecord;
+﻿using System.Linq;
+using PartsRecord;
 
 namespace AnalyzerLibrary.Converter
 {
@@ -6,7 +7,8 @@ namespace AnalyzerLibrary.Converter
 	{
 		public IpAddress Convert(string record)
 		{
-			throw new System.NotImplementedException();
+			var ip = record.Split(new[] { '.' }).Select(x => System.Convert.ToByte(x)).ToArray();
+			return new IpAddress(ip[0], ip[1], ip[2], ip[3]);
 		}
 	}
 }

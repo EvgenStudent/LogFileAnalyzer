@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Text;
 using GeneratorLibrary.Model;
+using PartsRecord;
 
 namespace GeneratorLibrary.Converter
 {

@@ -1,4 +1,4 @@
-﻿namespace GeneratorLibrary.PartsRecord
+﻿namespace PartsRecord
 {
 	public struct UserId
 	{
