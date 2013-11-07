@@ -1,7 +1,6 @@
-﻿using System;
-using PartsRecord;
+﻿using PartsRecord;
 
-namespace AnalyzerLibrary.Converter
+namespace AnalyzerLibrary.ConverterInput
 {
 	public class HyphenConverter : IConverter<Hyphen>
 	{

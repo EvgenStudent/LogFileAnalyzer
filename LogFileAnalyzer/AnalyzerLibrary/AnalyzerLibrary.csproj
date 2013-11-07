@@ -45,21 +45,34 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Comparer\IpAddressComparer.cs" />
     <Compile Include="Constant\Keys.cs" />
-    <Compile Include="Converter\CodeDefinitionConverter.cs" />
-    <Compile Include="Converter\DateConverter.cs" />
-    <Compile Include="Converter\FileSizeConverter.cs" />
-    <Compile Include="Converter\HyphenConverter.cs" />
-    <Compile Include="Converter\IConverter.cs" />
-    <Compile Include="Converter\IpAddressConverter.cs" />
-    <Compile Include="Converter\RequestLineConverter.cs" />
-    <Compile Include="Converter\UserIdConverter.cs" />
+    <Compile Include="ConverterInput\CodeDefinitionConverter.cs" />
+    <Compile Include="ConverterInput\DateConverter.cs" />
+    <Compile Include="ConverterInput\FileSizeConverter.cs" />
+    <Compile Include="ConverterInput\HyphenConverter.cs" />
+    <Compile Include="ConverterInput\IConverter.cs" />
+    <Compile Include="ConverterInput\IpAddressConverter.cs" />
+    <Compile Include="ConverterInput\RequestLineConverter.cs" />
+    <Compile Include="ConverterInput\UserIdConverter.cs" />
+    <Compile Include="ConverterOutput\CodeDefinitionConverter.cs" />
+    <Compile Include="ConverterOutput\ConvertToString.cs" />
+    <Compile Include="ConverterOutput\DateConverter.cs" />
+    <Compile Include="ConverterOutput\FileSizeConverter.cs" />
+    <Compile Include="ConverterOutput\HyphenConverter.cs" />
+    <Compile Include="ConverterOutput\IConverter.cs" />
+    <Compile Include="ConverterOutput\IpAddressConverter.cs" />
+    <Compile Include="ConverterOutput\RequestLineConverter.cs" />
+    <Compile Include="ConverterOutput\UserIdConverter.cs" />
     <Compile Include="LogFileAnalyzer.cs" />
     <Compile Include="LogFileStructure.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Reader\IReader.cs" />
     <Compile Include="Reader\LogReader.cs" />
+    <Compile Include="Writer\IWriter.cs" />
+    <Compile Include="Writer\LogStringWriter.cs" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

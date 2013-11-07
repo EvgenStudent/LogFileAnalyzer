@@ -1,8 +1,6 @@
-﻿using System;
-using System.Globalization;
-using PartsRecord;
+﻿using PartsRecord;
 
-namespace AnalyzerLibrary.Converter
+namespace AnalyzerLibrary.ConverterInput
 {
 	public class CodeDefinitionConverter : IConverter<CodeDefinition>
 	{

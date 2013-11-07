@@ -11,7 +11,8 @@
 		public const string FileExtensions = "fileExtensions";
 		public const string Versions = "versions";
 		public const string Codes = "codes";
+
+		public const string Ip = "ip";
+		public const string UniqueIp = "unique";
 	}
 }
-
-// "methods", "protocols", "fileExtensions", "versions", "codes",

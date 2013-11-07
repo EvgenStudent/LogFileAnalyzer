@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System;
 using AnalyzerLibrary;
 using AnalyzerLibrary.Reader;
 using ConsoleCommandLibrary;
@@ -17,8 +15,9 @@ namespace Analyzer
 			if (tryConsoleParameters)
 			{
 				IReader reader = new LogReader();
-				var analyzer = new LogFileAnalyzer(reader, consoleParameters.Parameters);
-
+				var analyzer = new LogFileAnalyzer(consoleParameters.Parameters, reader);
+				//analyzer.FindByDate(new DateTime(2011, 4, 23, 10, 52, 14), new DateTime(2011, 5, 2, 07, 28, 04));
+				analyzer.FindByUniqueIp();
 			}
 		}
 	}

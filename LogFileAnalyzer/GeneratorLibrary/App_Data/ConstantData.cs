@@ -116,13 +116,27 @@ namespace GeneratorLibrary.App_Data
 			get { return _codes; }
 		}
 
+		public ElementWithProbability<int> UniqueIpCount { get; private set; }
+
 		public RequestLineParameters RequestLineParameters
 		{
 			get { return _requestLineParameters; }
 		}
 
+		public ConstantData()
+		{
+			UniqueIpCount = new ElementWithProbability<int>(0, 0);
+		}
+
 		public void SetProbability(StructureConfig config)
 		{
+			if (config.ContainsKey(Keys.Ip))
+				if (config[Keys.Ip].ContainsKey(Keys.UniqueIp))
+				{
+					UniqueIpCount.Value = int.Parse(config[Keys.Ip][Keys.UniqueIp]);
+					UniqueIpCount.Probability = 1;
+				}
+
 			if (config.ContainsKey(Keys.Codes))
 				foreach (ElementWithProbability<int> code in _codes)
 					code.Probability = config[Keys.Codes].ContainsKey(code.Value.ToString(CultureInfo.InvariantCulture)) ? config[Keys.Codes].CastValueToInt()[code.Value.ToString(CultureInfo.InvariantCulture)] : 0;

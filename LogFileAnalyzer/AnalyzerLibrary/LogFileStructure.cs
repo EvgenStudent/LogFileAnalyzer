@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
-using AnalyzerLibrary.Converter;
+using AnalyzerLibrary.ConverterInput;
 using PartsRecord;
 
 namespace AnalyzerLibrary

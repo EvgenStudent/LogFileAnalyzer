@@ -22,7 +22,7 @@ namespace GeneratorLibrary
 
 		public LogRecordTemplate()
 		{
-			_ipAddressGenerator = new IpAddressGenerator(_random);
+			_ipAddressGenerator = new IpAddressGenerator(_random, _data.UniqueIpCount);
 			_hyphenGenerator = new HyphenGenerator();
 			_userIdGenerator = new UserIdGenerator(_random);
 			_dateGenerator = new DateGenerator(_random);

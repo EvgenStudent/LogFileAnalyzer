@@ -1,4 +1,4 @@
-﻿namespace AnalyzerLibrary.Converter
+﻿namespace AnalyzerLibrary.ConverterInput
 {
 	public interface IConverter<out T>
 	{

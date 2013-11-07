@@ -1,7 +1,7 @@
 ﻿using System.Linq;
 using PartsRecord;
 
-namespace AnalyzerLibrary.Converter
+namespace AnalyzerLibrary.ConverterInput
 {
 	public class IpAddressConverter : IConverter<IpAddress>
 	{
