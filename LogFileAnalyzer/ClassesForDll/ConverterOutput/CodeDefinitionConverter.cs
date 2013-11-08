@@ -1,7 +1,7 @@
 ﻿using System.Globalization;
 using PartsRecord;
 
-namespace AnalyzerLibrary.ConverterOutput
+namespace ConverterOutput
 {
 	public class CodeDefinitionConverter : IConverter<string>
 	{

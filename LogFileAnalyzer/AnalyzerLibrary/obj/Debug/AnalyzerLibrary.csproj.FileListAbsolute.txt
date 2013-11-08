@@ -5,3 +5,4 @@ P:\Programming\GitHub\LogFileAnalyzer\LogFileAnalyzer\AnalyzerLibrary\obj\Debug\
 P:\Programming\GitHub\LogFileAnalyzer\LogFileAnalyzer\AnalyzerLibrary\obj\Debug\AnalyzerLibrary.pdb
 P:\Programming\GitHub\LogFileAnalyzer\LogFileAnalyzer\AnalyzerLibrary\bin\Debug\Config.dll
 P:\Programming\GitHub\LogFileAnalyzer\LogFileAnalyzer\AnalyzerLibrary\obj\Debug\AnalyzerLibrary.csprojResolveAssemblyReference.cache
+P:\Programming\GitHub\LogFileAnalyzer\LogFileAnalyzer\AnalyzerLibrary\bin\Debug\ConverterOutput.dll

@@ -1,6 +1,6 @@
 ﻿using PartsRecord;
 
-namespace GeneratorLibrary.Converter
+namespace ConverterOutput
 {
 	public class RequestLineConverter : IConverter<string>
 	{

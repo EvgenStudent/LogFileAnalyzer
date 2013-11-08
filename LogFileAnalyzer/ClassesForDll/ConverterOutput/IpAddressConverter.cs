@@ -1,8 +1,7 @@
-﻿using System;
-using System.Text;
+﻿using ConverterOutput;
 using PartsRecord;
 
-namespace GeneratorLibrary.Converter
+namespace ConverterOutput
 {
 	public class IpAddressConverter : IConverter<string>
 	{

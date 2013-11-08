@@ -1,7 +1,7 @@
 ﻿using System.Globalization;
 using PartsRecord;
 
-namespace GeneratorLibrary.Converter
+namespace ConverterOutput
 {
 	public class FileSizeConverter : IConverter<string>
 	{

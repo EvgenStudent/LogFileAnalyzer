@@ -31,9 +31,15 @@ namespace GeneratorLibrary
 			_fileSizeGenerator = new FileSizeGenerator(_random);
 		}
 		public LogRecordTemplate(StructureConfig configParameters)
-			: this()
 		{
 			_data.SetProbability(configParameters);
+			_ipAddressGenerator = new IpAddressGenerator(_random, _data.UniqueIpCount);
+			_hyphenGenerator = new HyphenGenerator();
+			_userIdGenerator = new UserIdGenerator(_random);
+			_dateGenerator = new DateGenerator(_random);
+			_requestLineGenerator = new RequestLineGenerator(_random, _data.RequestLineParameters);
+			_codeDefinitionGenerator = new CodeDefinitionGenerator(_random, _data.Codes);
+			_fileSizeGenerator = new FileSizeGenerator(_random);
 		}
 
 		public LogRecordParts GenerateRecord()

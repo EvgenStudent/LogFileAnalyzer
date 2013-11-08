@@ -24,3 +24,4 @@ P:\Programming\GitHub\LogFileAnalyzer\LogFileAnalyzer\Generator\bin\Debug\Consol
 P:\Programming\GitHub\LogFileAnalyzer\LogFileAnalyzer\Generator\bin\Debug\GeneratorLibrary.pdb
 P:\Programming\GitHub\LogFileAnalyzer\LogFileAnalyzer\Generator\obj\Debug\Generator.exe
 P:\Programming\GitHub\LogFileAnalyzer\LogFileAnalyzer\Generator\obj\Debug\Generator.pdb
+P:\Programming\GitHub\LogFileAnalyzer\LogFileAnalyzer\Generator\bin\Debug\ConverterOutput.dll

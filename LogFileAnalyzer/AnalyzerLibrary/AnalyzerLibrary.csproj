@@ -33,6 +33,9 @@
     <Reference Include="Config">
       <HintPath>..\lib\Config.dll</HintPath>
     </Reference>
+    <Reference Include="ConverterOutput">
+      <HintPath>..\lib\ConverterOutput.dll</HintPath>
+    </Reference>
     <Reference Include="PartsRecord">
       <HintPath>..\lib\PartsRecord.dll</HintPath>
     </Reference>
@@ -55,15 +58,7 @@
     <Compile Include="ConverterInput\IpAddressConverter.cs" />
     <Compile Include="ConverterInput\RequestLineConverter.cs" />
     <Compile Include="ConverterInput\UserIdConverter.cs" />
-    <Compile Include="ConverterOutput\CodeDefinitionConverter.cs" />
     <Compile Include="ConverterOutput\ConvertToString.cs" />
-    <Compile Include="ConverterOutput\DateConverter.cs" />
-    <Compile Include="ConverterOutput\FileSizeConverter.cs" />
-    <Compile Include="ConverterOutput\HyphenConverter.cs" />
-    <Compile Include="ConverterOutput\IConverter.cs" />
-    <Compile Include="ConverterOutput\IpAddressConverter.cs" />
-    <Compile Include="ConverterOutput\RequestLineConverter.cs" />
-    <Compile Include="ConverterOutput\UserIdConverter.cs" />
     <Compile Include="LogFileAnalyzer.cs" />
     <Compile Include="LogFileStructure.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

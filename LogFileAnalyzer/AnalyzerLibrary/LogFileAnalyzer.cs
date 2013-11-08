@@ -52,12 +52,25 @@ namespace AnalyzerLibrary
 					file.Write(string.Join(" ", partsRecord));
 				}
 			}
-			throw new NotImplementedException();
 	    }
 
 	    public void CodeStatistics()
 	    {
-		    throw new NotImplementedException();
+			var codesCount = new Dictionary<int, int>();
+		    foreach (var logRecord in _logRecords)
+		    {
+			    if (codesCount.ContainsKey(logRecord.CodeDefinition.Code))
+				    codesCount[logRecord.CodeDefinition.Code]++;
+				else
+					codesCount.Add(logRecord.CodeDefinition.Code, 1);
+		    }
+		    int count = codesCount.Sum(x => x.Value);
+
+			using (var file = new LogStringWriter(_path))
+			{
+				foreach (var pair in codesCount)
+					file.Write(pair.Key + " - " + Math.Round((double)pair.Value / count, 2) + "%");
+			}
 	    }
     }
 }

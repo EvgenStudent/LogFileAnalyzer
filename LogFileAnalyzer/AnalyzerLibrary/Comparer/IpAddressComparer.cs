@@ -18,10 +18,7 @@ namespace AnalyzerLibrary.Comparer
 		public int GetHashCode(LogRecordParts obj)
 		{
 			int hashIp = (obj.IpAddress.A + "." + obj.IpAddress.B + "." + obj.IpAddress.C + "." + obj.IpAddress.D).GetHashCode();
-
-			int hashUserId = obj.UserId.Id.GetHashCode();
-
-			return hashIp ^ hashUserId;
+			return hashIp;
 		}
 	}
 }

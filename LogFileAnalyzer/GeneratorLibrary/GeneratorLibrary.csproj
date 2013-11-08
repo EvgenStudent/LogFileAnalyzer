@@ -33,6 +33,9 @@
     <Reference Include="Config">
       <HintPath>..\lib\Config.dll</HintPath>
     </Reference>
+    <Reference Include="ConverterOutput">
+      <HintPath>..\lib\ConverterOutput.dll</HintPath>
+    </Reference>
     <Reference Include="PartsRecord">
       <HintPath>..\lib\PartsRecord.dll</HintPath>
     </Reference>
@@ -52,17 +55,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Constant\Keys.cs" />
-    <Compile Include="Converter\CodeDefinitionConverter.cs" />
-    <Compile Include="Converter\ConvertToString.cs" />
-    <Compile Include="Converter\DateConverter.cs" />
-    <Compile Include="Converter\FileSizeConverter.cs" />
-    <Compile Include="Converter\HyphenConverter.cs" />
-    <Compile Include="Converter\IConverter.cs" />
-    <Compile Include="Converter\IpAddressConverter.cs" />
     <Compile Include="App_Data\ConstantData.cs" />
     <Compile Include="App_Data\IData.cs" />
-    <Compile Include="Converter\RequestLineConverter.cs" />
-    <Compile Include="Converter\UserIdConverter.cs" />
+    <Compile Include="Converter\ConvertToString.cs" />
     <Compile Include="ErrorView\ConsoleErrorView.cs" />
     <Compile Include="ErrorView\IErrorView.cs" />
     <Compile Include="Exception\DataSourseException.cs" />
