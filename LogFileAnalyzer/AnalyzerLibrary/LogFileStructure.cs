@@ -8,26 +8,26 @@ namespace AnalyzerLibrary
 {
 	public class LogFileStructure
 	{
-		public List<LogRecordParts> LogRecords { get; private set; } 
-
-		private readonly IpAddressConverter _ipAddressConverter = new IpAddressConverter();
-		private readonly HyphenConverter _hyphenConverter = new HyphenConverter();
-		private readonly UserIdConverter _userIdConverter = new UserIdConverter();
-		private readonly DateConverter _dateConverter = new DateConverter();
-		private readonly RequestLineConverter _requestLineConverter = new RequestLineConverter();
 		private readonly CodeDefinitionConverter _codeDefinitionConverter = new CodeDefinitionConverter();
+		private readonly DateConverter _dateConverter = new DateConverter();
 		private readonly FileSizeConverter _fileSizeConverter = new FileSizeConverter();
-		
+		private readonly HyphenConverter _hyphenConverter = new HyphenConverter();
+		private readonly IpAddressConverter _ipAddressConverter = new IpAddressConverter();
+		private readonly RequestLineConverter _requestLineConverter = new RequestLineConverter();
+		private readonly UserIdConverter _userIdConverter = new UserIdConverter();
+
 		public LogFileStructure(IEnumerable<string> records)
 		{
 			LogRecords = new List<LogRecordParts>();
 			string[] recordParts;
-			foreach (var record in records)
+			foreach (string record in records)
 			{
 				recordParts = ParseRecord(record);
 				LogRecords.Add(GetLogRecord(recordParts));
 			}
 		}
+
+		public List<LogRecordParts> LogRecords { get; private set; }
 
 		private LogRecordParts GetLogRecord(IList<string> recordParts)
 		{
@@ -52,10 +52,10 @@ namespace AnalyzerLibrary
 			record = record.Replace("[" + date + "]", "");
 			record = record.Replace("\"" + requestLine + "\"", "");
 
-			var partsRecord = new List<string>(record.Split(new[] { " " }, StringSplitOptions.RemoveEmptyEntries));
+			var partsRecord = new List<string>(record.Split(new[] {" "}, StringSplitOptions.RemoveEmptyEntries));
 			partsRecord.Insert(3, date);
 			partsRecord.Insert(4, requestLine);
-			
+
 			return partsRecord.ToArray();
 		}
 	}

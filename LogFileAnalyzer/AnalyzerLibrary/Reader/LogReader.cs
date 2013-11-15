@@ -12,7 +12,7 @@ namespace AnalyzerLibrary.Reader
 			IList<string> logRecords = new List<string>();
 			using (var file = new StreamReader(path, Encoding.UTF8))
 			{
-				for ( ; file.Peek() != -1; )
+				for (; file.Peek() != -1;)
 					logRecords.Add(file.ReadLine());
 			}
 			return logRecords.ToArray();

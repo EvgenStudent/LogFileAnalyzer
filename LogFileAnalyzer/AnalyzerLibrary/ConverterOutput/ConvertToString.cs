@@ -6,10 +6,10 @@ using PartsRecord;
 
 namespace AnalyzerLibrary.ConverterOutput
 {
-	public class ConvertToString
+	public class ConvertToString : IConverterTo<string>
 	{
-		private List<IConverter<string>> listConverter;
 		private StringBuilder _stringBuilder;
+		private List<IConverter<string>> listConverter;
 
 		public List<string> Convert(LogRecordParts recordParts)
 		{

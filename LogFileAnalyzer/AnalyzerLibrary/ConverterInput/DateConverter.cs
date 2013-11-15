@@ -9,7 +9,7 @@ namespace AnalyzerLibrary.ConverterInput
 		public Date Convert(string record)
 		{
 			DateTime dateTime = DateTime.ParseExact(record, "dd/MMM/yyyy:hh:mm:ss zzz", CultureInfo.InstalledUICulture);
-			return new Date(dateTime);	
+			return new Date(dateTime);
 		}
 	}
 }

@@ -1,76 +1,71 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using AnalyzerLibrary.Comparer;
 using AnalyzerLibrary.Constant;
 using AnalyzerLibrary.ConverterOutput;
+using AnalyzerLibrary.Entities;
 using AnalyzerLibrary.Reader;
+using AnalyzerLibrary.Reports;
 using AnalyzerLibrary.Writer;
 using Config;
 using PartsRecord;
 
 namespace AnalyzerLibrary
 {
-    public class LogFileAnalyzer
-    {
-	    private readonly List<LogRecordParts> _logRecords;
-		private readonly ConvertToString _convertToString = new ConvertToString();
-	    private readonly string _path;
+	public class LogFileAnalyzer
+	{
+		private readonly StructureConfig _config;
+		private readonly IConverterTo<string> _convertToString = new ConvertToString();
+		private readonly List<LogRecordParts> _logRecords;
+		private readonly string _path;
+		private readonly ReportRepository<string> _reportRepository;
 
-        public LogFileAnalyzer(StructureConfig config, IReader reader)
-        {
-	        _path = config[Keys.ConsoleParameters][Keys.ResultFileName];
-	        _logRecords = (new LogFileStructure(reader.Read(config[Keys.ConsoleParameters][Keys.LogFileName]))).LogRecords;
-        }
-
-		public void FindByDate(DateTime? min = null, DateTime? max = null)
+		public LogFileAnalyzer(StructureConfig config, IReader reader)
 		{
-			if (min == null) min = DateTime.MinValue;
-			if (max == null) max = DateTime.MaxValue;
+			_config = config;
+			_path = config[Keys.Console.ConsoleParameters][Keys.Console.ResultFileName];
+			_logRecords = (new LogFileStructure(reader.Read(config[Keys.Console.ConsoleParameters][Keys.Console.LogFileName]))).LogRecords;
 
-			var findResult = _logRecords.Where(x => x.Date.DateNow >= min & x.Date.DateNow <= max).ToList();
+			_reportRepository = new ReportRepository<string>(CreateReportRepository());
+		}
 
-			using (var file = new LogStringWriter(_path))
+		public void CreateReport()
+		{
+			try
 			{
-				foreach (var record in findResult)
+				IReport<string> reportFunc = _reportRepository.GetReport(_config[Keys.Console.ConsoleParameters][Keys.Console.Report]);
+				Report<string> report = reportFunc.GetReport();
+
+				using (var file = new LogStringWriter(_config[Keys.Console.ConsoleParameters][Keys.Console.ResultFileName]))
 				{
-					var partsRecord = _convertToString.Convert(record);
-					file.Write(string.Join(" ", partsRecord));
+					foreach (string element in report.Structure)
+						file.Write(element);
 				}
+			}
+			catch (Exception exception)
+			{
+				throw new NotImplementedException();
 			}
 		}
 
-	    public void FindByUniqueIp()
-	    {
-		    var findResult = _logRecords.Distinct(new IpAddressComparer()).ToList();
-
-			using (var file = new LogStringWriter(_path))
+		private ReportParameters CreateReportRepository()
+		{
+			var optionalParams = new Dictionary<string, object>
 			{
-				foreach (var record in findResult)
 				{
-					var partsRecord = _convertToString.Convert(record);
-					file.Write(string.Join(" ", partsRecord));
+					Keys.Reports.Date + Keys.Reports.Min,
+					_config[Keys.Console.ConsoleParameters].ContainsKey(Keys.Reports.Min)
+						? DateTime.Parse(_config[Keys.Console.ConsoleParameters][Keys.Reports.Min])
+						: DateTime.MinValue.ToShortDateString()
+				},
+				{
+					Keys.Reports.Date + Keys.Reports.Max,
+					_config[Keys.Console.ConsoleParameters].ContainsKey(Keys.Reports.Max)
+						? _config[Keys.Console.ConsoleParameters][Keys.Reports.Max]
+						: DateTime.MaxValue.ToShortDateString()
 				}
-			}
-	    }
-
-	    public void CodeStatistics()
-	    {
-			var codesCount = new Dictionary<int, int>();
-		    foreach (var logRecord in _logRecords)
-		    {
-			    if (codesCount.ContainsKey(logRecord.CodeDefinition.Code))
-				    codesCount[logRecord.CodeDefinition.Code]++;
-				else
-					codesCount.Add(logRecord.CodeDefinition.Code, 1);
-		    }
-		    int count = codesCount.Sum(x => x.Value);
-
-			using (var file = new LogStringWriter(_path))
-			{
-				foreach (var pair in codesCount)
-					file.Write(pair.Key + " - " + Math.Round((double)pair.Value / count, 2) + "%");
-			}
-	    }
-    }
+			};
+			var reportParameters = new ReportParameters(_logRecords, _convertToString, optionalParams);
+			return reportParameters;
+		}
+	}
 }

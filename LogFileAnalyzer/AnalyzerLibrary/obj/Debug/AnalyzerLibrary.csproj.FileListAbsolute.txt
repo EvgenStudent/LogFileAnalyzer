@@ -6,3 +6,11 @@ P:\Programming\GitHub\LogFileAnalyzer\LogFileAnalyzer\AnalyzerLibrary\obj\Debug\
 P:\Programming\GitHub\LogFileAnalyzer\LogFileAnalyzer\AnalyzerLibrary\bin\Debug\Config.dll
 P:\Programming\GitHub\LogFileAnalyzer\LogFileAnalyzer\AnalyzerLibrary\obj\Debug\AnalyzerLibrary.csprojResolveAssemblyReference.cache
 P:\Programming\GitHub\LogFileAnalyzer\LogFileAnalyzer\AnalyzerLibrary\bin\Debug\ConverterOutput.dll
+F:\LogFileAnalyzer\AnalyzerLibrary\bin\Debug\AnalyzerLibrary.dll
+F:\LogFileAnalyzer\AnalyzerLibrary\bin\Debug\AnalyzerLibrary.pdb
+F:\LogFileAnalyzer\AnalyzerLibrary\bin\Debug\Config.dll
+F:\LogFileAnalyzer\AnalyzerLibrary\bin\Debug\ConverterOutput.dll
+F:\LogFileAnalyzer\AnalyzerLibrary\bin\Debug\PartsRecord.dll
+F:\LogFileAnalyzer\AnalyzerLibrary\obj\Debug\AnalyzerLibrary.csprojResolveAssemblyReference.cache
+F:\LogFileAnalyzer\AnalyzerLibrary\obj\Debug\AnalyzerLibrary.dll
+F:\LogFileAnalyzer\AnalyzerLibrary\obj\Debug\AnalyzerLibrary.pdb

@@ -10,46 +10,30 @@ namespace GeneratorLibrary.Generator
 	{
 		private readonly RandomWithProbability _random;
 		private List<IpAddress> uniqueIpList;
-		private readonly bool match;
 		private IpAddress oneIp;
-
-		public IpAddressGenerator(RandomWithProbability random)
-		{
-			_random = random;
-		}
+		private int _counter;
 
 		public IpAddressGenerator(RandomWithProbability random, ElementWithProbability<int> uniqueIpCount)
 		{
 			_random = random;
+			_counter = 0;
 
 			uniqueIpList = new List<IpAddress>(uniqueIpCount.Value);
-			while (uniqueIpList.Count != uniqueIpCount.Value)
+			while (uniqueIpCount.Value != uniqueIpList.Count)
 			{
 				oneIp = GenerateOnlyIpAddress();
 				if (uniqueIpList.Contains(oneIp))
 					continue;
 				uniqueIpList.Add(oneIp);
+				_counter++;
 			}
-			match = true;
 
-			do
-			{
-				oneIp = Generate();
-			} while (uniqueIpList.Contains(oneIp));
+			_counter = 0;
 		}
 
 		public IpAddress Generate()
 		{
-			var ipAddress = new IpAddress();
-			if (match & uniqueIpList.Count != 0)
-			{
-				int num = _random.Next(0, uniqueIpList.Count);
-				ipAddress = uniqueIpList[num];
-				uniqueIpList.RemoveAt(num);
-			}
-			else
-				ipAddress = oneIp;
-			return ipAddress;
+			return _counter != uniqueIpList.Count ? uniqueIpList[_counter++] : uniqueIpList[_random.Next(0, uniqueIpList.Count)];
 		}
 
 		private IpAddress GenerateOnlyIpAddress()
