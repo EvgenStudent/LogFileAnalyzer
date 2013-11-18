@@ -6,15 +6,15 @@ namespace AnalyzerLibrary.Entities
 	public class ReportParameters
 	{
 		public ReportParameters(IEnumerable<LogRecordParts> logRecordPartses, dynamic converter,
-			IDictionary<string, object> optionalParams)
+			IDictionary<string, object> generalParams)
 		{
 			LogRecordPartses = logRecordPartses;
 			Converter = converter;
-			OptionalParams = optionalParams;
+			GeneralParams = generalParams;
 		}
 
 		public IEnumerable<LogRecordParts> LogRecordPartses { get; private set; }
 		public dynamic Converter { get; private set; }
-		public IDictionary<string, object> OptionalParams { get; private set; }
+		public IDictionary<string, object> GeneralParams { get; private set; }
 	}
 }

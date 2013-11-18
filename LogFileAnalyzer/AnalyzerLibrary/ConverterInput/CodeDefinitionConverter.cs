@@ -2,7 +2,7 @@
 
 namespace AnalyzerLibrary.ConverterInput
 {
-	public class CodeDefinitionConverter : IConverter<CodeDefinition>
+	public class CodeDefinitionConverter : IConverter<string, CodeDefinition>
 	{
 		public CodeDefinition Convert(string record)
 		{

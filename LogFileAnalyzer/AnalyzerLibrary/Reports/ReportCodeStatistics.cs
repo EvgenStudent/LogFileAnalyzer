@@ -2,11 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using AnalyzerLibrary.Entities;
+using AnalyzerLibrary.ReportResults;
 using PartsRecord;
 
 namespace AnalyzerLibrary.Reports
 {
-	public class ReportCodeStatistics : IReport<string>
+	public class ReportCodeStatistics : IReport
 	{
 		private readonly ReportParameters _parameters;
 
@@ -15,9 +16,9 @@ namespace AnalyzerLibrary.Reports
 			_parameters = parameters;
 		}
 
-		public Report<string> GetReport()
+		public ReportResult GetReport()
 		{
-			var codesCount = new Dictionary<int, int>();
+			var codesCount = new Dictionary<int, double>();
 			foreach (LogRecordParts logRecord in _parameters.LogRecordPartses)
 			{
 				if (codesCount.ContainsKey(logRecord.CodeDefinition.Code))
@@ -25,11 +26,9 @@ namespace AnalyzerLibrary.Reports
 				else
 					codesCount.Add(logRecord.CodeDefinition.Code, 1);
 			}
-			int count = codesCount.Sum(x => x.Value);
+			codesCount = codesCount.OrderBy(k => k.Key).ToDictionary(x => x.Key, x => x.Value / codesCount.Values.Sum());
 
-			List<string> list =
-				codesCount.Select(pair => pair.Key + " - " + Math.Round((double) pair.Value/count, 2) + "%").ToList();
-			return new Report<string>(list);
+			return new ReportCodeStatisticsResult(codesCount);
 		}
 	}
 }

@@ -3,7 +3,7 @@ using PartsRecord;
 
 namespace AnalyzerLibrary.ConverterInput
 {
-	public class RequestLineConverter : IConverter<RequestLine>
+	public class RequestLineConverter : IConverter<string, RequestLine>
 	{
 		public RequestLine Convert(string record)
 		{

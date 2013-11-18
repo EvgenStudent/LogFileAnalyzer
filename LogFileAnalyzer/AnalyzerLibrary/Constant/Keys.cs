@@ -2,12 +2,12 @@
 {
 	public static class Keys
 	{
-		public static class Console
+		public static class Application
 		{
 			public const string Report = "report";
 			public const string LogFileName = "logFileName";
 			public const string ResultFileName = "resultFileName";
-			public const string ConsoleParameters = "consoleParameters";
+			public const string Parameters = "consoleParameters";
 		}
 
 		public static class Reports

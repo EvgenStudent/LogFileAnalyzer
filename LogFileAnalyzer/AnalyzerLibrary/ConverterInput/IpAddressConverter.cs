@@ -3,7 +3,7 @@ using PartsRecord;
 
 namespace AnalyzerLibrary.ConverterInput
 {
-	public class IpAddressConverter : IConverter<IpAddress>
+	public class IpAddressConverter : IConverter<string, IpAddress>
 	{
 		public IpAddress Convert(string record)
 		{

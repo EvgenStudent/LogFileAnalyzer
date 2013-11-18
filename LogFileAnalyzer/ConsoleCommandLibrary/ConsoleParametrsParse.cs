@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using AnalyzerLibrary.Constant;
 using Config;
 
 namespace ConsoleCommandLibrary
@@ -15,7 +16,7 @@ namespace ConsoleCommandLibrary
 		{
 			get
 			{
-				return new StructureConfig(new Dictionary<string, IDictionary<string, string>> { { "consoleParameters", _parameters } });
+				return new StructureConfig(new Dictionary<string, IDictionary<string, string>> { { Keys.Application.Parameters, _parameters } });
 			}
 		}
 		public IReadOnlyList<string> ErrorParameters

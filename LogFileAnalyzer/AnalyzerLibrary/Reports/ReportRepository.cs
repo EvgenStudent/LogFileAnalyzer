@@ -5,7 +5,7 @@ using AnalyzerLibrary.Entities;
 
 namespace AnalyzerLibrary.Reports
 {
-	public class ReportRepository<TReport>
+	public class ReportRepository
 	{
 		private readonly Dictionary<string, dynamic> _repository =
 			new Dictionary<string, dynamic>(StringComparer.InvariantCultureIgnoreCase);
@@ -17,7 +17,7 @@ namespace AnalyzerLibrary.Reports
 			_repository.Add(Keys.Reports.CodeStatistics, new ReportCodeStatistics(parameters));
 		}
 
-		public IReport<TReport> GetReport(string key)
+		public IReport GetReport(string key)
 		{
 			return _repository[key];
 		}

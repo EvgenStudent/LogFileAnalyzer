@@ -45,6 +45,12 @@
     <Compile Include="ConsoleParametrsParse.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AnalyzerLibrary\AnalyzerLibrary.csproj">
+      <Project>{8565AC62-6280-4C20-A6B9-194BEAE4FA74}</Project>
+      <Name>AnalyzerLibrary</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

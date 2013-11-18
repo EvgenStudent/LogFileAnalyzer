@@ -2,7 +2,7 @@
 
 namespace AnalyzerLibrary.ConverterInput
 {
-	public class UserIdConverter : IConverter<UserId>
+	public class UserIdConverter : IConverter<string, UserId>
 	{
 		public UserId Convert(string record)
 		{

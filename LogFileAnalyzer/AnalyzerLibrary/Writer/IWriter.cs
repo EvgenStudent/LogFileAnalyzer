@@ -1,6 +1,8 @@
-﻿namespace AnalyzerLibrary.Writer
+﻿using System;
+
+namespace AnalyzerLibrary.Writer
 {
-	public interface IWriter<in T>
+	public interface IWriter<in T> : IDisposable
 	{
 		void Write(T parameter);
 	}

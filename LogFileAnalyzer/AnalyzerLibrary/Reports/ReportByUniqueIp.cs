@@ -2,11 +2,12 @@
 using System.Linq;
 using AnalyzerLibrary.Comparer;
 using AnalyzerLibrary.Entities;
+using AnalyzerLibrary.ReportResults;
 using PartsRecord;
 
 namespace AnalyzerLibrary.Reports
 {
-	public class ReportByUniqueIp : IReport<string>
+	public class ReportByUniqueIp : IReport
 	{
 		private readonly ReportParameters _parameters;
 
@@ -15,13 +16,10 @@ namespace AnalyzerLibrary.Reports
 			_parameters = parameters;
 		}
 
-		public Report<string> GetReport()
+		public ReportResult GetReport()
 		{
-			List<LogRecordParts> findResult = _parameters.LogRecordPartses.Distinct(new IpAddressComparer()).ToList();
-			var list = new List<dynamic>(findResult.Count);
-			list.AddRange(findResult.Select(t => _parameters.Converter.Convert(t)[0]));
-
-			return new Report<string>(list.Cast<string>().ToList());
+			List<IpAddress> findResult = _parameters.LogRecordPartses.Distinct(new IpAddressComparer()).Select(x => x.IpAddress).ToList();
+			return new ReportUniqueIpResult(findResult);
 		}
 	}
 }

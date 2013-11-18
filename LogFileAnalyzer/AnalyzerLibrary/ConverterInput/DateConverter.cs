@@ -4,7 +4,7 @@ using PartsRecord;
 
 namespace AnalyzerLibrary.ConverterInput
 {
-	public class DateConverter : IConverter<Date>
+	public class DateConverter : IConverter<string, Date>
 	{
 		public Date Convert(string record)
 		{

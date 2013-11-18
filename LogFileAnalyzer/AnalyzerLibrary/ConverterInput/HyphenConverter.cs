@@ -2,7 +2,7 @@
 
 namespace AnalyzerLibrary.ConverterInput
 {
-	public class HyphenConverter : IConverter<Hyphen>
+	public class HyphenConverter : IConverter<string, Hyphen>
 	{
 		public Hyphen Convert(string record)
 		{

@@ -1,7 +1,9 @@
-﻿namespace AnalyzerLibrary.Reports
+﻿using AnalyzerLibrary.ReportResults;
+
+namespace AnalyzerLibrary.Reports
 {
-	public interface IReport<T>
+	public interface IReport
 	{
-		Report<T> GetReport();
+		ReportResult GetReport();
 	}
 }

@@ -1,7 +1,7 @@
 ﻿namespace AnalyzerLibrary.ConverterInput
 {
-	public interface IConverter<out T>
+	public interface IConverter<in TParam, out TReturn>
 	{
-		T Convert(string record);
+		TReturn Convert(TParam record);
 	}
 }

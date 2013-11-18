@@ -2,7 +2,7 @@
 
 namespace AnalyzerLibrary.ConverterInput
 {
-	public class FileSizeConverter : IConverter<FileSize>
+	public class FileSizeConverter : IConverter<string, FileSize>
 	{
 		public FileSize Convert(string record)
 		{
