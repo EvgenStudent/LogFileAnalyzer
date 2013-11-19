@@ -6,6 +6,8 @@ namespace AnalyzerForm
 {
 	public static class Program
 	{
+		public delegate void TransmissionParameters(StructureConfig parameters);
+
 		/// <summary>
 		///     Главная точка входа для приложения.
 		/// </summary>
@@ -16,7 +18,5 @@ namespace AnalyzerForm
 			Application.SetCompatibleTextRenderingDefault(false);
 			Application.Run(new AnalyzerForm());
 		}
-
-		public delegate void TransmissionParameters(StructureConfig parameters);
 	}
 }

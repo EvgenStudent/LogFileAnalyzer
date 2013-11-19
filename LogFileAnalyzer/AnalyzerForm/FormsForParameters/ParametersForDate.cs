@@ -9,9 +9,8 @@ namespace AnalyzerForm.FormsForParameters
 {
 	public partial class ParametersForDate : Form
 	{
-		private readonly Program.TransmissionParameters _parameters;
 		private readonly string _fullFileName;
-		public string RegexForValidate { get; private set; }
+		private readonly Program.TransmissionParameters _parameters;
 
 		public ParametersForDate(Program.TransmissionParameters parameters, string fullFileName)
 		{
@@ -21,12 +20,15 @@ namespace AnalyzerForm.FormsForParameters
 			_fullFileName = fullFileName;
 		}
 
-		private void button1_Click(object sender, System.EventArgs e)
+		public string RegexForValidate { get; private set; }
+
+		private void button1_Click(object sender, EventArgs e)
 		{
 			if (ValidateData())
 			{
-				IDictionary<string, IDictionary<string, string>> dictionary = new Dictionary<string, IDictionary<string, string>>(StringComparer.InvariantCultureIgnoreCase);
-				
+				IDictionary<string, IDictionary<string, string>> dictionary =
+					new Dictionary<string, IDictionary<string, string>>(StringComparer.InvariantCultureIgnoreCase);
+
 				var innerDictionary = new Dictionary<string, string>(StringComparer.InvariantCultureIgnoreCase)
 				{
 					{Keys.Application.Report, Keys.Reports.Date},

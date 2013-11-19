@@ -18,5 +18,11 @@
 			public const string UniqueIp = "uniqueIp";
 			public const string CodeStatistics = "codeStatistics";
 		}
+
+		public static class FileExtension
+		{
+			public const string Log = ".log";
+			public const string Txt = ".txt";
+		}
 	}
 }

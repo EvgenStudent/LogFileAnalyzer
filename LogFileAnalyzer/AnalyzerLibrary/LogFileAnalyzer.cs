@@ -16,18 +16,21 @@ namespace AnalyzerLibrary
 	public class LogFileAnalyzer
 	{
 		private readonly StructureConfig _config;
-		private readonly IConverterTo<string> _convertToString = new ConvertToString();
+		private readonly IWriter<string> _writer;
+		public IConverterTo<string> ConvertToString { get; private set; }
 		public List<LogRecordParts> LogRecords { get; private set; }
 		private readonly ReportRepository _reportRepository;
 		private readonly ReportResultRepository _reportResultRepository;
 
-		public LogFileAnalyzer(StructureConfig config, IReader reader)
+		public LogFileAnalyzer(StructureConfig config, IReader reader, IWriter<string> writer)
 		{
+			ConvertToString = new ConvertToString();
 			_config = config;
+			_writer = writer;
 			LogRecords = (new LogFileStructure(reader.Read(config[Keys.Application.Parameters][Keys.Application.LogFileName]))).LogRecords;
 
-			//_reportRepository = new ReportRepository(CreateReportRepository());
-			//_reportResultRepository = new ReportResultRepository(new LogStringWriter(config[Keys.Application.Parameters][Keys.Application.ResultFileName]));
+			_reportRepository = new ReportRepository(CreateReportRepository());
+			_reportResultRepository = new ReportResultRepository(_writer);
 		}
 
 		public void CreateReport()
@@ -56,7 +59,7 @@ namespace AnalyzerLibrary
 						: DateTime.MaxValue.ToShortDateString()
 				}
 			};
-			var reportParameters = new ReportParameters(LogRecords, _convertToString, optionalParams);
+			var reportParameters = new ReportParameters(LogRecords, ConvertToString, optionalParams);
 			return reportParameters;
 		}
 	}

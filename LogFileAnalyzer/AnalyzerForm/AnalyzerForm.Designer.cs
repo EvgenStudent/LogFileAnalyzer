@@ -59,7 +59,7 @@
 			this.textBox_LogFileName.Location = new System.Drawing.Point(123, 14);
 			this.textBox_LogFileName.Name = "textBox_LogFileName";
 			this.textBox_LogFileName.ReadOnly = true;
-			this.textBox_LogFileName.Size = new System.Drawing.Size(616, 20);
+			this.textBox_LogFileName.Size = new System.Drawing.Size(819, 20);
 			this.textBox_LogFileName.TabIndex = 1;
 			// 
 			// dataGridView_input
@@ -71,7 +71,7 @@
 			this.dataGridView_input.Location = new System.Drawing.Point(12, 88);
 			this.dataGridView_input.Name = "dataGridView_input";
 			this.dataGridView_input.ReadOnly = true;
-			this.dataGridView_input.Size = new System.Drawing.Size(360, 283);
+			this.dataGridView_input.Size = new System.Drawing.Size(930, 245);
 			this.dataGridView_input.TabIndex = 2;
 			// 
 			// groupBox_for_config
@@ -82,7 +82,7 @@
 			this.groupBox_for_config.Enabled = false;
 			this.groupBox_for_config.Location = new System.Drawing.Point(123, 40);
 			this.groupBox_for_config.Name = "groupBox_for_config";
-			this.groupBox_for_config.Size = new System.Drawing.Size(616, 42);
+			this.groupBox_for_config.Size = new System.Drawing.Size(819, 42);
 			this.groupBox_for_config.TabIndex = 3;
 			this.groupBox_for_config.TabStop = false;
 			this.groupBox_for_config.Text = "Report";
@@ -97,6 +97,7 @@
 			this.radioButton_codes.TabStop = true;
 			this.radioButton_codes.Text = "Cose statistics";
 			this.radioButton_codes.UseVisualStyleBackColor = true;
+			this.radioButton_codes.CheckedChanged += new System.EventHandler(this.radioButton_codes_CheckedChanged);
 			// 
 			// radioButton_ip
 			// 
@@ -108,6 +109,7 @@
 			this.radioButton_ip.TabStop = true;
 			this.radioButton_ip.Text = "Unique IP";
 			this.radioButton_ip.UseVisualStyleBackColor = true;
+			this.radioButton_ip.CheckedChanged += new System.EventHandler(this.radioButton_ip_CheckedChanged);
 			// 
 			// radioButton_date
 			// 
@@ -138,17 +140,17 @@
 			this.dataGridView_output.AllowUserToDeleteRows = false;
 			this.dataGridView_output.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
 			this.dataGridView_output.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			this.dataGridView_output.Location = new System.Drawing.Point(378, 88);
+			this.dataGridView_output.Location = new System.Drawing.Point(12, 339);
 			this.dataGridView_output.Name = "dataGridView_output";
 			this.dataGridView_output.ReadOnly = true;
-			this.dataGridView_output.Size = new System.Drawing.Size(361, 283);
+			this.dataGridView_output.Size = new System.Drawing.Size(930, 227);
 			this.dataGridView_output.TabIndex = 5;
 			// 
 			// AnalyzerForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(751, 383);
+			this.ClientSize = new System.Drawing.Size(954, 578);
 			this.Controls.Add(this.dataGridView_output);
 			this.Controls.Add(this.button_analyze);
 			this.Controls.Add(this.groupBox_for_config);

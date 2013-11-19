@@ -1,9 +1,10 @@
-﻿using System.IO;
+﻿using System;
+using System.IO;
 using System.Text;
 
 namespace AnalyzerLibrary.Writer
 {
-	public class LogStringWriter : IWriter<string>
+	public class LogStringWriter : IWriter<string>, IDisposable
 	{
 		private readonly StreamWriter _file;
 
