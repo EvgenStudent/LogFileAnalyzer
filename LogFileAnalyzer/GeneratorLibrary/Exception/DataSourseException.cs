@@ -7,18 +7,22 @@ namespace GeneratorLibrary.Exceptions
 	public class DataSourseException : GeneratorAppException
 	{
 		public DataSourseException()
-		{ }
+		{
+		}
 
-		public DataSourseException(string message) 
+		public DataSourseException(string message)
 			: base(message)
-		{ }
+		{
+		}
 
-		public DataSourseException(string message, Exception inner) 
+		public DataSourseException(string message, Exception inner)
 			: base(message, inner)
-		{ }
+		{
+		}
 
-		protected DataSourseException(SerializationInfo info, StreamingContext context) 
+		protected DataSourseException(SerializationInfo info, StreamingContext context)
 			: base(info, context)
-		{ }
+		{
+		}
 	}
 }

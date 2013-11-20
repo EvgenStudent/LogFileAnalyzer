@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using AnalyzerLibrary.Entities;
 using AnalyzerLibrary.ReportResults;
@@ -26,7 +25,7 @@ namespace AnalyzerLibrary.Reports
 				else
 					codesCount.Add(logRecord.CodeDefinition.Code, 1);
 			}
-			codesCount = codesCount.OrderBy(k => k.Key).ToDictionary(x => x.Key, x => x.Value / codesCount.Values.Sum());
+			codesCount = codesCount.OrderBy(k => k.Key).ToDictionary(x => x.Key, x => x.Value/codesCount.Values.Sum());
 
 			return new ReportCodeStatisticsResult(codesCount);
 		}

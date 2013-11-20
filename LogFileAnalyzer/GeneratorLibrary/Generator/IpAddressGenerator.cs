@@ -1,17 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
 using GeneratorLibrary.Model;
-using PartsRecord;
 using GeneratorLibrary.Random;
+using PartsRecord;
 
 namespace GeneratorLibrary.Generator
 {
 	public class IpAddressGenerator : IGenerator<IpAddress>
 	{
 		private readonly RandomWithProbability _random;
-		private List<IpAddress> uniqueIpList;
-		private IpAddress oneIp;
+		private readonly List<IpAddress> uniqueIpList;
 		private int _counter;
+		private IpAddress oneIp;
 
 		public IpAddressGenerator(RandomWithProbability random, ElementWithProbability<int> uniqueIpCount)
 		{

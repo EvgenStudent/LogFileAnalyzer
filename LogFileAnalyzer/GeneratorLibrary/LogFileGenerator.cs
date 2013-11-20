@@ -8,16 +8,16 @@ namespace GeneratorLibrary
 {
 	public class LogFileGenerator
 	{
-		private readonly LogRecordTemplate _logRecordTemplate;
-		private readonly ConvertToString _converter = new ConvertToString();
 		private readonly StructureConfig _configParameters;
+		private readonly ConvertToString _converter = new ConvertToString();
+		private readonly LogRecordTemplate _logRecordTemplate;
 
 		public LogFileGenerator(StructureConfig configParameters)
 		{
 			_configParameters = configParameters;
 			_logRecordTemplate = new LogRecordTemplate(_configParameters);
 		}
-		
+
 		public void GenerateLogFile()
 		{
 			int count = int.Parse(_configParameters[Keys.ConsoleParameters][Keys.Count]);

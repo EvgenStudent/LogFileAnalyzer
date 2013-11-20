@@ -1,15 +1,15 @@
 ﻿using System;
 using System.Text;
 using GeneratorLibrary.Model;
-using PartsRecord;
 using GeneratorLibrary.Random;
+using PartsRecord;
 
 namespace GeneratorLibrary.Generator
 {
 	public class RequestLineGenerator : IGenerator<RequestLine>
 	{
-		private readonly RandomWithProbability _random;
 		private readonly RequestLineParameters _parameters;
+		private readonly RandomWithProbability _random;
 
 		public RequestLineGenerator(RandomWithProbability random, RequestLineParameters parameters)
 		{

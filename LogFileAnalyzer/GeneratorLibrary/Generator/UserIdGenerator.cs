@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using PartsRecord;
 using GeneratorLibrary.Random;
+using PartsRecord;
 
 namespace GeneratorLibrary.Generator
 {

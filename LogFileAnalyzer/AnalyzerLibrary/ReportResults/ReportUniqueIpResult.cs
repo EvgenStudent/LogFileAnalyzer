@@ -5,11 +5,11 @@ namespace AnalyzerLibrary.ReportResults
 {
 	public class ReportUniqueIpResult : ReportResult
 	{
-		public IEnumerable<IpAddress> IpAddressCollection { get; private set; }
-
 		public ReportUniqueIpResult(IEnumerable<IpAddress> ipAddresses)
 		{
 			IpAddressCollection = ipAddresses;
 		}
+
+		public IEnumerable<IpAddress> IpAddressCollection { get; private set; }
 	}
 }

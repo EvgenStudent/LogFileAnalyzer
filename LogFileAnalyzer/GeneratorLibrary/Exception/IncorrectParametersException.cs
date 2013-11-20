@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Runtime.Serialization;
 using System.Text;
 
@@ -10,11 +9,6 @@ namespace GeneratorLibrary.Exceptions
 	public class IncorrectParametersException : GeneratorAppException
 	{
 		private readonly string _message;
-
-		public override string Message
-		{
-			get { return _message; }
-		}
 
 		public IncorrectParametersException(IEnumerable<string> errorParameters)
 		{
@@ -26,16 +20,24 @@ namespace GeneratorLibrary.Exceptions
 			_message = sb.ToString();
 		}
 
-		public IncorrectParametersException(string message) 
+		public IncorrectParametersException(string message)
 			: base(message)
-		{ }
+		{
+		}
 
-		public IncorrectParametersException(string message, Exception inner) 
+		public IncorrectParametersException(string message, Exception inner)
 			: base(message, inner)
-		{ }
+		{
+		}
 
-		protected IncorrectParametersException(SerializationInfo info, StreamingContext context) 
+		protected IncorrectParametersException(SerializationInfo info, StreamingContext context)
 			: base(info, context)
-		{ }
+		{
+		}
+
+		public override string Message
+		{
+			get { return _message; }
+		}
 	}
 }

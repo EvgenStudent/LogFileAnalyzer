@@ -1,14 +1,14 @@
 ﻿using System.Collections.Generic;
 using GeneratorLibrary.Model;
-using PartsRecord;
 using GeneratorLibrary.Random;
+using PartsRecord;
 
 namespace GeneratorLibrary.Generator
 {
 	public class CodeDefinitionGenerator : IGenerator<CodeDefinition>
 	{
-		private readonly RandomWithProbability _random;
 		private readonly IReadOnlyList<ElementWithProbability<int>> _codes;
+		private readonly RandomWithProbability _random;
 
 		public CodeDefinitionGenerator(RandomWithProbability random, IReadOnlyList<ElementWithProbability<int>> codes)
 		{

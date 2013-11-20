@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 using AnalyzerForm.Entities;
@@ -16,10 +17,10 @@ namespace AnalyzerForm
 {
 	public partial class AnalyzerForm : Form
 	{
+		private readonly ReaderRepository _readerRepository = new ReaderRepository();
 		private LogFileAnalyzer _analyzer;
 		private Form _formForParameters;
 		private StructureConfig _parameters;
-		private readonly ReaderRepository _readerRepository = new ReaderRepository();
 		private IReader _reader;
 
 		//---------------------------------------------------------------
@@ -41,7 +42,7 @@ namespace AnalyzerForm
 
 			if (openFileDialog.ShowDialog() == DialogResult.OK)
 			{
-				string fileExtension = System.IO.Path.GetExtension(openFileDialog.FileName);
+				string fileExtension = Path.GetExtension(openFileDialog.FileName);
 				try
 				{
 					_reader = _readerRepository[fileExtension];
@@ -53,7 +54,8 @@ namespace AnalyzerForm
 				}
 				catch (KeyNotFoundException)
 				{
-					MessageBox.Show(string.Format("Unknown file extension: {0}", fileExtension), @"Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+					MessageBox.Show(string.Format("Unknown file extension: {0}", fileExtension), @"Error", MessageBoxButtons.OK,
+						MessageBoxIcon.Error);
 				}
 			}
 		}
@@ -61,13 +63,12 @@ namespace AnalyzerForm
 		private void button_analyze_Click(object sender, EventArgs e)
 		{
 			_reader = new LogReader();
-			IWriter<string> writer = new DataGridViewWriter();
-			_analyzer = new LogFileAnalyzer(_parameters, _reader);
+			IWriter<string> writer = new DataGridViewWriter(dataGridView_output);
+			_analyzer = new LogFileAnalyzer(_parameters, _reader, writer);
 			List<LogRecordParts> records = _analyzer.LogRecords;
 			CreateDataGriedInput(records);
 
-
-
+			_analyzer.CreateReport();
 		}
 
 		private void radioButton_date_CheckedChanged(object sender, EventArgs e)
@@ -82,12 +83,13 @@ namespace AnalyzerForm
 		private void radioButton_ip_CheckedChanged(object sender, EventArgs e)
 		{
 			IDictionary<string, IDictionary<string, string>> dictionary =
-					new Dictionary<string, IDictionary<string, string>>(StringComparer.InvariantCultureIgnoreCase);
+				new Dictionary<string, IDictionary<string, string>>(StringComparer.InvariantCultureIgnoreCase);
 
 			var innerDictionary = new Dictionary<string, string>(StringComparer.InvariantCultureIgnoreCase)
-				{
-					{Keys.Application.LogFileName, textBox_LogFileName.Text}
-				};
+			{
+				{Keys.Application.Report, Keys.Reports.UniqueIp},
+				{Keys.Application.LogFileName, textBox_LogFileName.Text}
+			};
 
 			dictionary.Add(Keys.Application.Parameters, innerDictionary);
 			_parameters = new StructureConfig(dictionary);
@@ -96,12 +98,13 @@ namespace AnalyzerForm
 		private void radioButton_codes_CheckedChanged(object sender, EventArgs e)
 		{
 			IDictionary<string, IDictionary<string, string>> dictionary =
-					   new Dictionary<string, IDictionary<string, string>>(StringComparer.InvariantCultureIgnoreCase);
+				new Dictionary<string, IDictionary<string, string>>(StringComparer.InvariantCultureIgnoreCase);
 
 			var innerDictionary = new Dictionary<string, string>(StringComparer.InvariantCultureIgnoreCase)
-				{
-					{Keys.Application.LogFileName, textBox_LogFileName.Text}
-				};
+			{
+				{Keys.Application.Report, Keys.Reports.CodeStatistics},
+				{Keys.Application.LogFileName, textBox_LogFileName.Text}
+			};
 
 			dictionary.Add(Keys.Application.Parameters, innerDictionary);
 			_parameters = new StructureConfig(dictionary);
@@ -117,7 +120,8 @@ namespace AnalyzerForm
 		private void CreateDataGriedInput(ICollection<LogRecordParts> list)
 		{
 			var nowList = new List<LogRecordStringParts>(list.Count);
-			nowList.AddRange(list.Select(item => _analyzer.ConvertToString.Convert(item)).Select(listString => new LogRecordStringParts
+			nowList.AddRange(
+				list.Select(item => _analyzer.ConvertToString.Convert(item)).Select(listString => new LogRecordStringParts
 				{
 					IpAddress = listString[0],
 					Hyphen = listString[1],
@@ -132,8 +136,8 @@ namespace AnalyzerForm
 			var bindingSource = new BindingSource();
 			dataGridView_input.Text = null;
 			dataGridView_input.DataSource = bindingSource;
-			bindingSource.DataSource = nowList; 
-			
+			bindingSource.DataSource = nowList;
+
 
 			dataGridView_input.Columns[1].Width = 60;
 			dataGridView_input.Columns[2].Width = 79;

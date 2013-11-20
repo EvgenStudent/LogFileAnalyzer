@@ -1,14 +1,14 @@
 ﻿using AnalyzerLibrary.ReportResults;
-using AnalyzerLibrary.Writer;
+using PartsRecord;
 
 namespace AnalyzerLibrary.ReportConverter
 {
 	public class ReportUniqueIpWriter : IReportWriter
 	{
-		private readonly IWriter<string> _writer;
 		private readonly ReportUniqueIpConverter _converter = new ReportUniqueIpConverter();
+		private readonly dynamic _writer;
 
-		public ReportUniqueIpWriter(IWriter<string> writer)
+		public ReportUniqueIpWriter(dynamic writer)
 		{
 			_writer = writer;
 		}
@@ -17,8 +17,8 @@ namespace AnalyzerLibrary.ReportConverter
 		{
 			using (_writer)
 			{
-				var result = (ReportUniqueIpResult)reportResult;
-				foreach (var ipAddress in result.IpAddressCollection)
+				var result = (ReportUniqueIpResult) reportResult;
+				foreach (IpAddress ipAddress in result.IpAddressCollection)
 					_writer.Write(_converter.Convert(ipAddress));
 			}
 		}

@@ -1,21 +1,21 @@
-﻿using AnalyzerLibrary.ReportResults;
-using AnalyzerLibrary.Writer;
+﻿using System;
+using AnalyzerLibrary.ReportResults;
 
 namespace AnalyzerLibrary.ReportConverter
 {
 	public class ReportDateWriter : IReportWriter
 	{
-		private readonly IWriter<string> _writer;
 		private readonly ReportDateConverter _converter = new ReportDateConverter();
+		private readonly dynamic _writer;
 
-		public ReportDateWriter(IWriter<string> writer)
+		public ReportDateWriter(dynamic writer)
 		{
 			_writer = writer;
 		}
 
 		public void ReportWrite(ReportResult reportResult)
 		{
-			throw new System.NotImplementedException();
+			throw new NotImplementedException();
 		}
 	}
 }

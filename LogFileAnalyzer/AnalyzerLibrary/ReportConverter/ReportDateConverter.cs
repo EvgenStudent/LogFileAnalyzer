@@ -1,4 +1,5 @@
-﻿using AnalyzerLibrary.ConverterInput;
+﻿using System;
+using AnalyzerLibrary.ConverterInput;
 using PartsRecord;
 
 namespace AnalyzerLibrary.ReportConverter
@@ -7,7 +8,7 @@ namespace AnalyzerLibrary.ReportConverter
 	{
 		public string Convert(Date date)
 		{
-			throw new System.NotImplementedException();
+			throw new NotImplementedException();
 		}
 	}
 }

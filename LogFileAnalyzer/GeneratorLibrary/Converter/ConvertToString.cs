@@ -7,8 +7,8 @@ namespace GeneratorLibrary.Converter
 {
 	public class ConvertToString
 	{
-		private List<IConverter<string>> listConverter;
 		private StringBuilder _stringBuilder;
+		private List<IConverter<string>> listConverter;
 
 		public string Convert(LogRecordParts recordParts)
 		{

@@ -18,7 +18,8 @@ namespace AnalyzerLibrary.Reports
 
 		public ReportResult GetReport()
 		{
-			List<IpAddress> findResult = _parameters.LogRecordPartses.Distinct(new IpAddressComparer()).Select(x => x.IpAddress).ToList();
+			List<IpAddress> findResult =
+				_parameters.LogRecordPartses.Distinct(new IpAddressComparer()).Select(x => x.IpAddress).ToList();
 			return new ReportUniqueIpResult(findResult);
 		}
 	}

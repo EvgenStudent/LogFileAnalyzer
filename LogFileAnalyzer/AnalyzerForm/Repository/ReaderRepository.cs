@@ -7,17 +7,14 @@ namespace AnalyzerForm.Repository
 	public class ReaderRepository
 	{
 		private readonly IDictionary<string, IReader> _repository = new Dictionary<string, IReader>
-			{
-				{Keys.FileExtension.Log, new LogReader()},
-				{Keys.FileExtension.Txt, new LogReader()},
-			};
+		{
+			{Keys.FileExtension.Log, new LogReader()},
+			{Keys.FileExtension.Txt, new LogReader()},
+		};
 
 		public IReader this[string key]
 		{
-			get
-			{
-				return _repository[key];
-			}
+			get { return _repository[key]; }
 		}
 	}
 }

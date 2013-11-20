@@ -1,15 +1,14 @@
 ﻿using System.Linq;
 using AnalyzerLibrary.ReportResults;
-using AnalyzerLibrary.Writer;
 
 namespace AnalyzerLibrary.ReportConverter
 {
 	public class ReportCodeStatisticsWriter : IReportWriter
 	{
-		private readonly IWriter<string> _writer;
 		private readonly ReportCodeStatisticsConverter _converter = new ReportCodeStatisticsConverter();
+		private readonly dynamic _writer;
 
-		public ReportCodeStatisticsWriter(IWriter<string> writer)
+		public ReportCodeStatisticsWriter(dynamic writer)
 		{
 			_writer = writer;
 		}
@@ -18,7 +17,7 @@ namespace AnalyzerLibrary.ReportConverter
 		{
 			using (_writer)
 			{
-				var result = (ReportCodeStatisticsResult)reportResult;
+				var result = (ReportCodeStatisticsResult) reportResult;
 				double count = result.CodeDictionary.Values.Sum();
 				foreach (var pair in result.CodeDictionary)
 					_writer.Write(_converter.Convert(pair));

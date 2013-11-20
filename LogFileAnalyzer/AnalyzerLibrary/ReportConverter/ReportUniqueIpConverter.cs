@@ -1,5 +1,4 @@
 ﻿using AnalyzerLibrary.ConverterInput;
-using AnalyzerLibrary.ReportResults;
 using PartsRecord;
 
 namespace AnalyzerLibrary.ReportConverter

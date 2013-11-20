@@ -52,6 +52,7 @@ namespace GeneratorLibrary.App_Data
 			new ElementWithProbability<int>(503),
 			new ElementWithProbability<int>(504),
 			new ElementWithProbability<int>(505),
+
 			#endregion
 		};
 
@@ -60,56 +61,65 @@ namespace GeneratorLibrary.App_Data
 			#region Methods
 			Methods = new List<ElementWithProbability<string>>
 			{
-				new ElementWithProbability<string>("OPTIONS"), 
-				new ElementWithProbability<string>("GET"), 
-				new ElementWithProbability<string>("HEAD"), 
-				new ElementWithProbability<string>("POST"), 
-				new ElementWithProbability<string>("PUT"), 
-				new ElementWithProbability<string>("DELETE"), 
-				new ElementWithProbability<string>("TRACE"), 
-				new ElementWithProbability<string>("CONNECT"), 
-				new ElementWithProbability<string>("PATCH"), 
-				new ElementWithProbability<string>("LINK"), 
-				new ElementWithProbability<string>("UNLINK"), 
+				new ElementWithProbability<string>("OPTIONS"),
+				new ElementWithProbability<string>("GET"),
+				new ElementWithProbability<string>("HEAD"),
+				new ElementWithProbability<string>("POST"),
+				new ElementWithProbability<string>("PUT"),
+				new ElementWithProbability<string>("DELETE"),
+				new ElementWithProbability<string>("TRACE"),
+				new ElementWithProbability<string>("CONNECT"),
+				new ElementWithProbability<string>("PATCH"),
+				new ElementWithProbability<string>("LINK"),
+				new ElementWithProbability<string>("UNLINK"),
 			},
+
 			#endregion
 
 			#region Versions
 			Versions = new List<ElementWithProbability<string>>
 			{
-				new ElementWithProbability<string>("0.9"), 
-				new ElementWithProbability<string>("1.0"), 
-				new ElementWithProbability<string>("1.1"), 
+				new ElementWithProbability<string>("0.9"),
+				new ElementWithProbability<string>("1.0"),
+				new ElementWithProbability<string>("1.1"),
 			},
+
 			#endregion
 
 			#region Protocols
 			Protocols = new List<ElementWithProbability<string>>
 			{
-				new ElementWithProbability<string>("HTTP"), 
-				new ElementWithProbability<string>("HTTPS"), 
+				new ElementWithProbability<string>("HTTP"),
+				new ElementWithProbability<string>("HTTPS"),
 			},
+
 			#endregion
 
 			#region FileExtensions
 			FileExtensions = new List<ElementWithProbability<string>>
 			{
-				new ElementWithProbability<string>("bmp"), 
-				new ElementWithProbability<string>("jpeg"), 
-				new ElementWithProbability<string>("png"), 
-				new ElementWithProbability<string>("mp3"), 
-				new ElementWithProbability<string>("flac"), 
-				new ElementWithProbability<string>("txt"), 
-				new ElementWithProbability<string>("docx"), 
-				new ElementWithProbability<string>("yaml"), 
-				new ElementWithProbability<string>("xml"), 
-				new ElementWithProbability<string>("html"), 
-				new ElementWithProbability<string>("cs"), 
-				new ElementWithProbability<string>("cpp"), 
-				new ElementWithProbability<string>("asm"), 
+				new ElementWithProbability<string>("bmp"),
+				new ElementWithProbability<string>("jpeg"),
+				new ElementWithProbability<string>("png"),
+				new ElementWithProbability<string>("mp3"),
+				new ElementWithProbability<string>("flac"),
+				new ElementWithProbability<string>("txt"),
+				new ElementWithProbability<string>("docx"),
+				new ElementWithProbability<string>("yaml"),
+				new ElementWithProbability<string>("xml"),
+				new ElementWithProbability<string>("html"),
+				new ElementWithProbability<string>("cs"),
+				new ElementWithProbability<string>("cpp"),
+				new ElementWithProbability<string>("asm"),
 			},
+
 			#endregion
 		};
+
+		public ConstantData()
+		{
+			UniqueIpCount = new ElementWithProbability<int>(0, 0);
+		}
 
 		public IReadOnlyList<ElementWithProbability<int>> Codes
 		{
@@ -123,11 +133,6 @@ namespace GeneratorLibrary.App_Data
 			get { return _requestLineParameters; }
 		}
 
-		public ConstantData()
-		{
-			UniqueIpCount = new ElementWithProbability<int>(0, 0);
-		}
-
 		public void SetProbability(StructureConfig config)
 		{
 			if (config.ContainsKey(Keys.Ip))
@@ -138,24 +143,34 @@ namespace GeneratorLibrary.App_Data
 				}
 
 			if (config.ContainsKey(Keys.Codes))
-				foreach (ElementWithProbability<int> code in _codes)
-					code.Probability = config[Keys.Codes].ContainsKey(code.Value.ToString(CultureInfo.InvariantCulture)) ? config[Keys.Codes].CastValueToInt()[code.Value.ToString(CultureInfo.InvariantCulture)] : 0;
+				foreach (var code in _codes)
+					code.Probability = config[Keys.Codes].ContainsKey(code.Value.ToString(CultureInfo.InvariantCulture))
+						? config[Keys.Codes].CastValueToInt()[code.Value.ToString(CultureInfo.InvariantCulture)]
+						: 0;
 
 			if (config.ContainsKey(Keys.Methods))
-				foreach (ElementWithProbability<string> method in _requestLineParameters.Methods)
-					method.Probability = config[Keys.Methods].ContainsKey(method.Value) ? config[Keys.Methods].CastValueToInt()[method.Value] : 0;
+				foreach (var method in _requestLineParameters.Methods)
+					method.Probability = config[Keys.Methods].ContainsKey(method.Value)
+						? config[Keys.Methods].CastValueToInt()[method.Value]
+						: 0;
 
 			if (config.ContainsKey(Keys.Versions))
-				foreach (ElementWithProbability<string> version in _requestLineParameters.Versions)
-					version.Probability = config[Keys.Versions].ContainsKey(version.Value) ? config[Keys.Versions].CastValueToInt()[version.Value] : 0;
+				foreach (var version in _requestLineParameters.Versions)
+					version.Probability = config[Keys.Versions].ContainsKey(version.Value)
+						? config[Keys.Versions].CastValueToInt()[version.Value]
+						: 0;
 
 			if (config.ContainsKey(Keys.Protocols))
-				foreach (ElementWithProbability<string> protocol in _requestLineParameters.Protocols)
-					protocol.Probability = config[Keys.Protocols].ContainsKey(protocol.Value) ? config[Keys.Protocols].CastValueToInt()[protocol.Value] : 0;
+				foreach (var protocol in _requestLineParameters.Protocols)
+					protocol.Probability = config[Keys.Protocols].ContainsKey(protocol.Value)
+						? config[Keys.Protocols].CastValueToInt()[protocol.Value]
+						: 0;
 
 			if (config.ContainsKey(Keys.FileExtensions))
-				foreach (ElementWithProbability<string> extension in _requestLineParameters.FileExtensions)
-					extension.Probability = config[Keys.FileExtensions].ContainsKey(extension.Value) ? config[Keys.FileExtensions].CastValueToInt()[extension.Value] : 0;
+				foreach (var extension in _requestLineParameters.FileExtensions)
+					extension.Probability = config[Keys.FileExtensions].ContainsKey(extension.Value)
+						? config[Keys.FileExtensions].CastValueToInt()[extension.Value]
+						: 0;
 		}
 	}
 }

@@ -14,25 +14,6 @@ namespace GeneratorLibrary.Reader
 	{
 		private readonly YamlStream _yamlStream;
 
-		public StructureConfig Parameters
-		{
-			get
-			{
-				var mapping = (YamlMappingNode)_yamlStream.Documents[0].RootNode;
-				var keys = mapping.Children.Keys;
-				var dictionary = new Dictionary<string, IDictionary<string, string>>(StringComparer.InvariantCultureIgnoreCase);
-				Dictionary<string, string> tempDictionary;
-
-				foreach (YamlNode key in keys)
-				{
-					var parameters = (YamlMappingNode)mapping.Children[new YamlScalarNode(key.ToString())];
-					tempDictionary = parameters.ToDictionary(pair => pair.Key.ToString(), pair => pair.Value.ToString(), StringComparer.InvariantCultureIgnoreCase);
-					dictionary.Add(key.ToString(), tempDictionary);
-				}
-				return new StructureConfig(dictionary);
-			}
-		}
-
 		public YamlConfigReader(string path)
 		{
 			_yamlStream = new YamlStream();
@@ -47,12 +28,32 @@ namespace GeneratorLibrary.Reader
 			}
 		}
 
+		public StructureConfig Parameters
+		{
+			get
+			{
+				var mapping = (YamlMappingNode) _yamlStream.Documents[0].RootNode;
+				ICollection<YamlNode> keys = mapping.Children.Keys;
+				var dictionary = new Dictionary<string, IDictionary<string, string>>(StringComparer.InvariantCultureIgnoreCase);
+				Dictionary<string, string> tempDictionary;
+
+				foreach (YamlNode key in keys)
+				{
+					var parameters = (YamlMappingNode) mapping.Children[new YamlScalarNode(key.ToString())];
+					tempDictionary = parameters.ToDictionary(pair => pair.Key.ToString(), pair => pair.Value.ToString(),
+						StringComparer.InvariantCultureIgnoreCase);
+					dictionary.Add(key.ToString(), tempDictionary);
+				}
+				return new StructureConfig(dictionary);
+			}
+		}
+
 		private string GetContentYamlFile(string path)
 		{
 			var stringBuilder = new StringBuilder();
 
-			var lines = File.ReadAllLines(path);
-			foreach (var line in lines)
+			string[] lines = File.ReadAllLines(path);
+			foreach (string line in lines)
 				stringBuilder.Append(line.Replace("\t", "    ") + "\n");
 
 			return stringBuilder.ToString();

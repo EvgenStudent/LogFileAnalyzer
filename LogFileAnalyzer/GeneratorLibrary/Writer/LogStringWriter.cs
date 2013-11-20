@@ -13,14 +13,14 @@ namespace GeneratorLibrary.Writer
 			_file = new StreamWriter(path, false, Encoding.UTF8);
 		}
 
-		public void Write(string parameter)
-		{
-			_file.WriteLine(parameter);
-		}
-
 		public void Dispose()
 		{
 			_file.Dispose();
+		}
+
+		public void Write(string parameter)
+		{
+			_file.WriteLine(parameter);
 		}
 	}
 }

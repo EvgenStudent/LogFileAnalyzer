@@ -3,6 +3,6 @@
 	public interface IErrorView
 	{
 		void DisplayMessage();
-		void DisplayStack(); 
+		void DisplayStack();
 	}
 }

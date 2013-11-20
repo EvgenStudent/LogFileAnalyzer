@@ -1,4 +1,5 @@
 ﻿using System.Configuration;
+using Config;
 using ConsoleCommandLibrary;
 using GeneratorLibrary;
 using GeneratorLibrary.ErrorView;
@@ -7,19 +8,19 @@ using GeneratorLibrary.Reader;
 
 namespace Generator
 {
-	class Program
+	internal class Program
 	{
-		static void Main(string[] args)
+		private static void Main(string[] args)
 		{
 			try
 			{
 				var consoleParameters = new ConsoleParametrsParse(args);
 				IConfigReader configReader = new YamlConfigReader(ConfigurationManager.AppSettings.Get("pathConfigFile"));
 
-				var configParameters = configReader.Parameters;
+				StructureConfig configParameters = configReader.Parameters;
 				bool tryConsoleParameters = consoleParameters.TryGetParameters();
 
-				if (!tryConsoleParameters) 
+				if (!tryConsoleParameters)
 					throw new IncorrectParametersException(consoleParameters.ErrorParameters);
 
 				configParameters.JoinConfig(consoleParameters.Parameters);

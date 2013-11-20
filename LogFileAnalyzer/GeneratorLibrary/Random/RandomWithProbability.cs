@@ -11,16 +11,16 @@ namespace GeneratorLibrary.Random
 		{
 			if (maxValue == 0)
 				return maxValue;
-			return (BitConverter.ToInt32(Guid.NewGuid().ToByteArray(), 4) % (((maxValue - 1) + 1) - (minValue))) + (minValue);
+			return (BitConverter.ToInt32(Guid.NewGuid().ToByteArray(), 4)%(((maxValue - 1) + 1) - (minValue))) + (minValue);
 		}
 
 		public T Next<T>(IReadOnlyList<ElementWithProbability<T>> elements)
 		{
 			var mapProbability = new Dictionary<int, ElementWithProbability<T>>(elements.Sum(x => x.Probability));
 
-			var i = 1;
+			int i = 1;
 			foreach (var element in elements)
-				for (var j = 0; j < element.Probability; j++, i++)
+				for (int j = 0; j < element.Probability; j++, i++)
 					mapProbability.Add(i, element);
 
 			int randValue = Next(1, mapProbability.Count + 1);

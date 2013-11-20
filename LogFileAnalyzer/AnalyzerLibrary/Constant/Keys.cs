@@ -10,6 +10,12 @@
 			public const string Parameters = "consoleParameters";
 		}
 
+		public static class FileExtension
+		{
+			public const string Log = ".log";
+			public const string Txt = ".txt";
+		}
+
 		public static class Reports
 		{
 			public const string Date = "date";
@@ -17,12 +23,6 @@
 			public const string Max = "max";
 			public const string UniqueIp = "uniqueIp";
 			public const string CodeStatistics = "codeStatistics";
-		}
-
-		public static class FileExtension
-		{
-			public const string Log = ".log";
-			public const string Txt = ".txt";
 		}
 	}
 }
