@@ -2,7 +2,7 @@
 
 namespace AnalyzerLibrary.Writer
 {
-	public class DataGridViewWriter : IWriter<string>
+	public class DataGridViewWriter : IFileWriter<string>
 	{
 		private readonly DataGridView _dataGridView;
 

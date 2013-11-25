@@ -26,8 +26,9 @@ namespace AnalyzerLibrary.Reports
 					codesCount.Add(logRecord.CodeDefinition.Code, 1);
 			}
 			codesCount = codesCount.OrderBy(k => k.Key).ToDictionary(x => x.Key, x => x.Value/codesCount.Values.Sum());
+			var codeStatistics = codesCount.Select(x => new CodeStatistics(x.Key, x.Value));
 
-			return new ReportCodeStatisticsResult(codesCount);
+			return new ReportCodeStatisticsResult(codeStatistics);
 		}
 	}
 }

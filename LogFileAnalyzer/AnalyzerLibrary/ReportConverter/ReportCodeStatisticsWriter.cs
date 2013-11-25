@@ -5,7 +5,7 @@ namespace AnalyzerLibrary.ReportConverter
 {
 	public class ReportCodeStatisticsWriter : IReportWriter
 	{
-		private readonly ReportCodeStatisticsConverter _converter = new ReportCodeStatisticsConverter();
+		private readonly ReportCodeStatisticsConverterToString _converter = new ReportCodeStatisticsConverterToString();
 		private readonly dynamic _writer;
 
 		public ReportCodeStatisticsWriter(dynamic writer)
@@ -18,9 +18,9 @@ namespace AnalyzerLibrary.ReportConverter
 			using (_writer)
 			{
 				var result = (ReportCodeStatisticsResult) reportResult;
-				double count = result.CodeDictionary.Values.Sum();
-				foreach (var pair in result.CodeDictionary)
-					_writer.Write(_converter.Convert(pair));
+				double count = result.CodeCollection.Sum(x => x.Probability);
+				foreach (var codeStatistic in result.CodeCollection)
+					_writer.Write(_converter.Convert(codeStatistic));
 			}
 		}
 	}

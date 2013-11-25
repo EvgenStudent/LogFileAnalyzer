@@ -3,7 +3,7 @@ using PartsRecord;
 
 namespace AnalyzerLibrary.ReportConverter
 {
-	public class ReportUniqueIpConverter : IConverter<IpAddress, string>
+	public class ReportUniqueIpConverterToString : IConverter<IpAddress, string>
 	{
 		public string Convert(IpAddress ipAddress)
 		{

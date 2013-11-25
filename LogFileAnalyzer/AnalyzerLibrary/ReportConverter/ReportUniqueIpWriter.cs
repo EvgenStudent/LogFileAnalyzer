@@ -5,7 +5,7 @@ namespace AnalyzerLibrary.ReportConverter
 {
 	public class ReportUniqueIpWriter : IReportWriter
 	{
-		private readonly ReportUniqueIpConverter _converter = new ReportUniqueIpConverter();
+		private readonly ReportUniqueIpConverterToString _converter = new ReportUniqueIpConverterToString();
 		private readonly dynamic _writer;
 
 		public ReportUniqueIpWriter(dynamic writer)

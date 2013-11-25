@@ -3,11 +3,11 @@ using System.Text;
 
 namespace AnalyzerLibrary.Writer
 {
-	public class LogStringWriter : IWriter<string>
+	public class TextFileWriter : IFileWriter<string>
 	{
 		private readonly StreamWriter _file;
 
-		public LogStringWriter(string path)
+		public TextFileWriter(string path)
 		{
 			_file = new StreamWriter(path, false, Encoding.UTF8);
 		}

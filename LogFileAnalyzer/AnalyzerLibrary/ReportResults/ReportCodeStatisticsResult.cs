@@ -1,14 +1,15 @@
 ﻿using System.Collections.Generic;
+using AnalyzerLibrary.Entities;
 
 namespace AnalyzerLibrary.ReportResults
 {
 	public class ReportCodeStatisticsResult : ReportResult
 	{
-		public ReportCodeStatisticsResult(IDictionary<int, double> codeDictionary)
+		public ReportCodeStatisticsResult(IEnumerable<CodeStatistics> codeCollection)
 		{
-			CodeDictionary = codeDictionary;
+			CodeCollection = codeCollection;
 		}
 
-		public IDictionary<int, double> CodeDictionary { get; private set; }
+		public IEnumerable<CodeStatistics> CodeCollection { get; private set; }
 	}
 }

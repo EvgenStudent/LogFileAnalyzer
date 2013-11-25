@@ -34,14 +34,24 @@ namespace AnalyzerLibrary
 		public IConverterTo<string> ConvertToString { get; private set; }
 		public List<LogRecordParts> LogRecords { get; private set; }
 
-		public void CreateReport()
+		public ReportResult Report
 		{
-			IReport reportFunc = _reportRepository.GetReport(_config[Keys.Application.Parameters][Keys.Application.Report]);
-			ReportResult report = reportFunc.GetReport();
+			get
+			{
+				IReport reportFunc = _reportRepository.GetReport(_config[Keys.Application.Parameters][Keys.Application.Report]);
+				ReportResult report = reportFunc.GetReport();
+				return report;
+			}
+		}
 
-			IReportWriter reportWriter =
-				_reportResultRepository.GetReportResult(_config[Keys.Application.Parameters][Keys.Application.Report]);
-			reportWriter.ReportWrite(report);
+		public IReportWriter ReportWriter
+		{
+			get
+			{
+				IReportWriter reportWriter =
+					_reportResultRepository.GetReportResult(_config[Keys.Application.Parameters][Keys.Application.Report]);
+				return reportWriter;
+			}
 		}
 
 		private ReportParameters CreateReportRepository()

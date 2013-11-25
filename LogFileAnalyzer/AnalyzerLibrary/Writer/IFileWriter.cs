@@ -2,7 +2,7 @@
 
 namespace AnalyzerLibrary.Writer
 {
-	public interface IWriter<in T> : IDisposable
+	public interface IFileWriter<in T> : IDisposable
 	{
 		void Write(T parameter);
 	}

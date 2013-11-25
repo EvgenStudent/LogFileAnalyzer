@@ -8,6 +8,7 @@ using AnalyzerForm.FormsForParameters;
 using AnalyzerForm.Repository;
 using AnalyzerLibrary;
 using AnalyzerLibrary.Reader;
+using AnalyzerLibrary.ReportResults;
 using AnalyzerLibrary.Writer;
 using Config;
 using PartsRecord;
@@ -63,12 +64,13 @@ namespace AnalyzerForm
 		private void button_analyze_Click(object sender, EventArgs e)
 		{
 			_reader = new LogReader();
-			IWriter<string> writer = new DataGridViewWriter(dataGridView_output);
+			IFileWriter<string> writer = new DataGridViewWriter(dataGridView_output);
 			_analyzer = new LogFileAnalyzer(_parameters, _reader, writer);
 			List<LogRecordParts> records = _analyzer.LogRecords;
 			CreateDataGriedInput(records);
 
-			_analyzer.CreateReport();
+			ReportResult reportResult = _analyzer.Report;
+
 		}
 
 		private void radioButton_date_CheckedChanged(object sender, EventArgs e)
@@ -144,6 +146,14 @@ namespace AnalyzerForm
 			dataGridView_input.Columns[3].Width = 186;
 			dataGridView_input.Columns[4].Width = 272;
 			dataGridView_input.Columns[5].Width = 72;
+		}
+
+		private void CreateDataGriedOutput(IEnumerable<object> list)
+		{
+			var bindingSource = new BindingSource();
+			dataGridView_input.Text = null;
+			dataGridView_input.DataSource = bindingSource;
+			bindingSource.DataSource = list;
 		}
 	}
 }

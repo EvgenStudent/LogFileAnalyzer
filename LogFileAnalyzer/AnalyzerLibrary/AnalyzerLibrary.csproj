@@ -61,17 +61,18 @@
     <Compile Include="ConverterInput\UserIdConverter.cs" />
     <Compile Include="ConverterOutput\ConvertToString.cs" />
     <Compile Include="ConverterOutput\IConverterTo.cs" />
+    <Compile Include="Entities\CodeStatistics.cs" />
     <Compile Include="LogFileAnalyzer.cs" />
     <Compile Include="LogFileStructure.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Reader\IReader.cs" />
     <Compile Include="Reader\LogReader.cs" />
     <Compile Include="ReportConverter\IReportWriter.cs" />
-    <Compile Include="ReportConverter\ReportCodeStatisticsConverter.cs" />
+    <Compile Include="ReportConverter\ReportCodeStatisticsConverterToString.cs" />
     <Compile Include="ReportConverter\ReportCodeStatisticsWriter.cs" />
-    <Compile Include="ReportConverter\ReportDateConverter.cs" />
+    <Compile Include="ReportConverter\ReportDateConverterToString.cs" />
     <Compile Include="ReportConverter\ReportDateWriter.cs" />
-    <Compile Include="ReportConverter\ReportUniqueIpConverter.cs" />
+    <Compile Include="ReportConverter\ReportUniqueIpConverterToString.cs" />
     <Compile Include="ReportConverter\ReportUniqueIpWriter.cs" />
     <Compile Include="ReportResults\ReportCodeStatisticsResult.cs" />
     <Compile Include="ReportResults\ReportDateResult.cs" />
@@ -85,8 +86,8 @@
     <Compile Include="Reports\Report.cs" />
     <Compile Include="Entities\ReportParameters.cs" />
     <Compile Include="Reports\ReportRepository.cs" />
-    <Compile Include="Writer\IWriter.cs" />
-    <Compile Include="Writer\LogStringWriter.cs" />
+    <Compile Include="Writer\IFileWriter.cs" />
+    <Compile Include="Writer\TextFileWriter.cs" />
     <Compile Include="Writer\DataGridViewWriter.cs" />
   </ItemGroup>
   <ItemGroup />
