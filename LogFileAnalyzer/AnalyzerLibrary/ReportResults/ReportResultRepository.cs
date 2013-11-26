@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using AnalyzerLibrary.Constant;
 using AnalyzerLibrary.ReportConverter;
+using AnalyzerLibrary.ReportWriter;
 
 namespace AnalyzerLibrary.ReportResults
 {
@@ -12,12 +13,12 @@ namespace AnalyzerLibrary.ReportResults
 
 		public ReportResultRepository(dynamic writer)
 		{
-			_repository.Add(Keys.Reports.Date, new ReportDateWriter(writer));
-			_repository.Add(Keys.Reports.UniqueIp, new ReportUniqueIpWriter(writer));
-			_repository.Add(Keys.Reports.CodeStatistics, new ReportCodeStatisticsWriter(writer));
+			_repository.Add(Keys.Reports.Date, new ReportDateFileWriter(writer));
+			_repository.Add(Keys.Reports.UniqueIp, new ReportUniqueIpFileWriter(writer));
+			_repository.Add(Keys.Reports.CodeStatistics, new ReportCodeStatisticsFileWriter(writer));
 		}
 
-		public IReportWriter GetReportResult(string key)
+		public IReportWriter GetReportWriter(string key)
 		{
 			return _repository[key];
 		}

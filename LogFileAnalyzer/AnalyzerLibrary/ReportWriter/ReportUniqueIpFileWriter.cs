@@ -1,14 +1,15 @@
-﻿using AnalyzerLibrary.ReportResults;
+﻿using AnalyzerLibrary.ReportConverter;
+using AnalyzerLibrary.ReportResults;
 using PartsRecord;
 
-namespace AnalyzerLibrary.ReportConverter
+namespace AnalyzerLibrary.ReportWriter
 {
-	public class ReportUniqueIpWriter : IReportWriter
+	public class ReportUniqueIpFileWriter : IReportWriter
 	{
 		private readonly ReportUniqueIpConverterToString _converter = new ReportUniqueIpConverterToString();
 		private readonly dynamic _writer;
 
-		public ReportUniqueIpWriter(dynamic writer)
+		public ReportUniqueIpFileWriter(dynamic writer)
 		{
 			_writer = writer;
 		}

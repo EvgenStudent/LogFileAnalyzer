@@ -18,11 +18,10 @@ namespace Analyzer
 			if (tryConsoleParameters)
 			{
 				IReader reader = new LogReader();
-				IFileWriter<string> writer =
-					new TextFileWriter(consoleParameters.Parameters[Keys.Application.Parameters][Keys.Application.ResultFileName]);
+				IFileWriter<string> writer = new TextFileWriter(consoleParameters.Parameters[Keys.Application.Parameters][Keys.Application.ResultFileName]);
 				var analyzer = new LogFileAnalyzer(consoleParameters.Parameters, reader, writer);
 				ReportResult report = analyzer.Report;
-				analyzer.ReportWriter.ReportWrite(report);
+				analyzer.GetReportWriter(new ReportResultRepository(writer)).ReportWrite(report);
 			}
 		}
 	}

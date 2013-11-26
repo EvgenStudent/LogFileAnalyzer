@@ -13,6 +13,7 @@ using AnalyzerLibrary.Writer;
 using Config;
 using PartsRecord;
 using Keys = AnalyzerLibrary.Constant.Keys;
+using ReportResultRepository = AnalyzerForm.Repository.ReportResultRepository;
 
 namespace AnalyzerForm
 {
@@ -23,12 +24,14 @@ namespace AnalyzerForm
 		private Form _formForParameters;
 		private StructureConfig _parameters;
 		private IReader _reader;
+		private readonly ReportResultRepository _reportResultRepository;
 
 		//---------------------------------------------------------------
 
 		public AnalyzerForm()
 		{
 			InitializeComponent();
+			_reportResultRepository = new ReportResultRepository(dataGridView_output);
 		}
 
 		private void button_open_Click(object sender, EventArgs e)
@@ -64,13 +67,12 @@ namespace AnalyzerForm
 		private void button_analyze_Click(object sender, EventArgs e)
 		{
 			_reader = new LogReader();
-			IFileWriter<string> writer = new DataGridViewWriter(dataGridView_output);
-			_analyzer = new LogFileAnalyzer(_parameters, _reader, writer);
+			_analyzer = new LogFileAnalyzer(_parameters, _reader, _reportResultRepository.GetReportWriter(_parameters[Keys.Application.Parameters][Keys.Application.Report]));
 			List<LogRecordParts> records = _analyzer.LogRecords;
 			CreateDataGriedInput(records);
 
 			ReportResult reportResult = _analyzer.Report;
-
+			_analyzer.GetReportWriter(_reportResultRepository).ReportWrite(reportResult);
 		}
 
 		private void radioButton_date_CheckedChanged(object sender, EventArgs e)
@@ -78,7 +80,8 @@ namespace AnalyzerForm
 			if (radioButton_date.Checked)
 			{
 				_formForParameters = new ParametersForDate(SetParameters, textBox_LogFileName.Text);
-				_formForParameters.ShowDialog();
+				if (_formForParameters.ShowDialog() != DialogResult.OK)
+					radioButton_ip.Checked = true;
 			}
 		}
 

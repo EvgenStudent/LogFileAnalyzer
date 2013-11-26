@@ -1,14 +1,15 @@
 ﻿using System;
+using AnalyzerLibrary.ReportConverter;
 using AnalyzerLibrary.ReportResults;
 
-namespace AnalyzerLibrary.ReportConverter
+namespace AnalyzerLibrary.ReportWriter
 {
-	public class ReportDateWriter : IReportWriter
+	public class ReportDateFileWriter : IReportWriter
 	{
 		private readonly ReportDateConverterToString _converter = new ReportDateConverterToString();
 		private readonly dynamic _writer;
 
-		public ReportDateWriter(dynamic writer)
+		public ReportDateFileWriter(dynamic writer)
 		{
 			_writer = writer;
 		}

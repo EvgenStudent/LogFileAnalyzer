@@ -7,6 +7,7 @@ using AnalyzerLibrary.Reader;
 using AnalyzerLibrary.ReportConverter;
 using AnalyzerLibrary.ReportResults;
 using AnalyzerLibrary.Reports;
+using AnalyzerLibrary.ReportWriter;
 using Config;
 using PartsRecord;
 
@@ -16,7 +17,6 @@ namespace AnalyzerLibrary
 	{
 		private readonly StructureConfig _config;
 		private readonly ReportRepository _reportRepository;
-		private readonly ReportResultRepository _reportResultRepository;
 		private readonly dynamic _writer;
 
 		public LogFileAnalyzer(StructureConfig config, IReader reader, dynamic writer)
@@ -24,11 +24,9 @@ namespace AnalyzerLibrary
 			ConvertToString = new ConvertToString();
 			_config = config;
 			_writer = writer;
-			LogRecords =
-				(new LogFileStructure(reader.Read(config[Keys.Application.Parameters][Keys.Application.LogFileName]))).LogRecords;
+			LogRecords = (new LogFileStructure(reader.Read(config[Keys.Application.Parameters][Keys.Application.LogFileName]))).LogRecords;
 
 			_reportRepository = new ReportRepository(CreateReportRepository());
-			_reportResultRepository = new ReportResultRepository(_writer);
 		}
 
 		public IConverterTo<string> ConvertToString { get; private set; }
@@ -44,14 +42,10 @@ namespace AnalyzerLibrary
 			}
 		}
 
-		public IReportWriter ReportWriter
+		public IReportWriter GetReportWriter(dynamic reportResultRepository)
 		{
-			get
-			{
-				IReportWriter reportWriter =
-					_reportResultRepository.GetReportResult(_config[Keys.Application.Parameters][Keys.Application.Report]);
-				return reportWriter;
-			}
+			IReportWriter reportWriter = reportResultRepository.GetReportWriter(_config[Keys.Application.Parameters][Keys.Application.Report]);
+			return reportWriter;
 		}
 
 		private ReportParameters CreateReportRepository()

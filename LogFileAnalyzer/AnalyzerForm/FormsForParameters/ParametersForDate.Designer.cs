@@ -38,6 +38,7 @@
 			// 
 			// button_complete
 			// 
+			this.button_complete.DialogResult = System.Windows.Forms.DialogResult.OK;
 			this.button_complete.Location = new System.Drawing.Point(12, 58);
 			this.button_complete.Name = "button_complete";
 			this.button_complete.Size = new System.Drawing.Size(189, 28);

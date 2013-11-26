@@ -1,14 +1,15 @@
 ﻿using System.Linq;
+using AnalyzerLibrary.ReportConverter;
 using AnalyzerLibrary.ReportResults;
 
-namespace AnalyzerLibrary.ReportConverter
+namespace AnalyzerLibrary.ReportWriter
 {
-	public class ReportCodeStatisticsWriter : IReportWriter
+	public class ReportCodeStatisticsFileWriter : IReportWriter
 	{
 		private readonly ReportCodeStatisticsConverterToString _converter = new ReportCodeStatisticsConverterToString();
 		private readonly dynamic _writer;
 
-		public ReportCodeStatisticsWriter(dynamic writer)
+		public ReportCodeStatisticsFileWriter(dynamic writer)
 		{
 			_writer = writer;
 		}

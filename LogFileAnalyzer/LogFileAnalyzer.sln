@@ -15,7 +15,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Files", "Files", "{CB3765BA
 	ProjectSection(SolutionItems) = preProject
 		Config.yaml = Config.yaml
 		Logs.log = Logs.log
-		Problems.txt = Problems.txt
 		ResultAnalyzing.txt = ResultAnalyzing.txt
 	EndProjectSection
 EndProject

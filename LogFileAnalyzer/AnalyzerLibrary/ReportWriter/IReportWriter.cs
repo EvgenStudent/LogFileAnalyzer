@@ -1,6 +1,6 @@
 ﻿using AnalyzerLibrary.ReportResults;
 
-namespace AnalyzerLibrary.ReportConverter
+namespace AnalyzerLibrary.ReportWriter
 {
 	public interface IReportWriter
 	{
