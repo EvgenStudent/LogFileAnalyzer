@@ -1,2 +1,0 @@
-В классе DataGridViewWriter в методе Write входящий параметр для записи string. Мне нужен IList, чтобы прикрепить к DataGridView.
-Проблема: в ReportUniqueIpWriter есть конвертер, он конвертит в string из-за generic`a, к тому же в WriteReport цикл записывающий поэлементно, мне нужно сразу лист записывать.

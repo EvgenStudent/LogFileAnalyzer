@@ -7,12 +7,12 @@ using Keys = AnalyzerLibrary.Constant.Keys;
 
 namespace AnalyzerForm.Repository
 {
-	public class ReportResultRepository
+	public class ReportResultControlRepository
 	{
 		private readonly Dictionary<string, IReportWriter> _repository =
 			new Dictionary<string, IReportWriter>(StringComparer.InvariantCultureIgnoreCase);
 
-		public ReportResultRepository(DataGridView dataGridView)
+		public ReportResultControlRepository(DataGridView dataGridView)
 		{
 			_repository.Add(Keys.Reports.Date, new ReportDateControlWriter(dataGridView));
 			_repository.Add(Keys.Reports.UniqueIp, new ReportUniqueIpControlWriter(dataGridView));

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Text;
 using System.Windows.Forms;
 using AnalyzerForm.Entities;
 using AnalyzerForm.FormsForParameters;
@@ -13,7 +14,6 @@ using AnalyzerLibrary.Writer;
 using Config;
 using PartsRecord;
 using Keys = AnalyzerLibrary.Constant.Keys;
-using ReportResultRepository = AnalyzerForm.Repository.ReportResultRepository;
 
 namespace AnalyzerForm
 {
@@ -24,14 +24,16 @@ namespace AnalyzerForm
 		private Form _formForParameters;
 		private StructureConfig _parameters;
 		private IReader _reader;
-		private readonly ReportResultRepository _reportResultRepository;
+		private readonly ReportResultControlRepository _reportResultControlRepository;
+		private ReportResult _reportResult;
+		private string _reportFileName;
 
 		//---------------------------------------------------------------
 
 		public AnalyzerForm()
 		{
 			InitializeComponent();
-			_reportResultRepository = new ReportResultRepository(dataGridView_output);
+			_reportResultControlRepository = new ReportResultControlRepository(dataGridView_output);
 		}
 
 		private void button_open_Click(object sender, EventArgs e)
@@ -51,6 +53,7 @@ namespace AnalyzerForm
 				{
 					_reader = _readerRepository[fileExtension];
 
+
 					textBox_LogFileName.Text = openFileDialog.FileName;
 					button_analyze.Enabled = true;
 					groupBox_for_config.Enabled = true;
@@ -67,12 +70,40 @@ namespace AnalyzerForm
 		private void button_analyze_Click(object sender, EventArgs e)
 		{
 			_reader = new LogReader();
-			_analyzer = new LogFileAnalyzer(_parameters, _reader, _reportResultRepository.GetReportWriter(_parameters[Keys.Application.Parameters][Keys.Application.Report]));
+			_analyzer = new LogFileAnalyzer(_parameters, _reader, _reportResultControlRepository.GetReportWriter(_parameters[Keys.Application.Parameters][Keys.Application.Report]));
 			List<LogRecordParts> records = _analyzer.LogRecords;
 			CreateDataGriedInput(records);
 
-			ReportResult reportResult = _analyzer.Report;
-			_analyzer.GetReportWriter(_reportResultRepository).ReportWrite(reportResult);
+			_reportResult = _analyzer.Report;
+			_analyzer.GetReportWriter(_reportResultControlRepository).ReportWrite(_reportResult);
+
+			button_save_report.Enabled = true;
+		}
+
+		private void button_save_report_Click(object sender, EventArgs e)
+		{
+			using (var saveFileDialog = new SaveFileDialog())
+			{
+				saveFileDialog.InitialDirectory = @"P:\Programming\GitHub\LogFileAnalyzer\LogFileAnalyzer";
+				saveFileDialog.Filter = @"txt files (*.txt)|*.txt|All files (*.*)|*.*";
+				saveFileDialog.FilterIndex = 1;
+				saveFileDialog.RestoreDirectory = true;
+
+				if (saveFileDialog.ShowDialog() == DialogResult.OK)
+				{
+					_reportFileName = saveFileDialog.FileName;
+					using (var writer = new TextFileWriter(_reportFileName))
+					{
+						_analyzer.GetReportWriter(new ReportResultRepository(writer)).ReportWrite(_reportResult);
+						button_open_report.Enabled = true;
+					}
+				}
+			}
+		}
+
+		private void button_open_report_Click(object sender, EventArgs e)
+		{
+			System.Diagnostics.Process.Start(_reportFileName);
 		}
 
 		private void radioButton_date_CheckedChanged(object sender, EventArgs e)
@@ -143,20 +174,11 @@ namespace AnalyzerForm
 			dataGridView_input.DataSource = bindingSource;
 			bindingSource.DataSource = nowList;
 
-
 			dataGridView_input.Columns[1].Width = 60;
 			dataGridView_input.Columns[2].Width = 79;
 			dataGridView_input.Columns[3].Width = 186;
 			dataGridView_input.Columns[4].Width = 272;
 			dataGridView_input.Columns[5].Width = 72;
-		}
-
-		private void CreateDataGriedOutput(IEnumerable<object> list)
-		{
-			var bindingSource = new BindingSource();
-			dataGridView_input.Text = null;
-			dataGridView_input.DataSource = bindingSource;
-			bindingSource.DataSource = list;
 		}
 	}
 }

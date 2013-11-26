@@ -38,6 +38,8 @@
 			this.radioButton_date = new System.Windows.Forms.RadioButton();
 			this.button_analyze = new System.Windows.Forms.Button();
 			this.dataGridView_output = new System.Windows.Forms.DataGridView();
+			this.button_save_report = new System.Windows.Forms.Button();
+			this.button_open_report = new System.Windows.Forms.Button();
 			((System.ComponentModel.ISupportInitialize)(this.dataGridView_input)).BeginInit();
 			this.groupBox_for_config.SuspendLayout();
 			((System.ComponentModel.ISupportInitialize)(this.dataGridView_output)).BeginInit();
@@ -80,9 +82,9 @@
 			this.groupBox_for_config.Controls.Add(this.radioButton_ip);
 			this.groupBox_for_config.Controls.Add(this.radioButton_date);
 			this.groupBox_for_config.Enabled = false;
-			this.groupBox_for_config.Location = new System.Drawing.Point(123, 40);
+			this.groupBox_for_config.Location = new System.Drawing.Point(345, 40);
 			this.groupBox_for_config.Name = "groupBox_for_config";
-			this.groupBox_for_config.Size = new System.Drawing.Size(819, 42);
+			this.groupBox_for_config.Size = new System.Drawing.Size(597, 42);
 			this.groupBox_for_config.TabIndex = 3;
 			this.groupBox_for_config.TabStop = false;
 			this.groupBox_for_config.Text = "Report";
@@ -126,7 +128,7 @@
 			// button_analyze
 			// 
 			this.button_analyze.Enabled = false;
-			this.button_analyze.Location = new System.Drawing.Point(12, 40);
+			this.button_analyze.Location = new System.Drawing.Point(234, 40);
 			this.button_analyze.Name = "button_analyze";
 			this.button_analyze.Size = new System.Drawing.Size(105, 42);
 			this.button_analyze.TabIndex = 4;
@@ -146,11 +148,35 @@
 			this.dataGridView_output.Size = new System.Drawing.Size(930, 227);
 			this.dataGridView_output.TabIndex = 5;
 			// 
+			// button_save_report
+			// 
+			this.button_save_report.Enabled = false;
+			this.button_save_report.Location = new System.Drawing.Point(123, 40);
+			this.button_save_report.Name = "button_save_report";
+			this.button_save_report.Size = new System.Drawing.Size(105, 42);
+			this.button_save_report.TabIndex = 6;
+			this.button_save_report.Text = "Save report";
+			this.button_save_report.UseVisualStyleBackColor = true;
+			this.button_save_report.Click += new System.EventHandler(this.button_save_report_Click);
+			// 
+			// button_open_report
+			// 
+			this.button_open_report.Enabled = false;
+			this.button_open_report.Location = new System.Drawing.Point(12, 40);
+			this.button_open_report.Name = "button_open_report";
+			this.button_open_report.Size = new System.Drawing.Size(105, 42);
+			this.button_open_report.TabIndex = 7;
+			this.button_open_report.Text = "Open report";
+			this.button_open_report.UseVisualStyleBackColor = true;
+			this.button_open_report.Click += new System.EventHandler(this.button_open_report_Click);
+			// 
 			// AnalyzerForm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(954, 578);
+			this.Controls.Add(this.button_open_report);
+			this.Controls.Add(this.button_save_report);
 			this.Controls.Add(this.dataGridView_output);
 			this.Controls.Add(this.button_analyze);
 			this.Controls.Add(this.groupBox_for_config);
@@ -183,6 +209,8 @@
 		private System.Windows.Forms.Button button_analyze;
 		private System.Windows.Forms.DataGridView dataGridView_output;
 		private System.Windows.Forms.TextBox textBox_LogFileName;
+		private System.Windows.Forms.Button button_save_report;
+		private System.Windows.Forms.Button button_open_report;
 	}
 }
 

@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Linq;
+using AnalyzerLibrary.ConverterOutput;
 using AnalyzerLibrary.ReportConverter;
 using AnalyzerLibrary.ReportResults;
 
@@ -6,7 +8,8 @@ namespace AnalyzerLibrary.ReportWriter
 {
 	public class ReportDateFileWriter : IReportWriter
 	{
-		private readonly ReportDateConverterToString _converter = new ReportDateConverterToString();
+		//private readonly ReportDateConverterToString _converter = new ReportDateConverterToString();
+		private readonly ConvertToString _converter = new ConvertToString();
 		private readonly dynamic _writer;
 
 		public ReportDateFileWriter(dynamic writer)
@@ -16,7 +19,9 @@ namespace AnalyzerLibrary.ReportWriter
 
 		public void ReportWrite(ReportResult reportResult)
 		{
-			throw new NotImplementedException();
+			var result = (ReportDateResult) reportResult;
+			foreach (var record in result.DateCollection)
+				_writer.Write(string.Join(" ", _converter.Convert(record)));
 		}
 	}
 }

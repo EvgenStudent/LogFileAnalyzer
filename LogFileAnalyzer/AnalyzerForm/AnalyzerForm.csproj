@@ -72,7 +72,7 @@
     <Compile Include="ReportConverter\ReportUniqueIpConverterToList.cs" />
     <Compile Include="ReportWriter\ReportCodeStatisticsControlWriter.cs" />
     <Compile Include="ReportWriter\ReportDateControlWriter.cs" />
-    <Compile Include="Repository\ReportResultRepository.cs" />
+    <Compile Include="Repository\ReportResultControlRepository.cs" />
     <Compile Include="ReportWriter\ReportUniqueIpControlWriter.cs" />
     <Compile Include="Repository\ReaderRepository.cs" />
     <EmbeddedResource Include="AnalyzerForm.resx">
