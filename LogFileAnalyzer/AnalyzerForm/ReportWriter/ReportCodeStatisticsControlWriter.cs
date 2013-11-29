@@ -1,5 +1,4 @@
-﻿using System;
-using System.Windows.Forms;
+﻿using System.Windows.Forms;
 using AnalyzerForm.ReportConverter;
 using AnalyzerLibrary.ReportResults;
 using AnalyzerLibrary.ReportWriter;
@@ -8,8 +7,8 @@ namespace AnalyzerForm.ReportWriter
 {
 	public class ReportCodeStatisticsControlWriter : IReportWriter
 	{
-		private readonly DataGridView _dataGridView;
 		private readonly ReportCodeStatisticsConverterToList _converter = new ReportCodeStatisticsConverterToList();
+		private readonly DataGridView _dataGridView;
 
 		public ReportCodeStatisticsControlWriter(DataGridView dataGridView)
 		{

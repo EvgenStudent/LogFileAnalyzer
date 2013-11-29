@@ -1,5 +1,4 @@
-﻿using System;
-using System.Windows.Forms;
+﻿using System.Windows.Forms;
 using AnalyzerForm.ReportConverter;
 using AnalyzerLibrary.ReportResults;
 using AnalyzerLibrary.ReportWriter;
@@ -8,8 +7,8 @@ namespace AnalyzerForm.ReportWriter
 {
 	public class ReportDateControlWriter : IReportWriter
 	{
-		private readonly DataGridView _dataGridView;
 		private readonly ReportDateConverterToList _converter = new ReportDateConverterToList();
+		private readonly DataGridView _dataGridView;
 
 		public ReportDateControlWriter(DataGridView dataGridView)
 		{
@@ -18,7 +17,7 @@ namespace AnalyzerForm.ReportWriter
 
 		public void ReportWrite(ReportResult reportResult)
 		{
-			var result = (ReportDateResult)reportResult;
+			var result = (ReportDateResult) reportResult;
 			var bindingSource = new BindingSource();
 
 			_dataGridView.Text = null;

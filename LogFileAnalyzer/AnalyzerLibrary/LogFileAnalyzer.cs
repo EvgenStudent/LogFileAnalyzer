@@ -4,7 +4,6 @@ using AnalyzerLibrary.Constant;
 using AnalyzerLibrary.ConverterOutput;
 using AnalyzerLibrary.Entities;
 using AnalyzerLibrary.Reader;
-using AnalyzerLibrary.ReportConverter;
 using AnalyzerLibrary.ReportResults;
 using AnalyzerLibrary.Reports;
 using AnalyzerLibrary.ReportWriter;
@@ -24,7 +23,8 @@ namespace AnalyzerLibrary
 			ConvertToString = new ConvertToString();
 			_config = config;
 			_writer = writer;
-			LogRecords = (new LogFileStructure(reader.Read(config[Keys.Application.Parameters][Keys.Application.LogFileName]))).LogRecords;
+			LogRecords =
+				(new LogFileStructure(reader.Read(config[Keys.Application.Parameters][Keys.Application.LogFileName]))).LogRecords;
 
 			_reportRepository = new ReportRepository(CreateReportRepository());
 		}
@@ -44,7 +44,8 @@ namespace AnalyzerLibrary
 
 		public IReportWriter GetReportWriter(dynamic reportResultRepository)
 		{
-			IReportWriter reportWriter = reportResultRepository.GetReportWriter(_config[Keys.Application.Parameters][Keys.Application.Report]);
+			IReportWriter reportWriter =
+				reportResultRepository.GetReportWriter(_config[Keys.Application.Parameters][Keys.Application.Report]);
 			return reportWriter;
 		}
 

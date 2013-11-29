@@ -1,17 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 using AnalyzerForm.Entities;
 using AnalyzerForm.FormsForParameters;
 using AnalyzerForm.Repository;
 using AnalyzerLibrary;
+using AnalyzerLibrary.NinjectModule;
 using AnalyzerLibrary.Reader;
 using AnalyzerLibrary.ReportResults;
 using AnalyzerLibrary.Writer;
 using Config;
+using Ninject;
 using PartsRecord;
 using Keys = AnalyzerLibrary.Constant.Keys;
 
@@ -19,14 +21,15 @@ namespace AnalyzerForm
 {
 	public partial class AnalyzerForm : Form
 	{
+		private readonly IKernel _kernel = new StandardKernel(new WriterNinjectModule());
 		private readonly ReaderRepository _readerRepository = new ReaderRepository();
+		private readonly ReportResultControlRepository _reportResultControlRepository;
 		private LogFileAnalyzer _analyzer;
 		private Form _formForParameters;
 		private StructureConfig _parameters;
 		private IReader _reader;
-		private readonly ReportResultControlRepository _reportResultControlRepository;
-		private ReportResult _reportResult;
 		private string _reportFileName;
+		private ReportResult _reportResult;
 
 		//---------------------------------------------------------------
 
@@ -70,7 +73,8 @@ namespace AnalyzerForm
 		private void button_analyze_Click(object sender, EventArgs e)
 		{
 			_reader = new LogReader();
-			_analyzer = new LogFileAnalyzer(_parameters, _reader, _reportResultControlRepository.GetReportWriter(_parameters[Keys.Application.Parameters][Keys.Application.Report]));
+			_analyzer = new LogFileAnalyzer(_parameters, _reader,
+				_reportResultControlRepository.GetReportWriter(_parameters[Keys.Application.Parameters][Keys.Application.Report]));
 			List<LogRecordParts> records = _analyzer.LogRecords;
 			CreateDataGriedInput(records);
 
@@ -103,7 +107,7 @@ namespace AnalyzerForm
 
 		private void button_open_report_Click(object sender, EventArgs e)
 		{
-			System.Diagnostics.Process.Start(_reportFileName);
+			Process.Start(_reportFileName);
 		}
 
 		private void radioButton_date_CheckedChanged(object sender, EventArgs e)

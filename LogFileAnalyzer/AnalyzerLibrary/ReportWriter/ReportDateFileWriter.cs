@@ -1,8 +1,6 @@
-﻿using System;
-using System.Linq;
-using AnalyzerLibrary.ConverterOutput;
-using AnalyzerLibrary.ReportConverter;
+﻿using AnalyzerLibrary.ConverterOutput;
 using AnalyzerLibrary.ReportResults;
+using PartsRecord;
 
 namespace AnalyzerLibrary.ReportWriter
 {
@@ -20,7 +18,7 @@ namespace AnalyzerLibrary.ReportWriter
 		public void ReportWrite(ReportResult reportResult)
 		{
 			var result = (ReportDateResult) reportResult;
-			foreach (var record in result.DateCollection)
+			foreach (LogRecordParts record in result.DateCollection)
 				_writer.Write(string.Join(" ", _converter.Convert(record)));
 		}
 	}

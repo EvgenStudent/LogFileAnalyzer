@@ -19,8 +19,8 @@ namespace AnalyzerLibrary.Reports
 
 		public ReportResult GetReport()
 		{
-			var min = DateTime.Parse(_parameters.GeneralParams[Keys.Reports.Date + Keys.Reports.Min].ToString());
-			var max = DateTime.Parse(_parameters.GeneralParams[Keys.Reports.Date + Keys.Reports.Max].ToString());
+			DateTime min = DateTime.Parse(_parameters.GeneralParams[Keys.Reports.Date + Keys.Reports.Min].ToString());
+			DateTime max = DateTime.Parse(_parameters.GeneralParams[Keys.Reports.Date + Keys.Reports.Max].ToString());
 
 			List<LogRecordParts> findResult =
 				_parameters.LogRecordPartses.Where(x => x.Date.DateNow >= min & x.Date.DateNow <= max).ToList();

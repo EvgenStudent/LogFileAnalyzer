@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using AnalyzerForm.Entities;
 using AnalyzerLibrary.ConverterInput;
@@ -14,7 +13,8 @@ namespace AnalyzerForm.ReportConverter
 
 		public IEnumerable<LogRecordStringParts> Convert(IEnumerable<LogRecordParts> record)
 		{
-			var rerordList = record.Select(logRecordPart => _converter.Convert(logRecordPart)).Select(list => new LogRecordStringParts
+			IEnumerable<LogRecordStringParts> rerordList =
+				record.Select(logRecordPart => _converter.Convert(logRecordPart)).Select(list => new LogRecordStringParts
 				{
 					IpAddress = list[0],
 					Hyphen = list[1],

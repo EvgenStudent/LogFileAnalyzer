@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using AnalyzerLibrary.Constant;
-using AnalyzerLibrary.ReportConverter;
 using AnalyzerLibrary.ReportWriter;
 
 namespace AnalyzerLibrary.ReportResults

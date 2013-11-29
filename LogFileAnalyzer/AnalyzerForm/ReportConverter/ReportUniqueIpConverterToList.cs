@@ -13,7 +13,8 @@ namespace AnalyzerForm.ReportConverter
 
 		public IEnumerable<IpAdressString> Convert(IEnumerable<IpAddress> record)
 		{
-			IEnumerable<IpAdressString> list = record.Select(ipAddress => new IpAdressString { IpAddress = _converterToString.Convert(ipAddress) });
+			IEnumerable<IpAdressString> list =
+				record.Select(ipAddress => new IpAdressString {IpAddress = _converterToString.Convert(ipAddress)});
 			return list;
 		}
 	}

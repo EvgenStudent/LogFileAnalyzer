@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using AnalyzerLibrary.Entities;
 using AnalyzerLibrary.ReportConverter;
 using AnalyzerLibrary.ReportResults;
 
@@ -20,7 +21,7 @@ namespace AnalyzerLibrary.ReportWriter
 			{
 				var result = (ReportCodeStatisticsResult) reportResult;
 				double count = result.CodeCollection.Sum(x => x.Probability);
-				foreach (var codeStatistic in result.CodeCollection)
+				foreach (CodeStatistics codeStatistic in result.CodeCollection)
 					_writer.Write(_converter.Convert(codeStatistic));
 			}
 		}
