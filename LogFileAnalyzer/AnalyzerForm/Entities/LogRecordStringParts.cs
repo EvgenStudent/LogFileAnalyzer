@@ -3,7 +3,7 @@
 	public struct LogRecordStringParts
 	{
 		public string IpAddress { get; set; }
-		public string Hyphen { get; set; }
+		public string UserName { get; set; }
 		public string UserId { get; set; }
 		public string Date { get; set; }
 		public string RequestLine { get; set; }

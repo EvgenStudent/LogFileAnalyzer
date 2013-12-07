@@ -1,9 +1,12 @@
 ﻿using AnalyzerLibrary;
 using AnalyzerLibrary.Constant;
+using AnalyzerLibrary.NinjectModule;
 using AnalyzerLibrary.Reader;
 using AnalyzerLibrary.ReportResults;
+using AnalyzerLibrary.Repository;
 using AnalyzerLibrary.Writer;
 using ConsoleCommandLibrary;
+using Ninject;
 
 namespace Analyzer
 {
@@ -11,17 +14,20 @@ namespace Analyzer
 	{
 		private static void Main(string[] args)
 		{
+			IKernel kernel = new StandardKernel(new ReaderNinjectModule(null));
 			var consoleParameters = new ConsoleParametrsParse(args);
 
 			bool tryConsoleParameters = consoleParameters.TryGetParameters();
 			if (tryConsoleParameters)
 			{
 				IReader reader = new LogReader();
-				IFileWriter<string> writer =
+				IFileWriter<string> fileWriter =
 					new TextFileWriter(consoleParameters.Parameters[Keys.Application.Parameters][Keys.Application.ResultFileName]);
-				var analyzer = new LogFileAnalyzer(consoleParameters.Parameters, reader, writer);
+				var repository = new ReportResultFileRepository<string>(fileWriter);
+				var analyzer = new LogFileAnalyzer(consoleParameters.Parameters, reader,
+					repository.GetReportWriter(consoleParameters.Parameters[Keys.Application.Parameters][Keys.Application.Report]));
 				ReportResult report = analyzer.Report;
-				analyzer.GetReportWriter(new ReportResultRepository(writer)).ReportWrite(report);
+				analyzer.GetReportWriter(repository).ReportWrite(report);
 			}
 		}
 	}

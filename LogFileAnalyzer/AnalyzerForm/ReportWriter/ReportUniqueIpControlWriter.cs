@@ -20,7 +20,7 @@ namespace AnalyzerForm.ReportWriter
 			var bindingSource = new BindingSource();
 			var result = (ReportUniqueIpResult) reportResult;
 
-			_dataGridView.Text = null;
+			_dataGridView.Columns.Clear();
 			_dataGridView.DataSource = bindingSource;
 			bindingSource.DataSource = _converter.Convert(result.IpAddressCollection);
 		}

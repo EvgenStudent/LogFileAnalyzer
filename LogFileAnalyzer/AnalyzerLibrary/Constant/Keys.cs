@@ -18,7 +18,7 @@
 
 		public static class Reports
 		{
-			public const string Date = "date";
+			public const string GeneralTraffic = "generalTraffic";
 			public const string Min = "min";
 			public const string Max = "max";
 			public const string UniqueIp = "uniqueIp";

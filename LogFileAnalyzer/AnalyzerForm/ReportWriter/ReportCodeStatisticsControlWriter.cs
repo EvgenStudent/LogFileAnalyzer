@@ -20,7 +20,7 @@ namespace AnalyzerForm.ReportWriter
 			var result = (ReportCodeStatisticsResult) reportResult;
 			var bindingSource = new BindingSource();
 
-			_dataGridView.Text = null;
+			_dataGridView.Columns.Clear();
 			_dataGridView.DataSource = bindingSource;
 			bindingSource.DataSource = _converter.Convert(result.CodeCollection);
 		}

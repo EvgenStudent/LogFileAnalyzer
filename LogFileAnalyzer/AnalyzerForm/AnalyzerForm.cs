@@ -3,17 +3,16 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using AnalyzerForm.Entities;
-using AnalyzerForm.FormsForParameters;
 using AnalyzerForm.Repository;
 using AnalyzerLibrary;
-using AnalyzerLibrary.NinjectModule;
 using AnalyzerLibrary.Reader;
 using AnalyzerLibrary.ReportResults;
+using AnalyzerLibrary.Repository;
 using AnalyzerLibrary.Writer;
 using Config;
-using Ninject;
 using PartsRecord;
 using Keys = AnalyzerLibrary.Constant.Keys;
 
@@ -21,7 +20,6 @@ namespace AnalyzerForm
 {
 	public partial class AnalyzerForm : Form
 	{
-		private readonly IKernel _kernel = new StandardKernel(new WriterNinjectModule());
 		private readonly ReaderRepository _readerRepository = new ReaderRepository();
 		private readonly ReportResultControlRepository _reportResultControlRepository;
 		private LogFileAnalyzer _analyzer;
@@ -55,12 +53,14 @@ namespace AnalyzerForm
 				try
 				{
 					_reader = _readerRepository[fileExtension];
-
-
 					textBox_LogFileName.Text = openFileDialog.FileName;
-					button_analyze.Enabled = true;
+
+					_parameters = InitializationStructureConfig(null);
+					_analyzer = new LogFileAnalyzer(_parameters, _reader, null);
+					List<LogRecordParts> records = _analyzer.LogRecords;
+					CreateDataGriedInput(records);
+
 					groupBox_for_config.Enabled = true;
-					radioButton_ip.Checked = true;
 				}
 				catch (KeyNotFoundException)
 				{
@@ -72,7 +72,6 @@ namespace AnalyzerForm
 
 		private void button_analyze_Click(object sender, EventArgs e)
 		{
-			_reader = new LogReader();
 			_analyzer = new LogFileAnalyzer(_parameters, _reader,
 				_reportResultControlRepository.GetReportWriter(_parameters[Keys.Application.Parameters][Keys.Application.Report]));
 			List<LogRecordParts> records = _analyzer.LogRecords;
@@ -98,7 +97,7 @@ namespace AnalyzerForm
 					_reportFileName = saveFileDialog.FileName;
 					using (var writer = new TextFileWriter(_reportFileName))
 					{
-						_analyzer.GetReportWriter(new ReportResultRepository(writer)).ReportWrite(_reportResult);
+						_analyzer.GetReportWriter(new ReportResultFileRepository<string>(writer)).ReportWrite(_reportResult);
 						button_open_report.Enabled = true;
 					}
 				}
@@ -110,52 +109,48 @@ namespace AnalyzerForm
 			Process.Start(_reportFileName);
 		}
 
-		private void radioButton_date_CheckedChanged(object sender, EventArgs e)
+		private void radioButton_traffic_CheckedChanged(object sender, EventArgs e)
 		{
-			if (radioButton_date.Checked)
-			{
-				_formForParameters = new ParametersForDate(SetParameters, textBox_LogFileName.Text);
-				if (_formForParameters.ShowDialog() != DialogResult.OK)
-					radioButton_ip.Checked = true;
-			}
+			button_analyze.Enabled = true;
+
+			const string reportName = Keys.Reports.GeneralTraffic;
+			_parameters = InitializationStructureConfig(reportName);
 		}
 
 		private void radioButton_ip_CheckedChanged(object sender, EventArgs e)
 		{
-			IDictionary<string, IDictionary<string, string>> dictionary =
-				new Dictionary<string, IDictionary<string, string>>(StringComparer.InvariantCultureIgnoreCase);
+			button_analyze.Enabled = true;
 
-			var innerDictionary = new Dictionary<string, string>(StringComparer.InvariantCultureIgnoreCase)
-			{
-				{Keys.Application.Report, Keys.Reports.UniqueIp},
-				{Keys.Application.LogFileName, textBox_LogFileName.Text}
-			};
-
-			dictionary.Add(Keys.Application.Parameters, innerDictionary);
-			_parameters = new StructureConfig(dictionary);
+			const string reportName = Keys.Reports.UniqueIp;
+			_parameters = InitializationStructureConfig(reportName);
 		}
 
 		private void radioButton_codes_CheckedChanged(object sender, EventArgs e)
 		{
-			IDictionary<string, IDictionary<string, string>> dictionary =
-				new Dictionary<string, IDictionary<string, string>>(StringComparer.InvariantCultureIgnoreCase);
+			button_analyze.Enabled = true;
 
-			var innerDictionary = new Dictionary<string, string>(StringComparer.InvariantCultureIgnoreCase)
-			{
-				{Keys.Application.Report, Keys.Reports.CodeStatistics},
-				{Keys.Application.LogFileName, textBox_LogFileName.Text}
-			};
+			const string reportName = Keys.Reports.CodeStatistics;
+			_parameters = InitializationStructureConfig(reportName);
+		}
 
-			dictionary.Add(Keys.Application.Parameters, innerDictionary);
-			_parameters = new StructureConfig(dictionary);
+		private void textBox_date_Leave(object sender, EventArgs e)
+		{
+			//if (ValidateData())
+			//{
+			string reportName = _parameters[Keys.Application.Parameters].ContainsKey(Keys.Application.Report)
+				? _parameters[Keys.Application.Parameters][Keys.Application.Report] : null;
+
+			_parameters = InitializationStructureConfig(reportName);
+			//}
+			//else
+			//{
+			//	MessageBox.Show(@"Uncorrect date!", @"Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+			//	textBox_minDate.Text = string.Empty;
+			//	textBox_maxDate.Text = string.Empty;
+			//}
 		}
 
 		//---------------------------------------------------------------
-
-		private void SetParameters(StructureConfig parameters)
-		{
-			_parameters = parameters;
-		}
 
 		private void CreateDataGriedInput(ICollection<LogRecordParts> list)
 		{
@@ -164,7 +159,7 @@ namespace AnalyzerForm
 				list.Select(item => _analyzer.ConvertToString.Convert(item)).Select(listString => new LogRecordStringParts
 				{
 					IpAddress = listString[0],
-					Hyphen = listString[1],
+					UserName = listString[1],
 					UserId = listString[2],
 					Date = listString[3],
 					RequestLine = listString[4],
@@ -172,17 +167,60 @@ namespace AnalyzerForm
 					FileSize = listString[6]
 				}));
 
+			//var bindingSource = new BindingSource();
+			//dataGridView_input.Text = null;
+			//dataGridView_input.DataSource = bindingSource;
+			//bindingSource.DataSource = nowList;
 
-			var bindingSource = new BindingSource();
-			dataGridView_input.Text = null;
-			dataGridView_input.DataSource = bindingSource;
-			bindingSource.DataSource = nowList;
+
+			dataGridView_input.DataSource = null;
+			dataGridView_input.Columns.Clear();
+			dataGridView_input.Rows.Clear();
+
+			dataGridView_input.Columns.Add("IpAddress", "IpAddress");
+			dataGridView_input.Columns.Add("UserName", "UserName");
+			dataGridView_input.Columns.Add("UserId", "UserId");
+			dataGridView_input.Columns.Add("Date", "Date");
+			dataGridView_input.Columns.Add("RequestLine", "RequestLine");
+			dataGridView_input.Columns.Add("Code", "Code");
+			dataGridView_input.Columns.Add("FileSize", "FileSize");
+
+			foreach (LogRecordStringParts element in nowList)
+				dataGridView_input.Rows.Add(element.IpAddress, element.UserName, element.UserId, element.Date, element.RequestLine,
+					element.Code, element.FileSize);
 
 			dataGridView_input.Columns[1].Width = 60;
 			dataGridView_input.Columns[2].Width = 79;
 			dataGridView_input.Columns[3].Width = 186;
 			dataGridView_input.Columns[4].Width = 272;
 			dataGridView_input.Columns[5].Width = 72;
+		}
+
+		private StructureConfig InitializationStructureConfig(string reportName)
+		{
+			IDictionary<string, IDictionary<string, string>> dictionary =
+				new Dictionary<string, IDictionary<string, string>>(StringComparer.InvariantCultureIgnoreCase);
+
+			var innerDictionary = new Dictionary<string, string>(StringComparer.InvariantCultureIgnoreCase)
+			{
+				{Keys.Application.Report, reportName},
+				{Keys.Application.LogFileName, textBox_LogFileName.Text},
+				{Keys.Reports.Min, (textBox_minDate.Text == string.Empty ? DateTime.MinValue.Date.ToString() : textBox_minDate.Text)},
+				{Keys.Reports.Max, (textBox_maxDate.Text == string.Empty ? DateTime.MaxValue.Date.ToString() : textBox_maxDate.Text)},
+			};
+
+			dictionary.Add(Keys.Application.Parameters, innerDictionary);
+			return new StructureConfig(dictionary);
+		}
+
+		private bool ValidateData()
+		{
+			if(textBox_minDate.Text == string.Empty & textBox_maxDate.Text == string.Empty)
+				return true;
+
+			const string regexForValidate = @"(0[1-9]|1[0-9]|2[0-9]|3[01])\.(0[1-9]|1[012])\.[0001-9999]";
+			bool match = Regex.IsMatch(textBox_minDate.Text, regexForValidate) & Regex.IsMatch(textBox_maxDate.Text, regexForValidate);
+			return match;
 		}
 	}
 }

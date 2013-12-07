@@ -33,9 +33,13 @@
 			this.textBox_LogFileName = new System.Windows.Forms.TextBox();
 			this.dataGridView_input = new System.Windows.Forms.DataGridView();
 			this.groupBox_for_config = new System.Windows.Forms.GroupBox();
+			this.label2 = new System.Windows.Forms.Label();
 			this.radioButton_codes = new System.Windows.Forms.RadioButton();
+			this.label1 = new System.Windows.Forms.Label();
 			this.radioButton_ip = new System.Windows.Forms.RadioButton();
+			this.textBox_maxDate = new System.Windows.Forms.TextBox();
 			this.radioButton_date = new System.Windows.Forms.RadioButton();
+			this.textBox_minDate = new System.Windows.Forms.TextBox();
 			this.button_analyze = new System.Windows.Forms.Button();
 			this.dataGridView_output = new System.Windows.Forms.DataGridView();
 			this.button_save_report = new System.Windows.Forms.Button();
@@ -70,7 +74,7 @@
 			this.dataGridView_input.AllowUserToDeleteRows = false;
 			this.dataGridView_input.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
 			this.dataGridView_input.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			this.dataGridView_input.Location = new System.Drawing.Point(12, 88);
+			this.dataGridView_input.Location = new System.Drawing.Point(12, 114);
 			this.dataGridView_input.Name = "dataGridView_input";
 			this.dataGridView_input.ReadOnly = true;
 			this.dataGridView_input.Size = new System.Drawing.Size(930, 245);
@@ -78,21 +82,34 @@
 			// 
 			// groupBox_for_config
 			// 
+			this.groupBox_for_config.Controls.Add(this.label2);
 			this.groupBox_for_config.Controls.Add(this.radioButton_codes);
+			this.groupBox_for_config.Controls.Add(this.label1);
 			this.groupBox_for_config.Controls.Add(this.radioButton_ip);
+			this.groupBox_for_config.Controls.Add(this.textBox_maxDate);
 			this.groupBox_for_config.Controls.Add(this.radioButton_date);
+			this.groupBox_for_config.Controls.Add(this.textBox_minDate);
 			this.groupBox_for_config.Enabled = false;
 			this.groupBox_for_config.Location = new System.Drawing.Point(345, 40);
 			this.groupBox_for_config.Name = "groupBox_for_config";
-			this.groupBox_for_config.Size = new System.Drawing.Size(597, 42);
+			this.groupBox_for_config.Size = new System.Drawing.Size(597, 68);
 			this.groupBox_for_config.TabIndex = 3;
 			this.groupBox_for_config.TabStop = false;
 			this.groupBox_for_config.Text = "Report";
 			// 
+			// label2
+			// 
+			this.label2.AutoSize = true;
+			this.label2.Location = new System.Drawing.Point(199, 45);
+			this.label2.Name = "label2";
+			this.label2.Size = new System.Drawing.Size(54, 13);
+			this.label2.TabIndex = 11;
+			this.label2.Text = "Max date:";
+			// 
 			// radioButton_codes
 			// 
 			this.radioButton_codes.AutoSize = true;
-			this.radioButton_codes.Location = new System.Drawing.Point(175, 19);
+			this.radioButton_codes.Location = new System.Drawing.Point(181, 19);
 			this.radioButton_codes.Name = "radioButton_codes";
 			this.radioButton_codes.Size = new System.Drawing.Size(92, 17);
 			this.radioButton_codes.TabIndex = 2;
@@ -101,10 +118,19 @@
 			this.radioButton_codes.UseVisualStyleBackColor = true;
 			this.radioButton_codes.CheckedChanged += new System.EventHandler(this.radioButton_codes_CheckedChanged);
 			// 
+			// label1
+			// 
+			this.label1.AutoSize = true;
+			this.label1.Location = new System.Drawing.Point(6, 45);
+			this.label1.Name = "label1";
+			this.label1.Size = new System.Drawing.Size(51, 13);
+			this.label1.TabIndex = 10;
+			this.label1.Text = "Min date:";
+			// 
 			// radioButton_ip
 			// 
 			this.radioButton_ip.AutoSize = true;
-			this.radioButton_ip.Location = new System.Drawing.Point(80, 19);
+			this.radioButton_ip.Location = new System.Drawing.Point(103, 19);
 			this.radioButton_ip.Name = "radioButton_ip";
 			this.radioButton_ip.Size = new System.Drawing.Size(72, 17);
 			this.radioButton_ip.TabIndex = 1;
@@ -113,17 +139,35 @@
 			this.radioButton_ip.UseVisualStyleBackColor = true;
 			this.radioButton_ip.CheckedChanged += new System.EventHandler(this.radioButton_ip_CheckedChanged);
 			// 
+			// textBox_maxDate
+			// 
+			this.textBox_maxDate.Location = new System.Drawing.Point(259, 42);
+			this.textBox_maxDate.MaxLength = 10;
+			this.textBox_maxDate.Name = "textBox_maxDate";
+			this.textBox_maxDate.Size = new System.Drawing.Size(100, 20);
+			this.textBox_maxDate.TabIndex = 9;
+			this.textBox_maxDate.Leave += new System.EventHandler(this.textBox_date_Leave);
+			// 
 			// radioButton_date
 			// 
 			this.radioButton_date.AutoSize = true;
 			this.radioButton_date.Location = new System.Drawing.Point(6, 19);
 			this.radioButton_date.Name = "radioButton_date";
-			this.radioButton_date.Size = new System.Drawing.Size(48, 17);
+			this.radioButton_date.Size = new System.Drawing.Size(91, 17);
 			this.radioButton_date.TabIndex = 0;
 			this.radioButton_date.TabStop = true;
-			this.radioButton_date.Text = "Date";
+			this.radioButton_date.Text = "General traffic";
 			this.radioButton_date.UseVisualStyleBackColor = true;
-			this.radioButton_date.CheckedChanged += new System.EventHandler(this.radioButton_date_CheckedChanged);
+			this.radioButton_date.CheckedChanged += new System.EventHandler(this.radioButton_traffic_CheckedChanged);
+			// 
+			// textBox_minDate
+			// 
+			this.textBox_minDate.Location = new System.Drawing.Point(63, 42);
+			this.textBox_minDate.MaxLength = 10;
+			this.textBox_minDate.Name = "textBox_minDate";
+			this.textBox_minDate.Size = new System.Drawing.Size(100, 20);
+			this.textBox_minDate.TabIndex = 8;
+			this.textBox_minDate.Leave += new System.EventHandler(this.textBox_date_Leave);
 			// 
 			// button_analyze
 			// 
@@ -142,10 +186,10 @@
 			this.dataGridView_output.AllowUserToDeleteRows = false;
 			this.dataGridView_output.BackgroundColor = System.Drawing.SystemColors.ControlLightLight;
 			this.dataGridView_output.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-			this.dataGridView_output.Location = new System.Drawing.Point(12, 339);
+			this.dataGridView_output.Location = new System.Drawing.Point(12, 365);
 			this.dataGridView_output.Name = "dataGridView_output";
 			this.dataGridView_output.ReadOnly = true;
-			this.dataGridView_output.Size = new System.Drawing.Size(930, 227);
+			this.dataGridView_output.Size = new System.Drawing.Size(930, 201);
 			this.dataGridView_output.TabIndex = 5;
 			// 
 			// button_save_report
@@ -211,6 +255,10 @@
 		private System.Windows.Forms.TextBox textBox_LogFileName;
 		private System.Windows.Forms.Button button_save_report;
 		private System.Windows.Forms.Button button_open_report;
+		private System.Windows.Forms.TextBox textBox_minDate;
+		private System.Windows.Forms.TextBox textBox_maxDate;
+		private System.Windows.Forms.Label label1;
+		private System.Windows.Forms.Label label2;
 	}
 }
 

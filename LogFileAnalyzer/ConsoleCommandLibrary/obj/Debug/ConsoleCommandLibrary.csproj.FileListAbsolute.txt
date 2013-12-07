@@ -12,3 +12,6 @@ P:\Programming\GitHub\LogFileAnalyzer\LogFileAnalyzer\ConsoleCommandLibrary\bin\
 P:\Programming\GitHub\LogFileAnalyzer\LogFileAnalyzer\ConsoleCommandLibrary\bin\Debug\PartsRecord.dll
 P:\Programming\GitHub\LogFileAnalyzer\LogFileAnalyzer\ConsoleCommandLibrary\bin\Debug\ConverterOutput.dll
 P:\Programming\GitHub\LogFileAnalyzer\LogFileAnalyzer\ConsoleCommandLibrary\bin\Debug\AnalyzerLibrary.pdb
+P:\Programming\GitHub\LogFileAnalyzer\LogFileAnalyzer\ConsoleCommandLibrary\bin\Debug\Ninject.dll
+P:\Programming\GitHub\LogFileAnalyzer\LogFileAnalyzer\ConsoleCommandLibrary\bin\Debug\Ninject.pdb
+P:\Programming\GitHub\LogFileAnalyzer\LogFileAnalyzer\ConsoleCommandLibrary\bin\Debug\Ninject.xml

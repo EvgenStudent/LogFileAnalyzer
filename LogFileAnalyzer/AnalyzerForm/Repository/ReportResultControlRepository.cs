@@ -14,7 +14,7 @@ namespace AnalyzerForm.Repository
 
 		public ReportResultControlRepository(DataGridView dataGridView)
 		{
-			_repository.Add(Keys.Reports.Date, new ReportDateControlWriter(dataGridView));
+			_repository.Add(Keys.Reports.GeneralTraffic, new ReportGeneralTrafficControlWriter(dataGridView));
 			_repository.Add(Keys.Reports.UniqueIp, new ReportUniqueIpControlWriter(dataGridView));
 			_repository.Add(Keys.Reports.CodeStatistics, new ReportCodeStatisticsControlWriter(dataGridView));
 		}

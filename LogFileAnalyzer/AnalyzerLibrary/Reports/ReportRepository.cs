@@ -12,7 +12,7 @@ namespace AnalyzerLibrary.Reports
 
 		public ReportRepository(ReportParameters parameters)
 		{
-			_repository.Add(Keys.Reports.Date, new ReportByDate(parameters));
+			_repository.Add(Keys.Reports.GeneralTraffic, new ReportByGeneralTraffic(parameters));
 			_repository.Add(Keys.Reports.UniqueIp, new ReportByUniqueIp(parameters));
 			_repository.Add(Keys.Reports.CodeStatistics, new ReportCodeStatistics(parameters));
 		}

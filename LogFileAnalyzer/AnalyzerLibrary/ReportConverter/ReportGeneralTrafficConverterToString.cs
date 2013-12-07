@@ -4,7 +4,7 @@ using PartsRecord;
 
 namespace AnalyzerLibrary.ReportConverter
 {
-	public class ReportDateConverterToString : IConverter<Date, string>
+	public class ReportGeneralTrafficConverterToString : IConverter<Date, string>
 	{
 		public string Convert(Date date)
 		{

@@ -7,7 +7,8 @@ using PartsRecord;
 
 namespace AnalyzerForm.ReportConverter
 {
-	public class ReportDateConverterToList : IConverter<IEnumerable<LogRecordParts>, IEnumerable<LogRecordStringParts>>
+	public class ReportGeneralTrafficConverterToList :
+		IConverter<IEnumerable<LogRecordParts>, IEnumerable<LogRecordStringParts>>
 	{
 		private readonly ConvertToString _converter = new ConvertToString();
 
@@ -17,7 +18,7 @@ namespace AnalyzerForm.ReportConverter
 				record.Select(logRecordPart => _converter.Convert(logRecordPart)).Select(list => new LogRecordStringParts
 				{
 					IpAddress = list[0],
-					Hyphen = list[1],
+					UserName = list[1],
 					UserId = list[2],
 					Date = list[3],
 					RequestLine = list[4],

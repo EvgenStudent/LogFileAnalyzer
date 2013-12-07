@@ -62,27 +62,18 @@
       <DependentUpon>AnalyzerForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Entities\LogRecordStringParts.cs" />
-    <Compile Include="FormsForParameters\ParametersForDate.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FormsForParameters\ParametersForDate.Designer.cs">
-      <DependentUpon>ParametersForDate.cs</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ReportConverter\ReportCodeStatisticsConverterToList.cs" />
-    <Compile Include="ReportConverter\ReportDateConverterToList.cs" />
+    <Compile Include="ReportConverter\ReportGeneralTrafficConverterToList.cs" />
     <Compile Include="ReportConverter\ReportUniqueIpConverterToList.cs" />
     <Compile Include="ReportWriter\ReportCodeStatisticsControlWriter.cs" />
-    <Compile Include="ReportWriter\ReportDateControlWriter.cs" />
+    <Compile Include="ReportWriter\ReportGeneralTrafficControlWriter.cs" />
     <Compile Include="Repository\ReportResultControlRepository.cs" />
     <Compile Include="ReportWriter\ReportUniqueIpControlWriter.cs" />
     <Compile Include="Repository\ReaderRepository.cs" />
     <EmbeddedResource Include="AnalyzerForm.resx">
       <DependentUpon>AnalyzerForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FormsForParameters\ParametersForDate.resx">
-      <DependentUpon>ParametersForDate.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
