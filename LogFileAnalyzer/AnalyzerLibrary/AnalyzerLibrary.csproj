@@ -69,7 +69,7 @@
     <Compile Include="Entities\IpAdressString.cs" />
     <Compile Include="LogFileAnalyzer.cs" />
     <Compile Include="LogFileStructure.cs" />
-    <Compile Include="NinjectModule\ReaderNinjectModule.cs" />
+    <Compile Include="NinjectModule\AnalyzerNinjectModule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Reader\IReader.cs" />
     <Compile Include="Reader\LogReader.cs" />

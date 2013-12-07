@@ -14,7 +14,7 @@ namespace Analyzer
 	{
 		private static void Main(string[] args)
 		{
-			IKernel kernel = new StandardKernel(new ReaderNinjectModule(null));
+			IKernel kernel = new StandardKernel(new AnalyzerNinjectModule(null));
 			var consoleParameters = new ConsoleParametrsParse(args);
 
 			bool tryConsoleParameters = consoleParameters.TryGetParameters();

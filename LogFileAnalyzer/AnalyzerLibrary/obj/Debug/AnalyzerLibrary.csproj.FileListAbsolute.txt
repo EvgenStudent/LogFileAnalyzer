@@ -16,3 +16,4 @@ P:\Programming\GitHub\LogFileAnalyzer\LogFileAnalyzer\AnalyzerLibrary\obj\Debug\
 P:\Programming\GitHub\LogFileAnalyzer\LogFileAnalyzer\AnalyzerLibrary\bin\Debug\Ninject.dll
 P:\Programming\GitHub\LogFileAnalyzer\LogFileAnalyzer\AnalyzerLibrary\bin\Debug\Ninject.pdb
 P:\Programming\GitHub\LogFileAnalyzer\LogFileAnalyzer\AnalyzerLibrary\bin\Debug\Ninject.xml
+P:\Programming\GitHub\LogFileAnalyzer\LogFileAnalyzer\AnalyzerLibrary\obj\Debug\AnalyzerLibrary.csprojResolveAssemblyReference.cache

@@ -8,11 +8,13 @@ using System.Windows.Forms;
 using AnalyzerForm.Entities;
 using AnalyzerForm.Repository;
 using AnalyzerLibrary;
+using AnalyzerLibrary.NinjectModule;
 using AnalyzerLibrary.Reader;
 using AnalyzerLibrary.ReportResults;
 using AnalyzerLibrary.Repository;
 using AnalyzerLibrary.Writer;
 using Config;
+using Ninject;
 using PartsRecord;
 using Keys = AnalyzerLibrary.Constant.Keys;
 
@@ -23,11 +25,11 @@ namespace AnalyzerForm
 		private readonly ReaderRepository _readerRepository = new ReaderRepository();
 		private readonly ReportResultControlRepository _reportResultControlRepository;
 		private LogFileAnalyzer _analyzer;
-		private Form _formForParameters;
 		private StructureConfig _parameters;
 		private IReader _reader;
 		private string _reportFileName;
 		private ReportResult _reportResult;
+		private IKernel kernel;
 
 		//---------------------------------------------------------------
 
@@ -54,9 +56,13 @@ namespace AnalyzerForm
 				{
 					_reader = _readerRepository[fileExtension];
 					textBox_LogFileName.Text = openFileDialog.FileName;
+					_parameters = InitializationStructureConfig(Keys.Reports.UniqueIp);
 
-					_parameters = InitializationStructureConfig(null);
-					_analyzer = new LogFileAnalyzer(_parameters, _reader, null);
+					kernel =
+						new StandardKernel(new AnalyzerNinjectModule(_parameters,
+							_reportResultControlRepository.GetReportWriter(_parameters[Keys.Application.Parameters][Keys.Application.Report])));
+					_analyzer = kernel.Get<LogFileAnalyzer>();
+
 					List<LogRecordParts> records = _analyzer.LogRecords;
 					CreateDataGriedInput(records);
 
@@ -72,8 +78,8 @@ namespace AnalyzerForm
 
 		private void button_analyze_Click(object sender, EventArgs e)
 		{
-			_analyzer = new LogFileAnalyzer(_parameters, _reader,
-				_reportResultControlRepository.GetReportWriter(_parameters[Keys.Application.Parameters][Keys.Application.Report]));
+			_analyzer = kernel.Get<LogFileAnalyzer>();
+
 			List<LogRecordParts> records = _analyzer.LogRecords;
 			CreateDataGriedInput(records);
 
@@ -138,7 +144,8 @@ namespace AnalyzerForm
 			//if (ValidateData())
 			//{
 			string reportName = _parameters[Keys.Application.Parameters].ContainsKey(Keys.Application.Report)
-				? _parameters[Keys.Application.Parameters][Keys.Application.Report] : null;
+				? _parameters[Keys.Application.Parameters][Keys.Application.Report]
+				: null;
 
 			_parameters = InitializationStructureConfig(reportName);
 			//}
@@ -205,8 +212,12 @@ namespace AnalyzerForm
 			{
 				{Keys.Application.Report, reportName},
 				{Keys.Application.LogFileName, textBox_LogFileName.Text},
-				{Keys.Reports.Min, (textBox_minDate.Text == string.Empty ? DateTime.MinValue.Date.ToString() : textBox_minDate.Text)},
-				{Keys.Reports.Max, (textBox_maxDate.Text == string.Empty ? DateTime.MaxValue.Date.ToString() : textBox_maxDate.Text)},
+				{
+					Keys.Reports.Min, (textBox_minDate.Text == string.Empty ? DateTime.MinValue.Date.ToString() : textBox_minDate.Text)
+				},
+				{
+					Keys.Reports.Max, (textBox_maxDate.Text == string.Empty ? DateTime.MaxValue.Date.ToString() : textBox_maxDate.Text)
+				},
 			};
 
 			dictionary.Add(Keys.Application.Parameters, innerDictionary);
@@ -215,11 +226,12 @@ namespace AnalyzerForm
 
 		private bool ValidateData()
 		{
-			if(textBox_minDate.Text == string.Empty & textBox_maxDate.Text == string.Empty)
+			if (textBox_minDate.Text == string.Empty & textBox_maxDate.Text == string.Empty)
 				return true;
 
 			const string regexForValidate = @"(0[1-9]|1[0-9]|2[0-9]|3[01])\.(0[1-9]|1[012])\.[0001-9999]";
-			bool match = Regex.IsMatch(textBox_minDate.Text, regexForValidate) & Regex.IsMatch(textBox_maxDate.Text, regexForValidate);
+			bool match = Regex.IsMatch(textBox_minDate.Text, regexForValidate) &
+			             Regex.IsMatch(textBox_maxDate.Text, regexForValidate);
 			return match;
 		}
 	}
